@@ -1,0 +1,35 @@
+# berriz-os — llms.txt
+# Machine-readable navigation index for AI agents.
+# Convention: https://llmstxt.org/
+# Format: one entry per line: URL or path | description
+
+## Repository root
+AGENTS.md | AI agent entry point — read this first. Folder map, conventions, common tasks.
+README.md | Human-facing overview of the repository.
+
+## Brand
+brand/narrative.md | Positioning, taglines, bio variants, proof points, what is and isn't in the brand.
+brand/voice.md | Writing style guide — tone, structure, register by context, what to avoid.
+brand/foss-posture.md | FOSS and hosting philosophy — tooling defaults, permitted exceptions, what's not on the hub.
+
+## Roadmap
+roadmap/2026-personal-brand.md | Full multi-phase personal brand plan with rationale for every decision.
+
+## Projects
+projects/projects.yaml | Machine-readable source of truth for all repos (schema: slug, repo_url, visibility, status, one_liner, tags, on_hub, last_reviewed).
+projects/index.md | Rendered project index — human-readable view of projects.yaml.
+
+## OSS Collaborations
+collaborations/README.md | Priority order for OSS contribution targets.
+collaborations/agentskills.md | agentskills/agentskills — priority 1.
+collaborations/omni-claude-skills.md | exploreomni/omni-claude-skills — priority 2.
+collaborations/mistralai.md | mistralai/cookbook and client-python — priority 3.
+collaborations/digitaltolkien.md | digitaltolkien — priority 4.
+collaborations/cartography-foss.md | QGIS, OsmAnd, OpenStreetMap tooling — priority 5.
+collaborations/lf-ai-data.md | Linux Foundation AI & Data (OpenLineage) — priority 6.
+
+## Website
+website/ | Astro + MDX + Tailwind source for aleberriz.com (see website/README.md when created).
+
+## Workspaces
+workspaces/ | .code-workspace files for multi-repo Cursor sessions.

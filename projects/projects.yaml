@@ -1,0 +1,169 @@
+# projects.yaml
+# Machine-readable source of truth for all repos under the aleberriz brand.
+# projects/index.md is generated from this file — edit here, not there.
+#
+# Schema per entry:
+#   slug:         short identifier, matches repo name
+#   repo_url:     GitHub URL
+#   visibility:   public | private
+#   status:       active | planned | maintenance | archived
+#   one_liner:    one sentence describing what it is and why it exists
+#   tags:         list of themes / technologies
+#   on_hub:       true if featured on aleberriz.com/building
+#   last_reviewed: YYYY-MM-DD
+
+projects:
+
+  # ── Public: core brand repos ────────────────────────────────────────────────
+
+  - slug: berriz-os
+    repo_url: https://github.com/aleberriz/berriz-os
+    visibility: public
+    status: active
+    one_liner: Personal brand operating system — public index of projects, narrative canon, plans, and OSS collaboration tracker.
+    tags: [meta, brand, planning]
+    on_hub: false
+    last_reviewed: 2026-04-17
+
+  - slug: intelligence-layer
+    repo_url: https://github.com/aleberriz/intelligence-layer
+    visibility: public
+    status: active
+    one_liner: Practitioner knowledge base at the intersection of semantic layer design, causal inference, and agentic AI enablement.
+    tags: [analytics, semantic-layer, causal-inference, ai, knowledge-base]
+    on_hub: true
+    last_reviewed: 2026-04-17
+
+  - slug: agent-skills
+    repo_url: https://github.com/aleberriz/agent-skills
+    visibility: public
+    status: active
+    one_liner: Reusable AI skill definitions for version control, analytics workflows, and semantic layer design — agentskills.io-compatible.
+    tags: [ai, agent-skills, analytics, tooling, foss]
+    on_hub: true
+    last_reviewed: 2026-04-17
+
+  # ── Public: analytical side projects ────────────────────────────────────────
+
+  - slug: compare-gen-ai-outputs
+    repo_url: https://github.com/aleberriz/compare-gen-ai-outputs
+    visibility: public
+    status: maintenance
+    one_liner: Simple script to compare outputs across multiple LLM providers side by side.
+    tags: [ai, python, tooling]
+    on_hub: false
+    last_reviewed: 2026-04-17
+
+  - slug: growth-insights-machine
+    repo_url: https://github.com/aleberriz/growth-insights-machine
+    visibility: public
+    status: maintenance
+    one_liner: Exploratory analytics on growth and product data — early public work.
+    tags: [analytics, python, jupyter]
+    on_hub: false
+    last_reviewed: 2026-04-17
+
+  - slug: copa_de_la_vida
+    repo_url: https://github.com/aleberriz/copa_de_la_vida
+    visibility: public
+    status: maintenance
+    one_liner: Football pools tracker (don't call it soccer).
+    tags: [python, hobby]
+    on_hub: false
+    last_reviewed: 2026-04-17
+
+  - slug: 2023-Dash-Plotly-course
+    repo_url: https://github.com/aleberriz/2023-Dash-Plotly-course
+    visibility: public
+    status: archived
+    one_liner: Course exercises from Adam Schroeder's Plotly Dash course (2023).
+    tags: [python, plotly, learning, archived]
+    on_hub: false
+    last_reviewed: 2026-04-17
+
+  - slug: automate_blockchain_info
+    repo_url: https://github.com/aleberriz/automate_blockchain_info
+    visibility: public
+    status: archived
+    one_liner: Early automation scripts for blockchain data — archived, not maintained.
+    tags: [python, archived]
+    on_hub: false
+    last_reviewed: 2026-04-17
+
+  # ── Public: planned hobby analytics projects ─────────────────────────────────
+
+  - slug: cartographia
+    repo_url: https://github.com/aleberriz/cartographia
+    visibility: public
+    status: planned
+    one_liner: Cartographic analytics over open data — OSM, Natural Earth, OSINT intersections.
+    tags: [cartography, python, osm, analytics, foss, planned]
+    on_hub: true
+    last_reviewed: 2026-04-17
+
+  - slug: biblioscope
+    repo_url: https://github.com/aleberriz/biblioscope
+    visibility: public
+    status: planned
+    one_liner: Literary analytics — corpus analysis, reading logs, influence networks.
+    tags: [literature, nlp, python, analytics, planned]
+    on_hub: true
+    last_reviewed: 2026-04-17
+
+  - slug: ludography
+    repo_url: https://github.com/aleberriz/ludography
+    visibility: public
+    status: planned
+    one_liner: Video-game analytics — Steam data, personal playtime, game design patterns.
+    tags: [gaming, python, analytics, planned]
+    on_hub: true
+    last_reviewed: 2026-04-17
+
+  # ── Private: commercial / personal ──────────────────────────────────────────
+
+  - slug: punta_cana_tours
+    repo_url: https://github.com/aleberriz/punta_cana_tours
+    visibility: private
+    status: active
+    one_liner: SEO/SEM side hustle for a tours business in Punta Cana — commercial, kept off the personal hub.
+    tags: [seo, sem, commercial, private]
+    on_hub: false
+    last_reviewed: 2026-04-17
+
+  - slug: atlas
+    repo_url: https://github.com/aleberriz/atlas
+    visibility: private
+    status: planned
+    one_liner: Private lifelog and personal management — family memories, travel, OKRs, career planning. Obsidian-compatible.
+    tags: [lifelog, obsidian, personal, private]
+    on_hub: false
+    last_reviewed: 2026-04-17
+
+  - slug: plata
+    repo_url: https://github.com/aleberriz/plata
+    visibility: private
+    status: active
+    one_liner: Personal finance tracking — "por la plata baila el mono".
+    tags: [finance, python, private]
+    on_hub: false
+    last_reviewed: 2026-04-17
+
+  - slug: dotfiles
+    repo_url: https://github.com/aleberriz/dotfiles
+    visibility: private
+    status: active
+    one_liner: Dotfiles and maintenance scripts for Fedora/Ubuntu/Mint systems — shared core plus per-OS separation.
+    tags: [dotfiles, shell, linux, foss]
+    on_hub: false
+    last_reviewed: 2026-04-17
+
+  # ── External team contributions ──────────────────────────────────────────────
+
+  - slug: KopuruVespaCompetitionIE
+    repo_url: https://github.com/IEwaspbusters/KopuruVespaCompetitionIE
+    visibility: public
+    status: archived
+    one_liner: IE Business School data science competition — award-winning team effort in invasive species prediction.
+    tags: [python, ml, competition, archived]
+    on_hub: false
+    last_reviewed: 2026-04-17

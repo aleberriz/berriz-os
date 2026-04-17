@@ -1,0 +1,52 @@
+---
+description: Repo-scoped conventions for berriz-os. Apply automatically in any session in this workspace.
+globs: ["**/*"]
+alwaysApply: true
+---
+
+# berriz-os conventions
+
+## Before doing anything
+
+Read `AGENTS.md` at the repo root. It contains the folder map, the task guide,
+and the list of things NOT to do in this repo.
+
+## Source of truth rules
+
+- `projects/projects.yaml` is the source of truth for the project index.
+  Always update the YAML; then update `projects/index.md` to match.
+  Never edit `index.md` without also editing `projects.yaml`.
+
+- `brand/narrative.md` is the source of truth for all public-facing copy.
+  Never invent new bio text or taglines — use or adapt variants from that file.
+
+- `brand/voice.md` governs all writing in this repo and any content drafted on
+  Alejandro's behalf. Read it before writing any public-facing copy.
+
+## What belongs here vs. elsewhere
+
+- Personal OKRs, career planning, salary notes → `atlas` (private repo, NOT here)
+- New project repos → sibling directories in `~/repos/`, NOT subdirectories of berriz-os
+- New AI skills → `~/repos/agent-skills/`, NOT here
+- Knowledge base content → `~/repos/intelligence-layer/`, NOT here
+
+## Git conventions
+
+Follow the process-git skill:
+https://github.com/aleberriz/agent-skills/tree/main/plugins/core-skills/skills/process-git/SKILL.md
+
+- Branch for every unit of work: `type/short-description`
+- Conventional commits: `type: imperative description`
+- Open a PR for every branch, even in solo work
+- Default merge strategy: squash merge
+
+## Tooling decisions
+
+Check `brand/foss-posture.md` before recommending a new tool, dependency, or
+hosting provider. Default to FOSS and Cloudflare Pages / Hetzner Cloud.
+
+## Time-series naming
+
+- Quarterly docs: `YYYY-QN-<slug>.md` (e.g., `2026-Q2-okr-review.md`)
+- Newsletter issues: `YYYY-MM-DD-<slug>.md` (e.g., `2026-05-01-semantic-layer-intro.md`)
+- Plans and roadmaps: `YYYY-<slug>.md` (e.g., `2026-personal-brand.md`)
