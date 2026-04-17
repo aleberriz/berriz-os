@@ -4,14 +4,16 @@ Use this block when opening **multi-root** `brand-system.code-workspace` or when
 
 ---
 
-**Context:** Alejandro is building a public personal-brand OS in `aleberriz/berriz-os`. Phase 0–1 are done on branch `chore/init-config` (PR #1 may be open or merged — check `main`). `main` may still only show LICENSE + `.gitignore` until the PR merges.
+**Context:** Public personal-brand OS: `aleberriz/berriz-os`. Initial scaffold merged to `main` (PR #1, 2026-04-17): narrative canon, project index, collaborations, portable `AGENTS.md`, `llms.txt`, workspaces. No `.cursor/` folder in the repo. Remote branch `chore/init-config` is deleted. Phases 0, 1, and 6 are marked **done** in `roadmap/2026-personal-brand.md`; Phase 2 is next.
 
 **Read first (in this repo):** `AGENTS.md` → `roadmap/2026-personal-brand.md` → `brand/narrative.md` if writing copy.
 
-**Next work (Phase 2):** Astro + MDX + Tailwind site under `website/`, deploy to Cloudflare Pages, palette and typography are specified in the roadmap Phase 2 section.
+**Writing:** Ship text and git messages in Alejandro’s voice (`brand/voice.md`). Avoid stacked LLM mannerisms; [tropes.md](https://tropes.fyi/tropes-md) on [tropes.fyi](https://tropes.fyi) lists patterns to skip (one-off use is fine; repetition is not).
 
-**Rules:** No `.cursor/` folder — conventions are only in `AGENTS.md`. Personal OKRs never in this repo (`atlas` private). `projects/projects.yaml` before `projects/index.md`.
+**Next work (Phase 2):** Astro + MDX + Tailwind under `website/`, deploy to Cloudflare Pages. Colors, fonts, and page map live in the roadmap Phase 2 section.
 
-**Workspace:** Default single-folder = `~/repos/berriz-os`. Multi-root = open `workspaces/brand-system.code-workspace` only when editing berriz-os + intelligence-layer + agent-skills together.
+**Rules:** Conventions live in `AGENTS.md`. Personal OKRs stay in private `atlas`. Edit `projects/projects.yaml` before `projects/index.md`.
+
+**Workspace:** Single-folder default = `~/repos/berriz-os`. Multi-root = `workspaces/brand-system.code-workspace` when editing berriz-os + intelligence-layer + agent-skills together.
 
 ---
