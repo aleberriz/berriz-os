@@ -32,4 +32,6 @@ collaborations/lf-ai-data.md | Linux Foundation AI & Data (OpenLineage) — prio
 website/ | Astro + MDX + Tailwind source for aleberriz.com (see website/README.md when created).
 
 ## Workspaces
-workspaces/ | .code-workspace files for multi-repo Cursor sessions.
+workspaces/ | .code-workspace files for multi-repo editor sessions.
+workspaces/HANDOFF.md | Paste-in brief for the next AI agent when resuming cross-repo or post-PR work.
+workspaces/brand-system.code-workspace | Multi-root: berriz-os + intelligence-layer + agent-skills (paths relative to berriz-os).

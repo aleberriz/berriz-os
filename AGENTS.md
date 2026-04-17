@@ -67,6 +67,45 @@ Full git workflow is defined in the [process-git skill](https://github.com/alebe
 Writing in this repo follows the [voice guide](brand/voice.md):
 economist-precise, plain English, active voice, no hype.
 
+### Portable agent bootstrap (no editor-specific rules)
+
+This repo intentionally does **not** ship a `.cursor/` rules folder. Conventions live here
+in plain markdown so any tool (Cursor, Claude Code, VS Code + Copilot, terminal agents)
+reads the same file. That avoids tying the repository to one vendor's on-disk format.
+
+---
+
+## Repo rules (same content previously in editor-specific rules)
+
+**Source of truth**
+
+- `projects/projects.yaml` is canonical for the project index. Update YAML first, then
+  `projects/index.md`. Never edit `index.md` alone.
+- `brand/narrative.md` is canonical for public-facing copy. Do not invent new taglines or bios.
+- `brand/voice.md` governs tone for every edit and every draft on Alejandro's behalf.
+
+**What belongs where**
+
+- Personal OKRs, career planning, salary notes → `atlas` (private), not this repo.
+- New project repos → siblings under `~/repos/`, never subfolders of `berriz-os`.
+- New skills → `~/repos/agent-skills/`, not here.
+- Knowledge-base prose → `~/repos/intelligence-layer/`, not here.
+
+**Git**
+
+- Branch per unit of work: `type/short-description`.
+- Conventional commits. PR per branch. Default merge: squash. See [process-git](https://github.com/aleberriz/agent-skills/tree/main/plugins/core-skills/skills/process-git/SKILL.md).
+
+**Tooling**
+
+- Before adding a dependency or host, check [brand/foss-posture.md](brand/foss-posture.md).
+
+**Time-series filenames**
+
+- Quarterly: `YYYY-QN-<slug>.md` (e.g. `2026-Q2-okr-review.md`).
+- Newsletter drafts: `YYYY-MM-DD-<slug>.md`.
+- Roadmaps: `YYYY-<slug>.md`.
+
 ---
 
 ## What to read for full context
@@ -133,5 +172,10 @@ economist-precise, plain English, active voice, no hype.
   analytics-dbt/, kit-omni/, analytics-shared/  ← work repos
 ```
 
-One Cursor window per repo is the default. For cross-repo sessions, use a
-`.code-workspace` file from `workspaces/`.
+One editor window per repo is the default. For cross-repo sessions, open
+[workspaces/brand-system.code-workspace](workspaces/brand-system.code-workspace)
+(File → Open Workspace from File in VS Code / Cursor). See
+[workspaces/HANDOFF.md](workspaces/HANDOFF.md) for a paste-in brief for the next agent.
+
+When the workspace has multiple roots, read each repo's `AGENTS.md` (if present) before
+editing that root — conventions are scoped per repository, not merged across folders.

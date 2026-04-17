@@ -5,7 +5,7 @@
 | Phase | Status | Notes |
 |-------|--------|-------|
 | 0 — Narrative canon | **done** | brand/narrative.md, brand/voice.md, brand/foss-posture.md |
-| 1 — berriz-os scaffold | **done** | This repo. AGENTS.md, llms.txt, projects.yaml, .cursor/rules/, roadmap/, collaborations/, workspaces/ |
+| 1 — berriz-os scaffold | **done** | This repo. AGENTS.md (includes portable repo rules; no `.cursor/` vendor folder), llms.txt, projects.yaml, roadmap/, collaborations/, workspaces/ |
 | 2 — aleberriz.com website | pending | |
 | 3 — GitHub + LinkedIn alignment | pending | |
 | 4 — atlas private lifelog | pending | |
@@ -100,7 +100,7 @@ The repo must be self-describing so that a Cursor/Claude/Codex agent opening it 
 - **`AGENTS.md`** at root, short (≤100 lines), with: one-paragraph mission, folder map, conventions link (points to `agent-skills/process-git`), "where to start" checklist for common agent tasks (*update projects index*, *draft a new OKR*, *add a collaboration target*, *publish a new essay*).
 - **`llms.txt`** — flat list of canonical pages and their purpose. Fetched by agents that support the `llms.txt` convention.
 - **`projects/projects.yaml`** — structured source of truth. Schema: `slug`, `repo_url`, `visibility`, `status`, `one_liner`, `tags`, `last_reviewed`. `projects/index.md` is a rendered view you regenerate via a small script or agent command.
-- **`.cursor/rules/`** — repo-scoped rules: "always update `projects.yaml`, not the rendered md"; "new collaborations get a one-pager in `collaborations/`"; "OKRs do NOT live here — they live in `atlas`".
+- **Portable rules in `AGENTS.md`** — no editor-vendor folder; same rules for every agent. Covers: `projects.yaml` before `index.md`, collaborations one-pagers, OKRs live in `atlas` not here.
 - **Stable naming conventions** for time-series content: `YYYY-QN-<slug>.md` for quarterly docs, `YYYY-MM-DD-<slug>.md` for newsletter issues.
 
 Use conventional commits and the `process-git` skill you already wrote.
@@ -281,7 +281,7 @@ Track each in `berriz-os/collaborations/<project>.md` with goal, first contribut
 
 **Cursor windows**: one window per repo, always. Rationale:
 
-- `.cursor/rules/`, `AGENTS.md`, and agent-skills resolution are all scoped to the workspace root. Mixing repos into one workspace confuses the agent about which conventions apply.
+- `AGENTS.md` (and each sibling repo's own `AGENTS.md` if present) is scoped to the workspace root. Mixing repos into one workspace confuses the agent about which conventions apply unless it reads the correct root's `AGENTS.md` before each edit.
 - Skill and rule context stays crisp: when you open `agent-skills`, the `process-git` and `communication-*` conventions apply uniformly; when you open the website under `berriz-os`, the Astro/Tailwind conventions apply.
 - Window switching is cheap; cross-repo grep/search is rare enough that starting a second window is the right default.
 
