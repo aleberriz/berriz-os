@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getHubProjects } from '../lib/hubProjects';
+
+const projects = getHubProjects();
+
+function statusLabel(status: string): string {
+  if (status === 'active') return 'Active';
+  if (status === 'planned') return 'Planned';
+  if (status === 'maintenance') return 'Maintenance';
+  if (status === 'archived') return 'Archived';
+  return status;
+}
+
+function statusClass(status: string): string {
+  if (status === 'active') return 'bg-midnight/10 text-midnight dark:bg-silver/15 dark:text-ink-dark';
+  if (status === 'planned') return 'bg-silver/40 text-midnight dark:bg-silver/20 dark:text-silver';
+  return 'bg-silver/25 text-ink-muted dark:text-silver';
+}
+---
+
+<BaseLayout
+  title="Building — Alejandro Berrizbeitia"
+  description="Public repositories and side projects: intelligence-layer, agent-skills, and planned analytics work."
+>
+  <main class="mx-auto max-w-2xl px-6 py-14 md:py-20">
+    <h1 class="font-serif text-3xl font-semibold text-midnight dark:text-silver">Building</h1>
+    <p class="mt-4 leading-relaxed text-ink-muted dark:text-silver">
+      Public projects only. Entries and one-liners are sourced from <code
+        class="rounded bg-silver/25 px-1 py-0.5 text-sm text-midnight dark:text-ink-dark"
+        >projects/projects.yaml</code
+      > in <code class="rounded bg-silver/25 px-1 py-0.5 text-sm text-midnight dark:text-ink-dark"
+        >berriz-os</code
+      > (<code class="rounded bg-silver/25 px-1 py-0.5 text-sm text-midnight dark:text-ink-dark"
+        >on_hub: true</code
+      >). Paid private work stays off this list.
+    </p>
+
+    <ul class="mt-12 space-y-8">
+      {
+        projects.map((p) => (
+          <li class="border-b border-silver/30 pb-8 last:border-0 dark:border-silver/15">
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <a
+                href={p.repo_url}
+                class="font-mono text-lg font-medium text-midnight hover:underline dark:text-silver"
+              >
+                {p.slug}
+              </a>
+              <span
+                class:list={[
+                  'shrink-0 rounded px-2 py-0.5 text-xs font-medium uppercase tracking-wide',
+                  statusClass(p.status),
+                ]}
+              >
+                {statusLabel(p.status)}
+              </span>
+            </div>
+            <p class="mt-2 leading-relaxed text-ink-muted dark:text-silver">{p.one_liner}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+</BaseLayout>

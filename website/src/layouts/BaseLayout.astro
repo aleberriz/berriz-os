@@ -1,10 +1,17 @@
 ---
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+
 interface Props {
   title: string;
   description?: string;
 }
 
-const { title, description = 'Alejandro Berrizbeitia — narratives in numbers.' } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const {
+  title,
+  description = 'Senior Data Analyst at Kit — semantic layers, narratives, and AI-native analytics. Paris.',
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -13,6 +20,12 @@ const { title, description = 'Alejandro Berrizbeitia — narratives in numbers.'
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,7 +34,11 @@ const { title, description = 'Alejandro Berrizbeitia — narratives in numbers.'
     />
     <title>{title}</title>
   </head>
-  <body class="min-h-screen font-sans antialiased">
-    <slot />
+  <body class="flex min-h-screen flex-col font-sans antialiased">
+    <SiteHeader />
+    <div class="flex-1">
+      <slot />
+    </div>
+    <SiteFooter />
   </body>
 </html>

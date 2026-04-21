@@ -29,7 +29,7 @@ collaborations/cartography-foss.md | QGIS, OsmAnd, OpenStreetMap tooling — pri
 collaborations/lf-ai-data.md | Linux Foundation AI & Data (OpenLineage) — priority 6.
 
 ## Website
-website/ | Astro + MDX + Tailwind source for aleberriz.com (see website/README.md when created).
+website/ | Astro + MDX + Tailwind for aleberriz.com — routes `/`, `/building`, `/writing`, `/about`; see website/README.md.
 
 ## Workspaces
 workspaces/ | .code-workspace files for multi-repo editor sessions.
