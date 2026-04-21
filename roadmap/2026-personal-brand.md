@@ -1,4 +1,4 @@
-<!-- Generated from Cursor plan session. Last updated: 2026-04-17. Update this file as phases complete. -->
+<!-- Generated from Cursor plan session. Last updated: 2026-04-21. Update this file as phases complete. -->
 
 ## Phase status tracker
 
@@ -6,7 +6,7 @@
 |-------|--------|-------|
 | 0 — Narrative canon | **done** | brand/narrative.md, brand/voice.md, brand/foss-posture.md |
 | 1 — berriz-os scaffold | **done** | This repo. AGENTS.md (includes portable repo rules; no `.cursor/` vendor folder), llms.txt, projects.yaml, roadmap/, collaborations/, workspaces/ |
-| 2 — aleberriz.com website | pending | |
+| 2 — aleberriz.com website | **in progress** | Live on Cloudflare Pages (apex + www→apex, TLS). Shipped: `/`, `/building` (from `projects.yaml`), `/writing` (RSS optional), `/about`; favicon; nav shell. Remaining: Kit RSS URL in env, essay MDX collection, OG image, polish. |
 | 3 — GitHub + LinkedIn alignment | pending | |
 | 4 — atlas private lifelog | pending | |
 | 5 — agent-skills growth | pending | communication-*, process-okr, fill Planned skills |

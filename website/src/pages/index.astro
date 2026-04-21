@@ -2,17 +2,72 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Alejandro Berrizbeitia">
-  <main class="mx-auto max-w-2xl px-6 py-16 md:py-24">
-    <p class="font-serif text-2xl font-semibold text-midnight dark:text-silver md:text-3xl">
+<BaseLayout
+  title="Alejandro Berrizbeitia"
+  description="Narratives in numbers. Semantic layers for human and machine analysts — told in narratives, grounded in numbers."
+>
+  <main class="mx-auto max-w-2xl px-6 py-14 md:py-20">
+    <h1 class="font-serif text-3xl font-semibold tracking-tight text-midnight dark:text-silver md:text-4xl">
       Narratives in numbers.
+    </h1>
+    <p class="mt-3 font-serif text-lg text-midnight/90 dark:text-silver/90 md:text-xl">
+      Semantic layers for human and machine analysts — told in narratives, grounded in numbers.
     </p>
-    <p class="mt-6 text-lg leading-relaxed text-ink-muted dark:text-silver">
-      Public hub scaffold (Astro + MDX + Tailwind). Copy for this site comes from
-      <code class="rounded bg-silver/30 px-1.5 py-0.5 text-sm text-midnight dark:text-ink-dark"
-        >brand/narrative.md</code
-      >
-      in berriz-os; Phase 2 will flesh out pages and deploy to Cloudflare Pages.
+    <p class="mt-8 text-lg leading-relaxed text-ink-muted dark:text-silver">
+      I build the layer between raw data and the people (and agents) who need answers from it. Senior
+      Data Analyst at Kit, focused on the semantic layer as the source-of-truth model behind
+      dashboards, notebooks, and AI agents. I design semantic models, apply causal inference where
+      dashboards fall short, and ship AI agent skills that encode that judgment for reuse. Public
+      work lives in <code class="rounded bg-silver/25 px-1 py-0.5 text-sm text-midnight dark:text-ink-dark"
+        >intelligence-layer</code
+      > and <code class="rounded bg-silver/25 px-1 py-0.5 text-sm text-midnight dark:text-ink-dark"
+        >agent-skills</code
+      >. MBA. OKR practitioner. Trilingual: English, Spanish, French. Based in Paris.
     </p>
+
+    <div class="mt-16 space-y-14">
+      <section>
+        <h2 class="font-serif text-xl font-semibold text-midnight dark:text-silver">Building</h2>
+        <p class="mt-3 leading-relaxed text-ink-muted dark:text-silver">
+          Repositories and side projects indexed from the same machine-readable list as the public
+          hub. Cards, status, and links live on the dedicated page.
+        </p>
+        <p class="mt-4">
+          <a
+            href="/building/"
+            class="font-medium text-midnight underline decoration-silver decoration-2 underline-offset-4 hover:decoration-midnight dark:text-silver dark:hover:text-ink-dark"
+          >
+            View building →
+          </a>
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-serif text-xl font-semibold text-midnight dark:text-silver">Writing</h2>
+        <p class="mt-3 leading-relaxed text-ink-muted dark:text-silver">
+          Newsletter issues and long-form pieces. The newsletter is <cite class="not-italic"
+            >The Intelligence Layer</cite
+          >; essays ship as MDX on this site when published.
+        </p>
+        <p class="mt-4">
+          <a
+            href="/writing/"
+            class="font-medium text-midnight underline decoration-silver decoration-2 underline-offset-4 hover:decoration-midnight dark:text-silver dark:hover:text-ink-dark"
+          >
+            View writing →
+          </a>
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-serif text-xl font-semibold text-midnight dark:text-silver">Reading</h2>
+        <p class="mt-3 leading-relaxed text-ink-muted dark:text-silver">
+          Perpetually reading. When <em>biblioscope</em> ships, literary analytics and reading logs
+          will sit there; until then, see <a href="/building/" class="text-midnight underline dark:text-silver"
+            >Building</a
+          > for project status.
+        </p>
+      </section>
+    </div>
   </main>
 </BaseLayout>
