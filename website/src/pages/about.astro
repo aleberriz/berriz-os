@@ -5,15 +5,10 @@ import { siteConfig } from '../site.config';
 
 <BaseLayout
   title="About — Alejandro Berrizbeitia"
-  description="Bio, facts, and links — derived from the public narrative canon."
+  description="Senior Data Analyst at Kit — semantic layers, causal inference, AI-native analytics. Paris."
 >
   <main class="mx-auto max-w-2xl px-6 py-14 md:py-20">
     <h1 class="font-serif text-3xl font-semibold text-midnight dark:text-silver">About</h1>
-    <p class="mt-4 text-sm text-ink-muted dark:text-silver">
-      Copy below is taken from the long bio in <code class="rounded bg-silver/25 px-1 text-midnight dark:text-ink-dark"
-        >brand/narrative.md</code
-      >; update that file first, then mirror changes here if needed.
-    </p>
 
     <div
       class="mt-10 space-y-4 border-l-2 border-silver/60 pl-6 text-lg leading-relaxed text-ink-muted dark:border-silver/30 dark:text-silver"
@@ -24,59 +19,51 @@ import { siteConfig } from '../site.config';
         only descriptive, and that the gap between the two is where real decisions live.
       </p>
       <p>
-        Today I work at Kit, where I focus on the semantic layer: the source-of-truth model that makes
-        metrics consistent across dashboards, notebooks, and AI agents. I build in public through{' '}
-        <a href="https://github.com/aleberriz/intelligence-layer" class="text-midnight underline dark:text-silver"
-          >intelligence-layer</a
-        >
-        (a practitioner knowledge base) and{' '}
-        <a href="https://github.com/aleberriz/agent-skills" class="text-midnight underline dark:text-silver"
-          >agent-skills</a
-        >
-        (reusable AI skills for data workflows), and I write a newsletter called <cite class="not-italic"
-          >The Intelligence Layer</cite
+        Today I work at Kit, where I focus on the semantic layer: the source-of-truth model that
+        makes metrics consistent across dashboards, notebooks, and AI agents. I build in public
+        through <a
+          href="https://github.com/aleberriz/intelligence-layer"
+          class="text-midnight underline dark:text-silver">intelligence-layer</a
+        > (a practitioner knowledge base) and <a
+          href="https://github.com/aleberriz/agent-skills"
+          class="text-midnight underline dark:text-silver">agent-skills</a
+        > (reusable AI skills for data workflows), and I write a newsletter called <cite
+          class="not-italic font-medium">The Intelligence Layer</cite
         >.
       </p>
       <p>
-        MBA from Florida International University. OKR Master (Betterworks). Trilingual: EN / ES / FR.
-        Based in Paris. FOSS-leaning. Perpetually reading.
+        MBA from Florida International University. OKR Master (Betterworks). Trilingual: EN / ES /
+        FR. Based in Paris. FOSS-leaning. Perpetually reading.
       </p>
     </div>
-
-    <ul class="mt-10 list-disc space-y-2 pl-5 text-ink-muted dark:text-silver">
-      <li>MBA — Florida International University</li>
-      <li>OKR Master — Betterworks</li>
-      <li>Trilingual — English, Spanish, French</li>
-    </ul>
 
     <section class="mt-12">
       <h2 class="font-serif text-lg font-semibold text-midnight dark:text-silver">Links</h2>
       <ul class="mt-3 space-y-2 text-ink-muted dark:text-silver">
         <li>
-          <a href={siteConfig.githubProfile} class="text-midnight underline dark:text-silver">GitHub</a>
+          <a href={siteConfig.githubProfile} class="text-midnight underline dark:text-silver"
+            >GitHub</a
+          >
         </li>
         {
-          siteConfig.linkedinUrl ? (
+          siteConfig.linkedinUrl && (
             <li>
               <a href={siteConfig.linkedinUrl} class="text-midnight underline dark:text-silver">
                 LinkedIn
               </a>
             </li>
-          ) : (
-            <li>LinkedIn — link is added when the deploy environment supplies a profile URL (see <code class="rounded bg-silver/25 px-1 text-sm">website/README.md</code>).</li>
           )
         }
         {
           siteConfig.kitNewsletterUrl ? (
             <li>
               <a href={siteConfig.kitNewsletterUrl} class="text-midnight underline dark:text-silver">
-                Newsletter (<cite class="not-italic">The Intelligence Layer</cite>)
+                Newsletter — <cite class="not-italic">The Intelligence Layer</cite>
               </a>
             </li>
           ) : (
             <li>
-              Newsletter (<cite class="not-italic">The Intelligence Layer</cite>) — Kit URL supplied at deploy
-              time (see <code class="rounded bg-silver/25 px-1 text-sm">website/README.md</code>).
+              Newsletter — <cite class="not-italic">The Intelligence Layer</cite>
             </li>
           )
         }
@@ -87,7 +74,7 @@ import { siteConfig } from '../site.config';
     </section>
 
     <p class="mt-14 text-sm text-ink-muted dark:text-silver">
-      AWS Certified AI Practitioner — noted once here, not a headline claim (per narrative canon).
+      AWS Certified AI Practitioner.
     </p>
   </main>
 </BaseLayout>

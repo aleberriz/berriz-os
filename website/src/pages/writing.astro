@@ -23,14 +23,8 @@ if (siteConfig.kitNewsletterRss) {
   <main class="mx-auto max-w-2xl px-6 py-14 md:py-20">
     <h1 class="font-serif text-3xl font-semibold text-midnight dark:text-silver">Writing</h1>
     <p class="mt-4 leading-relaxed text-ink-muted dark:text-silver">
-      <cite class="not-italic">The Intelligence Layer</cite> is the newsletter named in the narrative
-      canon. Issues listed below load at build time when <code
-        class="rounded bg-silver/25 px-1 py-0.5 text-sm text-midnight dark:text-ink-dark"
-        >PUBLIC_KIT_NEWSLETTER_RSS</code
-      > is set (for example in Cloudflare Pages). Long-form essays will ship as MDX in this repo when
-      ready; see <code class="rounded bg-silver/25 px-1 py-0.5 text-sm text-midnight dark:text-ink-dark"
-        >website/README.md</code
-      > for the planned content-collection layout.
+      <cite class="not-italic font-medium">The Intelligence Layer</cite> is a newsletter on semantic
+      layers, causal inference, and AI-native analytics. Essays and longer pieces publish here when ready.
     </p>
 
     {
@@ -40,39 +34,37 @@ if (siteConfig.kitNewsletterRss) {
             href={siteConfig.kitNewsletterUrl}
             class="font-medium text-midnight underline decoration-silver decoration-2 underline-offset-4 dark:text-silver"
           >
-            Newsletter on Kit →
+            Subscribe to the newsletter →
           </a>
         </p>
       )
     }
 
-    <section class="mt-14">
-      <h2 class="font-serif text-xl font-semibold text-midnight dark:text-silver">Newsletter issues</h2>
-      {
-        rssItems.length === 0 ? (
-          <p class="mt-3 text-ink-muted dark:text-silver">
-            {siteConfig.kitNewsletterRss
-              ? 'RSS URL is set but no items were parsed, or the fetch failed during build.'
-              : 'No RSS URL configured yet. Set PUBLIC_KIT_NEWSLETTER_RSS for production builds to list issues here.'}
-          </p>
-        ) : (
+    {
+      rssItems.length > 0 && (
+        <section class="mt-14">
+          <h2 class="font-serif text-xl font-semibold text-midnight dark:text-silver">
+            Recent issues
+          </h2>
           <ol class="mt-4 list-decimal space-y-2 pl-5 text-ink-muted marker:text-midnight dark:text-silver dark:marker:text-silver">
             {rssItems.map((item) => (
               <li>
-                <a href={item.link} class="text-midnight underline hover:text-midnight/80 dark:text-silver">
+                <a
+                  href={item.link}
+                  class="text-midnight underline hover:text-midnight/80 dark:text-silver"
+                >
                   {item.title}
                 </a>
-                {item.pubDate && <span class="ml-2 text-sm text-ink-muted">({item.pubDate})</span>}
+                {item.pubDate && (
+                  <span class="ml-2 text-sm text-ink-muted">
+                    ({new Date(item.pubDate).toLocaleDateString('en-GB', { year: 'numeric', month: 'short' })})
+                  </span>
+                )}
               </li>
             ))}
           </ol>
-        )
-      }
-    </section>
-
-    <section class="mt-14">
-      <h2 class="font-serif text-xl font-semibold text-midnight dark:text-silver">Essays</h2>
-      <p class="mt-3 text-ink-muted dark:text-silver">No long-form essays published on this domain yet.</p>
-    </section>
+        </section>
+      )
+    }
   </main>
 </BaseLayout>
