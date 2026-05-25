@@ -98,8 +98,8 @@ projects:
     status: planned
     one_liner: Cartographic analytics over open data — OSM, Natural Earth, OSINT intersections.
     tags: [cartography, python, osm, analytics, foss, planned]
-    on_hub: true
-    last_reviewed: 2026-04-17
+    on_hub: false
+    last_reviewed: 2026-05-25
 
   - slug: biblioscope
     repo_url: https://github.com/aleberriz/biblioscope
@@ -107,8 +107,8 @@ projects:
     status: planned
     one_liner: Literary analytics — corpus analysis, reading logs, influence networks.
     tags: [literature, nlp, python, analytics, planned]
-    on_hub: true
-    last_reviewed: 2026-04-17
+    on_hub: false
+    last_reviewed: 2026-05-25
 
   - slug: ludography
     repo_url: https://github.com/aleberriz/ludography
@@ -116,8 +116,8 @@ projects:
     status: planned
     one_liner: Video-game analytics — Steam data, personal playtime, game design patterns.
     tags: [gaming, python, analytics, planned]
-    on_hub: true
-    last_reviewed: 2026-04-17
+    on_hub: false
+    last_reviewed: 2026-05-25
 
   # ── Private: commercial / personal ──────────────────────────────────────────
 
