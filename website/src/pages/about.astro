@@ -5,7 +5,7 @@ import { siteConfig } from '../site.config';
 
 <BaseLayout
   title="About — Alejandro Berrizbeitia"
-  description="Data Scientist and Time Series &amp; Forecasting Professor at IE University. Senior Data Analyst at Kit."
+  description="Senior Data Analyst at Kit and Time Series and Forecasting professor at IE University. Forecasting, causal inference, and AI-assisted analytics evaluation."
 >
   <main class="mx-auto max-w-2xl px-6 py-14 md:py-20">
     <h1 class="font-serif text-3xl font-semibold text-midnight dark:text-silver">About</h1>
@@ -14,22 +14,28 @@ import { siteConfig } from '../site.config';
       class="mt-10 space-y-4 border-l-2 border-silver/60 pl-6 text-lg leading-relaxed text-ink-muted dark:border-silver/30 dark:text-silver"
     >
       <p>
-        I'm a senior data analyst with eighteen years across data, operations, finance, and sales —
-        long enough to know that most analytics questions are causal but most analytics methods are
-        only descriptive, and that the gap between the two is where real decisions live.
+        I am a Senior Data Analyst at Kit and a Time Series and Forecasting professor at IE
+        University.
       </p>
       <p>
-        Today I work at Kit, where I focus on the semantic layer: the source-of-truth model that
-        makes metrics consistent across dashboards, notebooks, and AI agents. I build in public
-        through <a
+        Most analytics questions are causal. Most analytics methods are only descriptive. Eighteen
+        years across data, operations, finance, and sales made that gap impossible to ignore.
+      </p>
+      <p>
+        My work produces forecasts across statistical and foundation models, causal readouts from
+        experiments and observational studies, and evaluations of AI-generated analyses for
+        correctness and decision-readiness. The goal: output a team can act on.
+      </p>
+      <p>
+        Public work lives in <a
           href="https://github.com/aleberriz/intelligence-layer"
           class="text-midnight underline dark:text-silver">intelligence-layer</a
-        > (a practitioner knowledge base) and <a
+        >, a practitioner knowledge base on decision science methods, and <a
           href="https://github.com/aleberriz/agent-skills"
           class="text-midnight underline dark:text-silver">agent-skills</a
-        > (reusable AI skills for data workflows), and I write a newsletter called <cite
-          class="not-italic font-medium">The Intelligence Layer</cite
-        >.
+        >, reusable AI skill definitions for analytics workflows. I write <cite
+          class="not-italic font-medium">The Trade-off</cite
+        >, a newsletter on data and decisions.
       </p>
       <p>
         MBA from Florida International University. OKR Master (Betterworks). Trilingual: EN / ES /
@@ -58,12 +64,12 @@ import { siteConfig } from '../site.config';
           siteConfig.kitNewsletterUrl ? (
             <li>
               <a href={siteConfig.kitNewsletterUrl} class="text-midnight underline dark:text-silver">
-                Newsletter — <cite class="not-italic">The Intelligence Layer</cite>
+                Newsletter — <cite class="not-italic">The Trade-off</cite>
               </a>
             </li>
           ) : (
             <li>
-              Newsletter — <cite class="not-italic">The Intelligence Layer</cite>
+              Newsletter — <cite class="not-italic">The Trade-off</cite>
             </li>
           )
         }
