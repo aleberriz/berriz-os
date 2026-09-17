@@ -60,7 +60,6 @@ flowchart LR
     Website -.links.-> IL
     Website -.links.-> AS
     Website -.links.-> Side
-    narrativus[narrativus.me - reserved for storytelling project] -.future.-> Side
     berrizbeitia[berrizbeitia.org - reserved for family wiki] -.future.-> Atlas
 ```
 
@@ -131,7 +130,7 @@ Page structure (four pages):
 - **/writing** — chronological list of newsletter issues (pulled from Kit RSS) + long-form essays in MDX.
 - **/about** — short bio pulled from `brand/narrative.md`, three facts (MBA, OKR Master, trilingual), links to GitHub + LinkedIn + newsletter. Single AWS cert line at the bottom.
 
-Deploy: `aleberriz.com` apex + `www.aleberriz.com` 301 → apex, TLS auto-managed by Cloudflare. `narrativus.me` and `berrizbeitia.org` stay **parked for now** — reserved for the future storytelling project and the future (password-protected) family wiki respectively.
+Deploy: `aleberriz.com` apex + `www.aleberriz.com` 301 → apex, TLS auto-managed by Cloudflare. `berrizbeitia.org` stays **parked for now** — reserved for the future (password-protected) family wiki.
 
 ## Phase 3 — GitHub profile + LinkedIn alignment (Week 3)
 
@@ -219,7 +218,7 @@ Your `plugins/core-skills/skills/` taxonomy (`process-*`, `tooling-*`, `analytic
 
 ## Phase 7 — Kit newsletter (Weeks 5-6)
 
-- Name candidate: *"The Intelligence Layer"* (matches the repo, the thesis, and is memorable). Secondary: *"Narratives in Numbers."*
+- Name: *"The Trade-off"* — reflects the central theme of data and decisions. May change focus before launch.
 - Landing page on Kit, embedded into `/writing` via iframe or native signup form.
 - Ship the 5-email onboarding sequence (the exact playbook in the Nathan Barry post you reposted) mined from `intelligence-layer`:
   1. Why the semantic layer is now the narrative layer

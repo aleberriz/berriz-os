@@ -29,9 +29,9 @@ Last reviewed: 2026-04-17
 
 | Repo | Status | On hub | Description |
 |------|--------|--------|-------------|
-| [cartographia](https://github.com/aleberriz/cartographia) | planned | yes | Cartographic analytics over OSM and Natural Earth open data. |
-| [biblioscope](https://github.com/aleberriz/biblioscope) | planned | yes | Literary analytics — corpus analysis, reading logs, influence networks. |
-| [ludography](https://github.com/aleberriz/ludography) | planned | yes | Video-game analytics — Steam data, personal playtime, game design patterns. |
+| [cartographia](https://github.com/aleberriz/cartographia) | planned | no | Cartographic analytics over OSM and Natural Earth open data. |
+| [biblioscope](https://github.com/aleberriz/biblioscope) | planned | no | Literary analytics — corpus analysis, reading logs, influence networks. |
+| [ludography](https://github.com/aleberriz/ludography) | planned | no | Video-game analytics — Steam data, personal playtime, game design patterns. |
 
 ## Private repos
 
