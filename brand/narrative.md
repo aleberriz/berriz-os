@@ -31,7 +31,7 @@ reliably, and at what speed.
 
 ### Short (Twitter / GitHub tagline, ≤160 chars)
 
-> Senior Data Analyst · semantic layers, causal inference, AI-native analytics · Kit · Paris · narrativus.io
+> Senior Data Analyst · semantic layers, causal inference, AI-native analytics · Kit · Paris · aleberriz.com
 
 ### Medium (LinkedIn headline + one paragraph, ~60 words)
 
@@ -49,7 +49,7 @@ reliably, and at what speed.
 > Today I work at Kit, where I focus on the semantic layer: the source-of-truth model that
 > makes metrics consistent across dashboards, notebooks, and AI agents. I build in public
 > through `intelligence-layer` (a practitioner knowledge base) and `agent-skills` (reusable
-> AI skills for data workflows), and I write a newsletter called *The Intelligence Layer*.
+> AI skills for data workflows), and I write a newsletter called *The Trade-off*.
 >
 > MBA from Florida International University. OKR Master (Betterworks). Trilingual: EN / ES / FR.
 > Based in Paris. FOSS-leaning. Perpetually reading.

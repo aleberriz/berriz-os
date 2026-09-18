@@ -26,7 +26,7 @@ Set in Cloudflare Pages → **Settings** → **Variables and Secrets** (producti
 | Variable | Purpose |
 |----------|---------|
 | `PUBLIC_LINKEDIN_URL` | Full profile URL for the About page link. |
-| `PUBLIC_KIT_NEWSLETTER_URL` | Kit subscribe or archive page for *The Intelligence Layer*. |
+| `PUBLIC_KIT_NEWSLETTER_URL` | Kit subscribe or archive page for *The Trade-off*. |
 | `PUBLIC_KIT_NEWSLETTER_RSS` | RSS feed URL; at build time, `/writing` lists parsed `<item>` entries. |
 
 ## Building page data
