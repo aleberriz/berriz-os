@@ -33,13 +33,16 @@ import { siteConfig } from '../site.config';
         >, a practitioner knowledge base on decision science methods, and <a
           href="https://github.com/aleberriz/agent-skills"
           class="text-midnight underline dark:text-silver">agent-skills</a
-        >, reusable AI skill definitions for analytics workflows. I write <cite
-          class="not-italic font-medium">The Trade-off</cite
-        >, a newsletter on data and decisions.
+        >, reusable AI skill definitions for analytics workflows. I also write
+        for the <a
+          href={siteConfig.ieBlogPostUrl}
+          class="text-midnight underline dark:text-silver">IE University blog</a
+        >.
       </p>
       <p>
-        MBA from Florida International University. OKR Master (Betterworks). Trilingual: EN / ES /
-        FR. FOSS-leaning. Perpetually reading.
+        MEng in Telecommunications from UPC (Barcelona School of Telecommunications Engineering,
+        Universitat Politecnica de Catalunya). MBA from Florida International University.
+        OKR Master (Betterworks). Trilingual: EN / ES / FR. FOSS-leaning. Perpetually reading.
       </p>
     </div>
 
@@ -51,30 +54,25 @@ import { siteConfig } from '../site.config';
             >GitHub</a
           >
         </li>
+        <li>
+          <a href={siteConfig.linkedinUrl} class="text-midnight underline dark:text-silver">
+            LinkedIn
+          </a>
+        </li>
         {
-          siteConfig.linkedinUrl && (
-            <li>
-              <a href={siteConfig.linkedinUrl} class="text-midnight underline dark:text-silver">
-                LinkedIn
-              </a>
-            </li>
-          )
-        }
-        {
-          siteConfig.kitNewsletterUrl ? (
+          siteConfig.kitNewsletterUrl && (
             <li>
               <a href={siteConfig.kitNewsletterUrl} class="text-midnight underline dark:text-silver">
                 Newsletter — <cite class="not-italic">The Trade-off</cite>
               </a>
             </li>
-          ) : (
-            <li>
-              Newsletter — <cite class="not-italic">The Trade-off</cite>
-            </li>
           )
         }
         <li>
-          <a href="/writing/" class="text-midnight underline dark:text-silver">Writing index</a>
+          <a href="/writing/" class="text-midnight underline dark:text-silver">Writing</a>
+        </li>
+        <li>
+          <a href="/field-notes/" class="text-midnight underline dark:text-silver">Field Notes</a>
         </li>
       </ul>
     </section>
