@@ -1,14 +1,24 @@
 ---
+import { siteConfig } from '../site.config';
+
 const year = new Date().getFullYear();
 ---
 
 <footer
   class="mt-20 border-t border-silver/40 px-6 py-10 text-center text-sm text-ink-muted dark:border-silver/20 dark:text-silver"
 >
-  <p>
+  <nav class="flex flex-wrap justify-center gap-x-4 gap-y-1">
+    <a href={siteConfig.githubProfile} class="underline decoration-silver/60 hover:text-midnight dark:hover:text-ink-dark">
+      GitHub
+    </a>
+    <span aria-hidden="true">·</span>
+    <a href={siteConfig.linkedinUrl} class="underline decoration-silver/60 hover:text-midnight dark:hover:text-ink-dark">
+      LinkedIn
+    </a>
+    <span aria-hidden="true">·</span>
     <a href="https://github.com/aleberriz/berriz-os" class="underline decoration-silver/60 hover:text-midnight dark:hover:text-ink-dark">
       berriz-os
     </a>
-    · {year}
-  </p>
+  </nav>
+  <p class="mt-2">{year}</p>
 </footer>

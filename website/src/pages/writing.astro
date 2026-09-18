@@ -14,39 +14,70 @@ if (siteConfig.kitNewsletterRss) {
     rssItems = [];
   }
 }
+
+const published = [
+  {
+    title: "Let's obliterate the so-called tech vs. business gap",
+    url: siteConfig.ieBlogPostUrl,
+    source: 'IE University blog',
+    date: '2024',
+  },
+];
 ---
 
 <BaseLayout
   title="Writing — Alejandro Berrizbeitia"
-  description="The Trade-off — a newsletter on data and decisions. Long-form essays on forecasting, causal inference, and AI-assisted analytics."
+  description="Published writing and essays on data, decisions, and the practice of analytics."
 >
   <main class="mx-auto max-w-2xl px-6 py-14 md:py-20">
     <h1 class="font-serif text-3xl font-semibold text-midnight dark:text-silver">Writing</h1>
     <p class="mt-4 leading-relaxed text-ink-muted dark:text-silver">
-      <cite class="not-italic font-medium">The Trade-off</cite> is a newsletter on data and decisions.
-      Each issue takes one question, visualizes the evidence, and reasons through what it implies.
-      Essays and longer pieces appear here when ready.
+      Published writing and essays on data, decisions, and the practice of
+      analytics.
     </p>
 
-    {
-      siteConfig.kitNewsletterUrl && (
-        <p class="mt-4">
-          <a
-            href={siteConfig.kitNewsletterUrl}
-            class="font-medium text-midnight underline decoration-silver decoration-2 underline-offset-4 dark:text-silver"
-          >
-            Subscribe to The Trade-off →
-          </a>
-        </p>
-      )
-    }
+    <section class="mt-12">
+      <h2 class="font-serif text-xl font-semibold text-midnight dark:text-silver">
+        Published
+      </h2>
+      <ul class="mt-4 space-y-4">
+        {
+          published.map((item) => (
+            <li>
+              <a
+                href={item.url}
+                class="text-midnight underline hover:text-midnight/80 dark:text-silver"
+              >
+                {item.title}
+              </a>
+              <span class="ml-2 text-sm text-ink-muted dark:text-silver">
+                — {item.source}, {item.date}
+              </span>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
 
     {
       rssItems.length > 0 && (
         <section class="mt-14">
           <h2 class="font-serif text-xl font-semibold text-midnight dark:text-silver">
-            Recent issues
+            Newsletter
           </h2>
+          <p class="mt-2 text-sm text-ink-muted dark:text-silver">
+            <cite class="not-italic font-medium">The Trade-off</cite> — a newsletter on data and decisions.
+          </p>
+          {siteConfig.kitNewsletterUrl && (
+            <p class="mt-2">
+              <a
+                href={siteConfig.kitNewsletterUrl}
+                class="font-medium text-midnight underline decoration-silver decoration-2 underline-offset-4 dark:text-silver"
+              >
+                Subscribe to The Trade-off →
+              </a>
+            </p>
+          )}
           <ol class="mt-4 list-decimal space-y-2 pl-5 text-ink-muted marker:text-midnight dark:text-silver dark:marker:text-silver">
             {rssItems.map((item) => (
               <li>

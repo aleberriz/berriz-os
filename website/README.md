@@ -25,9 +25,10 @@ Set in Cloudflare Pages → **Settings** → **Variables and Secrets** (producti
 
 | Variable | Purpose |
 |----------|---------|
-| `PUBLIC_LINKEDIN_URL` | Full profile URL for the About page link. |
-| `PUBLIC_KIT_NEWSLETTER_URL` | Kit subscribe or archive page for *The Trade-off*. |
-| `PUBLIC_KIT_NEWSLETTER_RSS` | RSS feed URL; at build time, `/writing` lists parsed `<item>` entries. |
+| `PUBLIC_KIT_NEWSLETTER_URL` | Kit subscribe or archive page for *The Trade-off*. When set, the Writing page and About page link to it. |
+| `PUBLIC_KIT_NEWSLETTER_RSS` | RSS feed URL; at build time, `/writing` lists parsed `<item>` entries in a Newsletter section. |
+
+LinkedIn and GitHub profile URLs are hardcoded in `src/site.config.ts`. The IE blog post URL is also there.
 
 ## Field Notes
 
