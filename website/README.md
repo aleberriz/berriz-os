@@ -62,6 +62,57 @@ Set in Cloudflare Pages → **Settings** → **Variables and Secrets** (producti
 | `summary` | yes | One sentence distilling the core message. Displays below the title in larger type. |
 | `date` | yes | Publication date. Controls sort order (newest first on the index). |
 | `tag` | no | A short theme label (e.g. `causal-inference`, `semantic-layer`). Displays after the date. |
+| `image` | no | Path to an image in `/public` (e.g. `/field-notes/my-meme.png`). Shown large between summary and body. Put image files in `public/field-notes/`. |
+| `imageAlt` | no | Alt text for the image. Falls back to the title if omitted. |
+| `layout` | no | `default` (standard site layout) or `bare` (no header, no footer, no styling). Defaults to `default`. See custom layouts below. |
+
+### Images and memes
+
+To show a meme or image on a card, drop the file in `public/field-notes/` and set the `image` field:
+
+```markdown
+---
+title: "Garbage in, garbage out"
+summary: "The quality of the output is bounded by the quality of the input."
+date: 2026-09-18
+tag: data-quality
+image: /field-notes/gigo-meme.png
+imageAlt: "A conveyor belt feeding trash into a machine that outputs the same trash"
+---
+
+The body goes here.
+```
+
+You can also embed images inline in the body using standard markdown `![alt](/field-notes/filename.png)`.
+
+### Custom layouts
+
+Some cards need a completely different look — a different color scheme, a full-bleed image, a visual joke that breaks from the site's visual paradigm. For those cases:
+
+1. Set `layout: bare` in the frontmatter.
+2. Rename the file from `.md` to `.mdx`.
+3. Define your own page structure in the MDX body. The `bare` layout provides only the HTML document shell (head, meta tags, fonts) and the present-mode script. Everything else — layout, styling, structure — is yours to define.
+4. You can import and use any Astro component, write inline `<style>` blocks, or use Tailwind classes.
+
+Example:
+
+```mdx
+---
+title: "Cognitive fallacies in action"
+summary: "A list of cognitive fallacies with common examples."
+date: 2026-09-18
+layout: bare
+---
+
+<div class="min-h-screen flex items-center justify-center bg-yellow-100">
+  <div class="max-w-2xl p-12 text-center">
+    <h1 class="text-6xl font-bold">Cognitive fallacies</h1>
+    <p class="mt-4 text-2xl">Coming soon.</p>
+  </div>
+</div>
+```
+
+The `?present` query param still works on bare-layout cards. The `present` class is added to `<html>`, so you can target it in your own CSS.
 
 ### Routes
 
