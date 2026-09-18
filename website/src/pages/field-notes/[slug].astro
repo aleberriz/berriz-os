@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const cards = (await getCollection('cards')).sort(
+    (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+  );
+  return cards.map((card, i) => ({
+    params: { slug: card.slug },
+    props: {
+      card,
+      newer: cards[i - 1] ?? null,
+      older: cards[i + 1] ?? null,
+    },
+  }));
+}
+
+const { card, newer, older } = Astro.props;
+const { Content } = await card.render();
+const dateStr = card.data.date.toLocaleDateString('en-GB', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+});
+---
+
+<BaseLayout
+  title={`${card.data.title} — Field Notes`}
+  description={card.data.summary}
+>
+  <main class="fn-card mx-auto max-w-2xl px-6 py-14 md:py-20">
+    <article>
+      <p class="text-sm text-ink-muted dark:text-silver">
+        {dateStr}{card.data.tag && ` · ${card.data.tag}`}
+      </p>
+      <h1
+        class="fn-card__title mt-2 font-serif text-3xl font-semibold tracking-tight text-midnight dark:text-silver md:text-4xl"
+      >
+        {card.data.title}
+      </h1>
+      <p class="fn-card__summary mt-4 font-serif text-xl leading-relaxed text-midnight/90 dark:text-silver/90">
+        {card.data.summary}
+      </p>
+      <div class="fn-card__body mt-8 leading-relaxed text-ink-muted dark:text-silver">
+        <Content />
+      </div>
+    </article>
+
+    <nav class="fn-nav mt-16 flex justify-between border-t border-silver/30 pt-6 text-sm dark:border-silver/15">
+      {newer ? (
+        <a href={`/field-notes/${newer.slug}/`} class="text-midnight underline dark:text-silver">
+          ← {newer.data.title}
+        </a>
+      ) : <span />}
+      {older ? (
+        <a href={`/field-notes/${older.slug}/`} class="text-midnight underline dark:text-silver">
+          {older.data.title} →
+        </a>
+      ) : <span />}
+    </nav>
+
+    <p class="fn-nav mt-8 text-sm text-ink-muted dark:text-silver">
+      <a href="/field-notes/" class="text-midnight underline dark:text-silver">All field notes</a>
+      <span class="mx-2">·</span>
+      <a href={`/field-notes/${card.slug}/?present`} class="text-midnight underline dark:text-silver">
+        Present mode
+      </a>
+    </p>
+  </main>
+</BaseLayout>
+
+<script is:inline>
+  if (new URLSearchParams(location.search).has('present')) {
+    document.documentElement.classList.add('present');
+  }
+</script>
+
+<style is:global>
+  html.present header,
+  html.present footer {
+    display: none !important;
+  }
+  html.present .fn-card {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: none;
+    padding: 3rem 2rem;
+  }
+  html.present .fn-card__title {
+    font-size: 3.25rem;
+    line-height: 1.1;
+  }
+  html.present .fn-card__summary {
+    font-size: 1.75rem;
+  }
+  html.present .fn-card__body {
+    font-size: 1.375rem;
+  }
+  html.present .fn-nav {
+    display: none;
+  }
+</style>
