@@ -8,14 +8,27 @@ import { siteConfig } from '../site.config';
   description="Senior Data Analyst at Kit and Time Series and Forecasting professor at IE University. Forecasting, causal inference, and AI-assisted analytics evaluation."
 >
   <main class="mx-auto max-w-2xl px-6 py-14 md:py-20">
-    <h1 class="font-serif text-3xl font-semibold text-midnight dark:text-silver">About</h1>
+    <div class="flex items-start justify-between gap-6">
+      <h1 class="font-serif text-3xl font-semibold text-midnight dark:text-silver">About</h1>
+      <img
+        src="/headshot.png"
+        alt="Alejandro Berrizbeitia"
+        width="120"
+        height="160"
+        class="shrink-0 rounded-lg"
+        loading="lazy"
+      />
+    </div>
 
     <div
       class="mt-10 space-y-4 border-l-2 border-silver/60 pl-6 text-lg leading-relaxed text-ink-muted dark:border-silver/30 dark:text-silver"
     >
       <p>
-        I am a Senior Data Analyst at Kit and a Time Series and Forecasting professor at IE
-        University.
+        I am a Senior Data Analyst at Kit and a Time Series and Forecasting professor at
+        <a
+          href="https://www.ie.edu/university/studies/academic-programs/dual-degree-in-business-administration-data-and-business-analytics/the-program/"
+          class="text-midnight underline dark:text-silver">IE University</a
+        >.
       </p>
       <p>
         Most analytics questions are causal. Most analytics methods are only descriptive. Eighteen
@@ -40,8 +53,14 @@ import { siteConfig } from '../site.config';
         >.
       </p>
       <p>
-        MEng in Telecommunications from UPC (Barcelona School of Telecommunications Engineering,
-        Universitat Politecnica de Catalunya). MBA from Florida International University.
+        MEng in Telecommunications from <a
+          href="https://telecos.upc.edu/en"
+          class="text-midnight underline dark:text-silver">ETSETB-UPC</a
+        > (Barcelona School of Telecommunications Engineering, BarcelonaTech).
+        MBA from the <a
+          href="https://business.fiu.edu/index.html"
+          class="text-midnight underline dark:text-silver">FIU College of Business</a
+        > (Florida International University).
         OKR Master (Betterworks). Trilingual: EN / ES / FR. FOSS-leaning. Perpetually reading.
       </p>
     </div>
@@ -68,17 +87,7 @@ import { siteConfig } from '../site.config';
             </li>
           )
         }
-        <li>
-          <a href="/writing/" class="text-midnight underline dark:text-silver">Writing</a>
-        </li>
-        <li>
-          <a href="/field-notes/" class="text-midnight underline dark:text-silver">Field Notes</a>
-        </li>
       </ul>
     </section>
-
-    <p class="mt-14 text-sm text-ink-muted dark:text-silver">
-      AWS Certified AI Practitioner.
-    </p>
   </main>
 </BaseLayout>
