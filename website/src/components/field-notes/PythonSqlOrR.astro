@@ -1,0 +1,544 @@
+---
+/**
+ * Field note: "Should I learn Python, SQL, or R?"
+ * → /field-notes/python-sql-or-r/
+ *
+ * Its own look, and deliberately none of the other three bare notes: an
+ * arcade battle screen. Dotted-grid violet night, pixel type for the labels,
+ * one saturated color per language, and short blocks throughout. The note
+ * argues for picking a main, so the page is built to be read on a phone in
+ * under two minutes.
+ *
+ * Both drawings are original SVG. The type chart is a real table, so it
+ * survives a screen reader and reflows on a narrow screen.
+ *
+ * Inter is already loaded site-wide (ThemeHead.astro); only Silkscreen and
+ * Outfit are imported here.
+ */
+---
+
+<div class="psr">
+  <div class="psr-inner">
+    <!-- ============ HERO ============ -->
+    <section class="psr-hero">
+      <p class="psr-kicker">Field note &middot; Careers in data</p>
+      <h1>Don&rsquo;t pick one. Main one.</h1>
+      <p class="psr-dek">
+        &ldquo;Python, SQL, or R?&rdquo; is &ldquo;which Pokemon is the
+        best?&rdquo; with a salary attached. Same answer: it depends on what
+        you are facing, you carry a team, and you get one favorite.
+      </p>
+
+      <!-- ============ DRAWING 1: the cycle ============ -->
+      <figure class="psr-fig">
+        <svg viewBox="0 0 320 272" role="img" aria-labelledby="psr-cycle">
+          <title id="psr-cycle"
+            >A rock-paper-scissors cycle with three nodes. SQL beats Python at
+            pipelines, Python beats R at glue, and R beats SQL at statistics.
+            The arrows form a closed loop, so no node wins outright.</title
+          >
+          <defs>
+            <marker
+              id="psr-head"
+              viewBox="0 0 10 10"
+              refX="8"
+              refY="5"
+              markerWidth="5"
+              markerHeight="5"
+              orient="auto-start-reverse"
+            >
+              <path d="M0 0 L10 5 L0 10 z" class="p-fill-dim" />
+            </marker>
+          </defs>
+
+          <!-- arcs, drawn first so the nodes sit on top -->
+          <g class="p-arc">
+            <path d="M196 74 Q246 96 252 148" marker-end="url(#psr-head)" />
+            <path d="M240 226 Q160 258 80 226" marker-end="url(#psr-head)" />
+            <path d="M68 148 Q74 96 124 74" marker-end="url(#psr-head)" />
+          </g>
+          <g class="p-arc-label">
+            <text x="268" y="116" text-anchor="middle">pipelines</text>
+            <text x="160" y="266" text-anchor="middle">glue</text>
+            <text x="52" y="116" text-anchor="middle">stats</text>
+          </g>
+
+          <!-- node: SQL / rock -->
+          <g>
+            <circle cx="160" cy="54" r="42" class="p-node p-sql" />
+            <path d="M144 48 l8 -11 15 -3 12 8 -2 12 -14 6 -15 -3 z" class="p-glyph" />
+            <text x="160" y="72" text-anchor="middle" class="p-name">SQL</text>
+          </g>
+
+          <!-- node: Python / paper -->
+          <g>
+            <circle cx="256" cy="196" r="42" class="p-node p-py" />
+            <path d="M242 178 h22 l10 10 v20 h-32 z" class="p-glyph" />
+            <path d="M264 178 v10 h10" class="p-glyph-line" />
+            <text x="256" y="220" text-anchor="middle" class="p-name p-name--long">PYTHON</text>
+          </g>
+
+          <!-- node: R / scissors -->
+          <g>
+            <circle cx="64" cy="196" r="42" class="p-node p-r" />
+            <path d="M54 172 l18 26 M74 172 l-18 26" class="p-glyph-line" />
+            <circle cx="53" cy="203" r="5" class="p-glyph-line" />
+            <circle cx="75" cy="203" r="5" class="p-glyph-line" />
+            <text x="64" y="224" text-anchor="middle" class="p-name">R</text>
+          </g>
+        </svg>
+        <figcaption>
+          Every ranking of these three closes into a loop. No square on the
+          chart says &ldquo;always wins.&rdquo;
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- ============ 01 ============ -->
+    <section class="psr-card">
+      <p class="psr-num">01 &nbsp;&middot;&nbsp; The question</p>
+      <h2>&ldquo;Which is best&rdquo; has no answer, and that is the answer.</h2>
+      <p>
+        Rank three tools built for different jobs and you get a circle, not a
+        podium. Pick by the fight you are actually in.
+      </p>
+    </section>
+
+    <!-- ============ 02 ============ -->
+    <section class="psr-card">
+      <p class="psr-num psr-num--sql">02 &nbsp;&middot;&nbsp; SQL</p>
+      <h2>The English of data. Nobody gets an exemption.</h2>
+      <p>
+        Production transformation runs on SQL. Your analytics engineer writes
+        the marts in it, your BI tool compiles to it, your semantic layer is
+        defined on top of it. Whatever you main, you learn this one.
+      </p>
+      <p class="psr-note">
+        Fluency here is not syntax. It is grain, joins that do not fan out, and
+        knowing which table is safe before 9am.
+      </p>
+    </section>
+
+    <!-- ============ 03 ============ -->
+    <section class="psr-card">
+      <p class="psr-num psr-num--py">03 &nbsp;&middot;&nbsp; Python</p>
+      <h2>The Swiss army knife. Solves everything, optimal at almost nothing.</h2>
+      <p>
+        Glue, APIs, orchestration, scraping, notebooks, models. It reaches
+        further than the other two and finishes second at most of it. The knife
+        has a saw on it, and you still would not build a deck with it.
+      </p>
+      <p class="psr-note">
+        Ask where the serving layer ends up. Plenty of teams prototype in
+        Python and ship in Go, Rust, or the JVM.
+      </p>
+    </section>
+
+    <!-- ============ 04 ============ -->
+    <section class="psr-card">
+      <p class="psr-num psr-num--r">04 &nbsp;&middot;&nbsp; R</p>
+      <h2>Narrow and very sharp.</h2>
+      <p>
+        Forecasting, survival analysis, mixed models, experimental design,
+        spatial statistics. The libraries are maintained by the people who
+        wrote the papers, which is why the niche holds.
+      </p>
+      <p class="psr-note">
+        Best home for research and for a fast prototype. Once the method is
+        right, a model can port it to whatever production speaks.
+      </p>
+    </section>
+
+    <!-- ============ 05: the type chart ============ -->
+    <section class="psr-card">
+      <p class="psr-num">05 &nbsp;&middot;&nbsp; The type chart</p>
+      <h2>Pick by the battle you fight every week.</h2>
+      <table class="psr-chart">
+        <caption>Effectiveness by job. Three dots means reach for it first.</caption>
+        <thead>
+          <tr>
+            <th scope="col"><span class="sr-only">Job</span></th>
+            <th scope="col" class="th-sql">SQL</th>
+            <th scope="col" class="th-py">PY</th>
+            <th scope="col" class="th-r">R</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Production pipelines</th>
+            <td class="c-sql"><span aria-hidden="true">&#9679;&#9679;&#9679;</span><span class="sr-only">3 of 3</span></td>
+            <td class="c-py"><span aria-hidden="true">&#9679;&#9679;</span><span class="sr-only">2 of 3</span></td>
+            <td class="c-r"><span aria-hidden="true">&#9679;</span><span class="sr-only">1 of 3</span></td>
+          </tr>
+          <tr>
+            <th scope="row">BI and self-serve</th>
+            <td class="c-sql"><span aria-hidden="true">&#9679;&#9679;&#9679;</span><span class="sr-only">3 of 3</span></td>
+            <td class="c-py"><span aria-hidden="true">&#9679;</span><span class="sr-only">1 of 3</span></td>
+            <td class="c-r"><span aria-hidden="true">&#9679;</span><span class="sr-only">1 of 3</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Glue and automation</th>
+            <td class="c-sql"><span aria-hidden="true">&#9679;</span><span class="sr-only">1 of 3</span></td>
+            <td class="c-py"><span aria-hidden="true">&#9679;&#9679;&#9679;</span><span class="sr-only">3 of 3</span></td>
+            <td class="c-r"><span aria-hidden="true">&#9679;</span><span class="sr-only">1 of 3</span></td>
+          </tr>
+          <tr>
+            <th scope="row">ML in production</th>
+            <td class="c-sql"><span aria-hidden="true">&#9679;</span><span class="sr-only">1 of 3</span></td>
+            <td class="c-py"><span aria-hidden="true">&#9679;&#9679;&#9679;</span><span class="sr-only">3 of 3</span></td>
+            <td class="c-r"><span aria-hidden="true">&#9679;</span><span class="sr-only">1 of 3</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Forecasting and stats</th>
+            <td class="c-sql"><span aria-hidden="true">&#9679;</span><span class="sr-only">1 of 3</span></td>
+            <td class="c-py"><span aria-hidden="true">&#9679;&#9679;</span><span class="sr-only">2 of 3</span></td>
+            <td class="c-r"><span aria-hidden="true">&#9679;&#9679;&#9679;</span><span class="sr-only">3 of 3</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Research and prototypes</th>
+            <td class="c-sql"><span aria-hidden="true">&#9679;</span><span class="sr-only">1 of 3</span></td>
+            <td class="c-py"><span aria-hidden="true">&#9679;&#9679;</span><span class="sr-only">2 of 3</span></td>
+            <td class="c-r"><span aria-hidden="true">&#9679;&#9679;&#9679;</span><span class="sr-only">3 of 3</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="psr-note">
+        My chart, from my seat. Redraw it for the jobs on your own calendar,
+        then read off the column with the most weight.
+      </p>
+    </section>
+
+    <!-- ============ 06: the party ============ -->
+    <section class="psr-card">
+      <p class="psr-num">06 &nbsp;&middot;&nbsp; The party</p>
+      <h2>Three on the belt. One you actually send out first.</h2>
+
+      <figure class="psr-fig">
+        <svg viewBox="0 0 320 96" role="img" aria-labelledby="psr-belt">
+          <title id="psr-belt"
+            >Six party slots. Three are filled with SQL, Python, and R, the SQL
+            slot carries a star marking it as the main, and three slots are
+            still empty.</title
+          >
+          <!-- filled slots -->
+          <g>
+            <rect x="7" y="20" width="46" height="46" rx="8" class="p-slot p-slot-sql" />
+            <circle cx="30" cy="43" r="13" class="p-orb p-orb-sql" />
+            <text x="30" y="82" text-anchor="middle" class="p-slot-t">SQL</text>
+            <path d="M30 3 l3.2 6.6 7.3 1 -5.3 5.1 1.3 7.2 -6.5 -3.4 -6.5 3.4 1.3 -7.2 -5.3 -5.1 7.3 -1 z" class="p-star" />
+          </g>
+          <g>
+            <rect x="59" y="20" width="46" height="46" rx="8" class="p-slot p-slot-py" />
+            <circle cx="82" cy="43" r="13" class="p-orb p-orb-py" />
+            <text x="82" y="82" text-anchor="middle" class="p-slot-t">PY</text>
+          </g>
+          <g>
+            <rect x="111" y="20" width="46" height="46" rx="8" class="p-slot p-slot-r" />
+            <circle cx="134" cy="43" r="13" class="p-orb p-orb-r" />
+            <text x="134" y="82" text-anchor="middle" class="p-slot-t">R</text>
+          </g>
+          <!-- empty slots -->
+          <rect x="163" y="20" width="46" height="46" rx="8" class="p-slot p-slot-empty" />
+          <rect x="215" y="20" width="46" height="46" rx="8" class="p-slot p-slot-empty" />
+          <rect x="267" y="20" width="46" height="46" rx="8" class="p-slot p-slot-empty" />
+        </svg>
+        <figcaption>The empty slots are the point. Something else is coming.</figcaption>
+      </figure>
+
+      <p>
+        Four levels of knowing a language: read it, change it, write it, own it
+        in production. Take SQL to own it whatever you main. Take your main to
+        own it. Take the third to change it. That is the whole plan.
+      </p>
+    </section>
+
+    <!-- ============ 07 ============ -->
+    <section class="psr-card">
+      <p class="psr-num">07 &nbsp;&middot;&nbsp; What transfers</p>
+      <h2>Syntax was always the cheap part, and gen AI made it cheaper.</h2>
+      <p>
+        Grain, joins, sampling, and what a number means do not port to a new
+        language, because they were never in the language. Pick a main to have
+        somewhere to practice them.
+      </p>
+    </section>
+
+    <!-- ============ CLOSER ============ -->
+    <section class="psr-close">
+      <p class="psr-num">The rule</p>
+      <p class="psr-shout">Main the language your week is made of.</p>
+      <p>Learn SQL regardless. Keep the other two close enough to read.</p>
+    </section>
+
+    <!-- ============ TITLE BLOCK ============ -->
+    <footer class="psr-foot">
+      <dl class="psr-block">
+        <div><dt>Note</dt><dd>Python, SQL, or R</dd></div>
+        <div><dt>Field</dt><dd>Careers in data</dd></div>
+        <div><dt>Drawn by</dt><dd>Alejandro Berrizbeitia</dd></div>
+        <div><dt>Verdict</dt><dd>It depends</dd></div>
+      </dl>
+      <p class="psr-foot-h">Go deeper</p>
+      <p>
+        <a href="https://r4ds.hadley.nz/">R for Data Science</a>. The fastest
+        route to competent R, free online.
+      </p>
+      <p>
+        <a href="https://otexts.com/fpp3/">Forecasting: Principles and Practice</a>.
+        Why the forecasting niche stayed in R.
+      </p>
+      <p>
+        <a href="https://docs.getdbt.com/">dbt documentation</a>. What
+        production-grade SQL looks like once it is a codebase.
+      </p>
+      <p class="psr-back">
+        <a href="/field-notes/">← All field notes</a>
+        <a href="/">aleberriz.com</a>
+      </p>
+    </footer>
+  </div>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@600;800&family=Silkscreen:wght@400;700&display=swap');
+
+  /* Arcade battle screen. Scoped, so none of this reaches another note. */
+  .psr {
+    --void: #0b0716;
+    --panel: #150d28;
+    --txt: #d8d0ee;
+    --dim: #948aba;
+    --rule: rgba(182, 255, 61, 0.16);
+    --lime: #b6ff3d;
+    --sql: #3ad9ff;
+    --py: #ffd23f;
+    --r: #ff5c8a;
+
+    min-height: 100vh;
+    color: var(--txt);
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    background-color: var(--void);
+    background-image: radial-gradient(rgba(182, 255, 61, 0.11) 1.5px, transparent 1.5px);
+    background-size: 22px 22px;
+  }
+
+  .psr-inner {
+    max-width: 38rem;
+    margin: 0 auto;
+    padding: 0 1.15rem 3.5rem;
+  }
+
+  .psr p { margin: 0 0 0.9rem; }
+  .psr a { color: var(--lime); text-underline-offset: 3px; }
+  .psr a:hover { color: var(--sql); }
+
+  .psr-kicker,
+  .psr-num,
+  .psr-foot-h,
+  .psr-back,
+  .psr-block dt {
+    font-family: Silkscreen, ui-monospace, monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--dim);
+  }
+  .psr-num--sql { color: var(--sql); }
+  .psr-num--py { color: var(--py); }
+  .psr-num--r { color: var(--r); }
+
+  /* ---------- hero ---------- */
+  .psr-hero { padding: 3.25rem 0 2.25rem; }
+  .psr-hero h1 {
+    margin: 0.9rem 0 1rem;
+    font-family: Outfit, Inter, sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.1rem, 10vw, 3.4rem);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    color: #fff;
+    text-wrap: balance;
+  }
+  .psr-dek {
+    font-size: 1.08rem;
+    color: #b3a8d4;
+    max-width: 34ch;
+  }
+
+  /* ---------- drawings ---------- */
+  .psr-fig { margin: 2rem 0 0; }
+  .psr-fig svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: var(--panel);
+    border: 2px solid var(--rule);
+    border-radius: 10px;
+  }
+  .psr-fig figcaption {
+    margin-top: 0.7rem;
+    margin-bottom: 1.4rem;
+    font-size: 0.85rem;
+    color: var(--dim);
+  }
+
+  .p-node { stroke: #0b0716; stroke-width: 3; }
+  .p-sql { fill: var(--sql); }
+  .p-py { fill: var(--py); }
+  .p-r { fill: var(--r); }
+  .p-glyph { fill: #0b0716; }
+  .p-glyph-line { fill: none; stroke: #0b0716; stroke-width: 4; stroke-linecap: round; }
+  .p-name {
+    font-family: Silkscreen, monospace;
+    font-size: 13px;
+    font-weight: 700;
+    fill: #0b0716;
+  }
+  .p-name--long { font-size: 10px; }
+  .p-arc path {
+    fill: none;
+    stroke: var(--dim);
+    stroke-width: 2.5;
+  }
+  .p-fill-dim { fill: #948aba; }
+  .p-arc-label text {
+    font-family: Silkscreen, monospace;
+    font-size: 11px;
+    fill: var(--lime);
+  }
+
+  .p-slot { fill: none; stroke-width: 2.5; }
+  .p-slot-sql { stroke: var(--sql); }
+  .p-slot-py { stroke: var(--py); }
+  .p-slot-r { stroke: var(--r); }
+  .p-slot-empty { stroke: #3b3055; stroke-dasharray: 5 5; }
+  .p-orb-sql { fill: var(--sql); }
+  .p-orb-py { fill: var(--py); }
+  .p-orb-r { fill: var(--r); }
+  .p-star { fill: var(--lime); }
+  .p-slot-t {
+    font-family: Silkscreen, monospace;
+    font-size: 11px;
+    fill: var(--dim);
+  }
+
+  /* ---------- sections ---------- */
+  .psr-card,
+  .psr-close {
+    padding: 2.25rem 0;
+    border-top: 1px solid var(--rule);
+  }
+  .psr-card h2,
+  .psr-close h2 {
+    margin: 0.45rem 0 0.9rem;
+    font-family: Outfit, Inter, sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.4rem, 6.4vw, 1.9rem);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    color: #fff;
+    text-wrap: balance;
+  }
+  .psr-note {
+    margin-top: 1.1rem;
+    padding-left: 0.95rem;
+    border-left: 3px solid var(--lime);
+    font-size: 0.96rem;
+    color: #b3a8d4;
+  }
+
+  /* ---------- type chart ---------- */
+  .psr-chart {
+    width: 100%;
+    margin: 1.4rem 0 0;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+  .psr-chart caption {
+    caption-side: bottom;
+    padding-top: 0.7rem;
+    font-size: 0.85rem;
+    color: var(--dim);
+    text-align: left;
+  }
+  .psr-chart th,
+  .psr-chart td {
+    padding: 0.55rem 0.2rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .psr-chart thead th {
+    font-family: Silkscreen, monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.06em;
+    text-align: center;
+  }
+  .th-sql { color: var(--sql); }
+  .th-py { color: var(--py); }
+  .th-r { color: var(--r); }
+  .psr-chart tbody th {
+    font-weight: 500;
+    text-align: left;
+    color: #fff;
+  }
+  .psr-chart td {
+    text-align: center;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+  .c-sql { color: var(--sql); }
+  .c-py { color: var(--py); }
+  .c-r { color: var(--r); }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* ---------- closer ---------- */
+  .psr-shout {
+    font-family: Outfit, Inter, sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.7rem, 7.6vw, 2.4rem);
+    line-height: 1.06;
+    letter-spacing: -0.025em;
+    color: var(--lime);
+    text-wrap: balance;
+  }
+
+  /* ---------- title block ---------- */
+  .psr-foot {
+    padding: 2rem 0 0;
+    border-top: 1px solid var(--rule);
+    font-size: 0.93rem;
+  }
+  .psr-block {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    margin: 0 0 1.75rem;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+  .psr-block > div { padding: 0.65rem 0.8rem; background: var(--panel); }
+  .psr-block dt { margin-bottom: 0.15rem; }
+  .psr-block dd { margin: 0; color: #fff; }
+  .psr-foot-h { margin-bottom: 0.55rem; color: var(--lime); }
+  .psr-back { display: flex; gap: 1.4rem; padding-top: 0.9rem; }
+
+  @media (min-width: 40rem) {
+    .psr-block { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .psr-chart { font-size: 0.95rem; }
+  }
+
+  /* ---------- present mode ---------- */
+  :global(html.present) .psr { font-size: 1.2rem; }
+</style>
