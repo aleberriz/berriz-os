@@ -23,6 +23,8 @@ const published = [
     date: '2024',
   },
 ];
+
+const linkClass = 'text-accent underline underline-offset-4 hover:text-accent-hover';
 ---
 
 <BaseLayout
@@ -30,27 +32,21 @@ const published = [
   description="Published writing and essays on data, decisions, and the practice of analytics."
 >
   <main class="mx-auto max-w-2xl px-6 py-14 md:py-20">
-    <h1 class="font-serif text-3xl font-semibold text-midnight dark:text-silver">Writing</h1>
-    <p class="mt-4 leading-relaxed text-ink-muted dark:text-silver">
-      Published writing and essays on data, decisions, and the practice of
-      analytics.
+    <h1 class="font-serif text-3xl font-semibold text-ink">Writing</h1>
+    <p class="mt-4 leading-relaxed text-ink-body">
+      Published writing and essays on data, decisions, and the practice of analytics.
     </p>
 
     <section class="mt-12">
-      <h2 class="font-serif text-xl font-semibold text-midnight dark:text-silver">
-        Published
-      </h2>
+      <h2 class="font-serif text-xl font-semibold text-ink">Published</h2>
       <ul class="mt-4 space-y-4">
         {
           published.map((item) => (
             <li>
-              <a
-                href={item.url}
-                class="text-midnight underline hover:text-midnight/80 dark:text-silver"
-              >
+              <a href={item.url} class={linkClass}>
                 {item.title}
               </a>
-              <span class="ml-2 text-sm text-ink-muted dark:text-silver">
+              <span class="ml-2 text-sm text-ink-muted">
                 — {item.source}, {item.date}
               </span>
             </li>
@@ -62,34 +58,35 @@ const published = [
     {
       rssItems.length > 0 && (
         <section class="mt-14">
-          <h2 class="font-serif text-xl font-semibold text-midnight dark:text-silver">
-            Newsletter
-          </h2>
-          <p class="mt-2 text-sm text-ink-muted dark:text-silver">
-            <cite class="not-italic font-medium">The Trade-off</cite> — a newsletter on data and decisions.
+          <h2 class="font-serif text-xl font-semibold text-ink">Newsletter</h2>
+          <p class="mt-2 text-sm text-ink-muted">
+            <cite class="font-medium not-italic">The Trade-off</cite> — a newsletter on data and
+            decisions.
           </p>
           {siteConfig.kitNewsletterUrl && (
             <p class="mt-2">
               <a
                 href={siteConfig.kitNewsletterUrl}
-                class="font-medium text-midnight underline decoration-silver decoration-2 underline-offset-4 dark:text-silver"
+                class="font-medium text-accent underline decoration-2 underline-offset-4 hover:text-accent-hover"
               >
                 Subscribe to The Trade-off →
               </a>
             </p>
           )}
-          <ol class="mt-4 list-decimal space-y-2 pl-5 text-ink-muted marker:text-midnight dark:text-silver dark:marker:text-silver">
+          <ol class="mt-4 list-decimal space-y-2 pl-5 text-ink-body marker:text-ink-muted">
             {rssItems.map((item) => (
               <li>
-                <a
-                  href={item.link}
-                  class="text-midnight underline hover:text-midnight/80 dark:text-silver"
-                >
+                <a href={item.link} class={linkClass}>
                   {item.title}
                 </a>
                 {item.pubDate && (
                   <span class="ml-2 text-sm text-ink-muted">
-                    ({new Date(item.pubDate).toLocaleDateString('en-GB', { year: 'numeric', month: 'short' })})
+                    (
+                    {new Date(item.pubDate).toLocaleDateString('en-GB', {
+                      year: 'numeric',
+                      month: 'short',
+                    })}
+                    )
                   </span>
                 )}
               </li>

@@ -1,6 +1,7 @@
 ---
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteHeader from '../components/SiteHeader.astro';
+import ThemeHead from '../components/ThemeHead.astro';
 
 interface Props {
   title: string;
@@ -15,26 +16,11 @@ const {
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonical} />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <title>{title}</title>
+    <ThemeHead title={title} description={description} canonical={canonical} />
   </head>
-  <body class="flex min-h-screen flex-col font-sans antialiased bg-canvas text-ink dark:bg-canvas-dark dark:text-ink-dark">
+  <body class="flex min-h-screen flex-col bg-canvas font-sans text-ink-body antialiased">
     <SiteHeader />
     <div class="flex-1">
       <slot />

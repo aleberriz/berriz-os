@@ -1,0 +1,48 @@
+---
+/**
+ * Everything both layouts put in <head>, including the theme bootstrap.
+ *
+ * The theme itself is decided in CSS (see styles/global.css), so the correct
+ * colors paint on the first frame even with JavaScript disabled. The script
+ * below only replays an explicit choice the visitor made earlier. It is
+ * `is:inline` and sits in <head> so it runs before the body paints, which is
+ * what keeps a stored preference from flashing the other theme first.
+ */
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  canonical: URL;
+}
+
+const { title, description = '', canonical } = Astro.props;
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonical} />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap"
+  rel="stylesheet"
+/>
+<title>{title}</title>
+
+<script is:inline>
+  try {
+    const stored = localStorage.getItem('theme');
+    if (stored === 'dark' || stored === 'light') {
+      document.documentElement.dataset.theme = stored;
+    }
+  } catch {
+    /* Private mode or blocked storage: fall back to the OS preference. */
+  }
+</script>

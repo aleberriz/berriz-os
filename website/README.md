@@ -30,6 +30,46 @@ Set in Cloudflare Pages → **Settings** → **Variables and Secrets** (producti
 
 LinkedIn and GitHub profile URLs are hardcoded in `src/site.config.ts`. The IE blog post URL is also there.
 
+## Theming
+
+The site follows the reader's OS setting and offers a toggle in the header. Both
+themes are defined once, as CSS variables in
+[`src/styles/global.css`](src/styles/global.css), and Tailwind maps its color
+utilities onto those variables in `tailwind.config.mjs`.
+
+The practical consequence: **do not write `dark:` color classes in the shell.**
+Write `text-ink`, `bg-canvas`, `border-line`, and the right color resolves in
+both themes. `dark:` is still configured, keyed to `[data-theme="dark"]`, for
+the rare rule a token cannot express.
+
+Text colors are a three-step ramp, and using them as intended is what gives a
+page its hierarchy:
+
+| Token | Use for |
+|---|---|
+| `text-ink` | Headings, the active nav item, anything that should read first |
+| `text-ink-body` | Running prose |
+| `text-ink-muted` | Dates, tags, captions, other metadata |
+| `text-accent` | Links, paired with an underline so color is never the only signal |
+| `border-line` | Rules and dividers |
+
+Every one of these clears WCAG AA against `bg-canvas` in both themes.
+
+How the theme is chosen, in order:
+
+1. `:root` holds light, which is also the no-JavaScript default.
+2. A `prefers-color-scheme: dark` media query applies dark, unless the reader
+   has explicitly chosen light.
+3. `data-theme` on `<html>` overrides both.
+
+Steps 1 and 2 are pure CSS, so the correct theme paints on the first frame. The
+inline script in `ThemeHead.astro` only replays a stored choice, which is why it
+must stay `is:inline` and stay in `<head>` — moving it would reintroduce the
+flash it exists to prevent.
+
+Bare field notes opt out of all of this. They paint their own background and set
+their own colors, by design.
+
 ## Field Notes
 
 `/field-notes` is a content collection of distilled career lessons, one per card. Each card is a standalone page with a URL you can cite or project.

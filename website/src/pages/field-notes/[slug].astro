@@ -36,15 +36,15 @@ const pageTitle = `${card.data.title} — Field Notes`;
   <BaseLayout title={pageTitle} description={card.data.summary}>
     <main class="fn-card mx-auto max-w-2xl px-6 py-14 md:py-20">
       <article>
-        <p class="text-sm text-ink-muted dark:text-silver">
+        <p class="text-sm text-ink-muted">
           {dateStr}{card.data.tag && ` · ${card.data.tag}`}
         </p>
         <h1
-          class="fn-card__title mt-2 font-serif text-3xl font-semibold tracking-tight text-midnight dark:text-silver md:text-4xl"
+          class="fn-card__title mt-2 font-serif text-3xl font-semibold tracking-tight text-ink md:text-4xl"
         >
           {card.data.title}
         </h1>
-        <p class="fn-card__summary mt-4 font-serif text-xl leading-relaxed text-midnight/90 dark:text-silver/90">
+        <p class="fn-card__summary mt-4 font-serif text-lg leading-relaxed text-ink-body md:text-xl">
           {card.data.summary}
         </p>
         {card.data.image && (
@@ -57,28 +57,28 @@ const pageTitle = `${card.data.title} — Field Notes`;
             />
           </figure>
         )}
-        <div class="fn-card__body mt-8 leading-relaxed text-ink-muted dark:text-silver">
+        <div class="fn-card__body mt-8 text-base leading-relaxed text-ink-body md:text-lg">
           <Content />
         </div>
       </article>
 
-      <nav class="fn-nav mt-16 flex justify-between border-t border-silver/30 pt-6 text-sm dark:border-silver/15">
+      <nav class="fn-nav mt-16 flex flex-col gap-3 border-t border-line pt-6 text-sm sm:flex-row sm:justify-between sm:gap-6">
         {newer ? (
-          <a href={`/field-notes/${newer.slug}/`} class="text-midnight underline dark:text-silver">
+          <a href={`/field-notes/${newer.slug}/`} class="text-accent underline underline-offset-4 hover:text-accent-hover">
             ← {newer.data.title}
           </a>
         ) : <span />}
         {older ? (
-          <a href={`/field-notes/${older.slug}/`} class="text-midnight underline dark:text-silver">
+          <a href={`/field-notes/${older.slug}/`} class="text-accent underline underline-offset-4 hover:text-accent-hover">
             {older.data.title} →
           </a>
         ) : <span />}
       </nav>
 
-      <p class="fn-nav mt-8 text-sm text-ink-muted dark:text-silver">
-        <a href="/field-notes/" class="text-midnight underline dark:text-silver">All field notes</a>
+      <p class="fn-nav mt-8 text-sm text-ink-muted">
+        <a href="/field-notes/" class="text-accent underline underline-offset-4 hover:text-accent-hover">All field notes</a>
         <span class="mx-2">·</span>
-        <a href={`/field-notes/${card.slug}/?present`} class="text-midnight underline dark:text-silver">
+        <a href={`/field-notes/${card.slug}/?present`} class="text-accent underline underline-offset-4 hover:text-accent-hover">
           Present mode
         </a>
       </p>
