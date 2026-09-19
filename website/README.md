@@ -121,7 +121,7 @@ src/components/field-notes/<Name>.astro   the entire design, scoped
 3. Build the design in the component. Keep the `.mdx` file to frontmatter plus the import — MDX is a poor place to write HTML and CSS, and putting the design in a real `.astro` file gets you scoped styles and proper syntax handling.
 4. Preview at `http://localhost:4321/field-notes/<slug>/`, **and check it at 390px wide.**
 
-Worked example: [`AbTestTrap.astro`](src/components/field-notes/AbTestTrap.astro), rendered at `/field-notes/not-everything-is-an-ab-test/`.
+Worked example: [`AbTestTrap.astro`](src/components/field-notes/AbTestTrap.astro), rendered at `/field-notes/fake-ab-test-trap/`.
 
 #### Rules, each of which has already broken a build
 
@@ -143,11 +143,14 @@ Worked example: [`AbTestTrap.astro`](src/components/field-notes/AbTestTrap.astro
 - `/field-notes/<slug>/` — the card page with prev/next navigation.
 - `/field-notes/<slug>/?present` — present mode: hides header and footer, enlarges type for classroom projection.
 
+Redirects for renamed slugs live in [`public/_redirects`](public/_redirects), which Cloudflare Pages reads from the build output. That yields a real 301; Astro's own `redirects` config would only emit a meta-refresh page in static mode.
+
 ### Design notes
 
 - The card body supports full markdown: bold, italics, lists, code blocks, blockquotes.
 - Keep the body to one screen. Field notes are flashcards, not essays. If a lesson needs more than three paragraphs, split it or write it as an essay under `/writing` instead.
-- The slug becomes the URL. Choose it once and do not rename it; external links and citations depend on it being stable.
+- The slug becomes the URL. Choose it once and treat it as permanent — field notes are written to be cited and projected, so links outlive titles.
+- If a slug does have to change, rename the file **and** add a 301 in [`public/_redirects`](public/_redirects). Keep the rule forever; it costs a line.
 
 ## Building page data
 
