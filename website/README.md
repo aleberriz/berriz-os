@@ -63,6 +63,7 @@ LinkedIn and GitHub profile URLs are hardcoded in `src/site.config.ts`. The IE b
 | `summary` | yes | One sentence distilling the core message. Displays below the title in larger type. |
 | `date` | yes | Publication date. Controls sort order (newest first on the index). |
 | `tag` | no | A short theme label (e.g. `causal-inference`, `semantic-layer`). Displays after the date. |
+| `featured` | no | `true` pins the card to the top of the index, above the date-sorted rest. Prev/next navigation follows the same order. Defaults to `false`. |
 | `image` | no | Path to an image in `/public` (e.g. `/field-notes/my-meme.png`). Shown large between summary and body. Put image files in `public/field-notes/`. |
 | `imageAlt` | no | Alt text for the image. Falls back to the title if omitted. |
 | `display` | no | `default` (standard site layout) or `bare` (document shell only — no header, footer, or styling). Defaults to `default`. See [custom-designed field notes](#custom-designed-field-notes). **Not** `layout`: MDX reserves that key. |
