@@ -2,11 +2,11 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BareLayout from '../../layouts/BareLayout.astro';
 import { getCollection } from 'astro:content';
+import { byFeaturedThenDate } from '../../lib/fieldNotes';
+
 
 export async function getStaticPaths() {
-  const cards = (await getCollection('cards')).sort(
-    (a, b) => b.data.date.getTime() - a.data.date.getTime(),
-  );
+  const cards = (await getCollection('cards')).sort(byFeaturedThenDate);
   return cards.map((card, i) => ({
     params: { slug: card.slug },
     props: {
