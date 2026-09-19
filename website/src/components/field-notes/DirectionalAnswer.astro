@@ -1,0 +1,628 @@
+---
+/**
+ * Field note: "The directional-answer trap"
+ * → /field-notes/directional-answer-trap/
+ *
+ * Its own look, and not the A/B note's either: manila spec sheet inside a
+ * drafting border, IBM Plex Mono display type, clause numbering, and a title
+ * block for a footer. The spine of the piece is the engineering-drawing
+ * metaphor — nothing is ever perfect, which is why a real drawing states a
+ * tolerance — so the design is a drawing.
+ *
+ * Inter is already loaded site-wide (ThemeHead.astro); only Plex Mono is
+ * imported here.
+ */
+---
+
+<div class="dir">
+  <div class="dir-sheet">
+    <div class="dir-inner">
+      <!-- ============ HERO ============ -->
+      <section class="dir-hero">
+        <p class="dir-kicker">Field note &middot; decision quality</p>
+        <h1>
+          &ldquo;Give me a <span class="dir-hi">directional</span> answer.
+          It doesn&rsquo;t have to be <span class="dir-strike">perfect</span>.&rdquo;
+        </h1>
+        <p class="dir-dek">
+          One of those two sentences asks for something real. The other one
+          rules nothing out. Both of them move the risk onto you.
+        </p>
+        <p class="dir-scroll" aria-hidden="true">scroll &darr;</p>
+      </section>
+
+      <!-- ============ 1.0 ============ -->
+      <section class="dir-card">
+        <p class="dir-num">1.0 &nbsp;The request</p>
+        <h2>What they are actually asking for.</h2>
+        <p>
+          Strip the politeness and the ask is: <em>give me something fast that
+          I can hang a go/no-go on.</em> Not a smaller answer. A quicker one,
+          load-bearing.
+        </p>
+        <p>
+          Take the ask seriously before you take it apart. The deadline is
+          usually real, most calls are reversible, and a perfect answer three
+          weeks after the decision is worth nothing. Speed is a legitimate
+          thing to buy.
+        </p>
+        <p class="dir-note">
+          You buy it with precision. That trade is fine. What is not fine is
+          making it silently, because then the person who set the deadline
+          keeps the upside and you keep the blame.
+        </p>
+      </section>
+
+      <!-- ============ 2.0 ============ -->
+      <section class="dir-card">
+        <p class="dir-num">2.0 &nbsp;Term one</p>
+        <h2>&ldquo;Directional&rdquo; means something. Hold them to it.</h2>
+        <p>
+          Directional is a real, narrow claim: <strong>which way, not how
+          much.</strong> Up or down. Better or worse. Sign only.
+        </p>
+        <p>
+          That claim is still falsifiable, and it is not free. You owe an answer
+          only when the data picks a side.
+        </p>
+
+        <figure class="dir-fig">
+          <svg viewBox="0 0 340 150" role="img" aria-labelledby="dir-d1">
+            <title id="dir-d1"
+              >Two estimates with uncertainty intervals. The first interval
+              crosses zero, so its direction is unknown. The second sits
+              entirely above zero, so its direction is up.</title
+            >
+            <path d="M150 22 V132" class="k-line k-dash k-dim-st" />
+            <text x="150" y="146" class="k-cap k-dim-fill">no effect</text>
+
+            <text x="2" y="34" class="k-cap k-red-fill k-start">sign unknown</text>
+            <path d="M60 50 H270" class="k-line k-red-st" />
+            <path d="M60 42 V58" class="k-line k-red-st" />
+            <path d="M270 42 V58" class="k-line k-red-st" />
+            <circle cx="165" cy="50" r="5" class="k-red-fill" />
+
+            <text x="2" y="94" class="k-cap k-teal-fill k-start">sign known: up</text>
+            <path d="M178 110 H305" class="k-line k-teal-st" />
+            <path d="M178 102 V118" class="k-line k-teal-st" />
+            <path d="M305 102 V118" class="k-line k-teal-st" />
+            <circle cx="232" cy="110" r="5" class="k-teal-fill" />
+          </svg>
+          <figcaption>
+            Same question, two datasets. Only the second earns the word
+            <em>directional</em>: every value the data supports sits on one side
+            of zero. The first one is a shrug with a dot in the middle of it.
+          </figcaption>
+        </figure>
+
+        <p class="dir-note">
+          A line drawn through noisy points always slopes somewhere. Before you
+          call it a trend, ask what the same points would do with the dates
+          shuffled. If they slope about as hard, you are reading noise out loud.
+        </p>
+      </section>
+
+      <!-- ============ 3.0 ============ -->
+      <section class="dir-card">
+        <p class="dir-num">3.0 &nbsp;Term two</p>
+        <h2>&ldquo;It doesn&rsquo;t have to be perfect&rdquo; means nothing.</h2>
+        <p>
+          Nothing is. Not a measurement, not a forecast, not a market, not a
+          quarter of revenue. A statement that cannot be false cannot inform. It
+          feels like permission and carries no content.
+        </p>
+        <p>
+          Machinists have never been asked for perfect either. That is exactly
+          why every drawing carries a <strong>tolerance</strong>: 12.0 mm,
+          &plusmn;0.2. The part is allowed to be wrong, by a stated amount, in a
+          stated direction.
+        </p>
+
+        <figure class="dir-fig">
+          <svg viewBox="0 0 340 155" role="img" aria-labelledby="dir-d2">
+            <title id="dir-d2"
+              >Two dimension lines. The first has a narrow tolerance band around
+              its nominal value. The second is labeled plus or minus question
+              mark and its band covers the whole line.</title
+            >
+            <text x="2" y="24" class="k-cap k-teal-fill k-start">12.0 &plusmn;0.2</text>
+            <rect x="148" y="38" width="44" height="24" class="k-band k-teal-band" />
+            <path d="M30 50 H310" class="k-line k-ink-st" />
+            <path d="M30 40 V60" class="k-line k-ink-st" />
+            <path d="M310 40 V60" class="k-line k-ink-st" />
+            <path d="M170 32 V68" class="k-line k-teal-st" />
+
+            <text x="2" y="104" class="k-cap k-red-fill k-start">12.0 &plusmn;?</text>
+            <rect x="30" y="118" width="280" height="24" class="k-band k-red-band" />
+            <path d="M30 130 H310" class="k-line k-ink-st" />
+            <path d="M30 120 V140" class="k-line k-ink-st" />
+            <path d="M310 120 V140" class="k-line k-ink-st" />
+          </svg>
+          <figcaption>
+            The shaded band is what the spec permits. &ldquo;It doesn&rsquo;t
+            have to be perfect&rdquo; is the second drawing: not a relaxed spec,
+            <strong>no spec.</strong> Any number you hand back satisfies it, so
+            any number you hand back is on you.
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- ============ 4.0 ============ -->
+      <section class="dir-card dir-card--turn">
+        <p class="dir-num">4.0 &nbsp;The retort</p>
+        <h2>One question puts the spec back in the room.</h2>
+        <p class="dir-ask">
+          &ldquo;Do you want something you can make the decision with?&rdquo;
+          <span>ask it flatly, and wait</span>
+        </p>
+        <p>
+          Nobody says no. And the yes changes the conversation: you are no
+          longer negotiating a deadline, you are negotiating a tolerance. The
+          follow-up does the rest.
+        </p>
+        <p class="dir-ask dir-ask--alt">
+          &ldquo;How wrong can this be before you&rsquo;d call it the other
+          way?&rdquo;
+        </p>
+        <p>
+          That is the number the drawing was missing. Once it is said out loud,
+          it is a shared number rather than an assumption you made alone at
+          11pm.
+        </p>
+      </section>
+
+      <!-- ============ 5.0 ============ -->
+      <section class="dir-card">
+        <p class="dir-num">5.0 &nbsp;The ladder</p>
+        <h2>Decision-grade is a rung, not a mood.</h2>
+        <p>
+          Evidence comes in grades, and each grade carries a different weight of
+          decision. Name the rung you are standing on.
+        </p>
+
+        <ol class="dir-ladder">
+          <li class="rung rung--0">
+            <p class="rung-h"><span class="rung-k">R0</span> A coin toss</p>
+            <p class="rung-d">
+              50/50, or a difference your sample cannot separate from zero.
+              <strong>Carries nothing.</strong> They had this before you opened
+              the laptop, and it cost them less.
+            </p>
+          </li>
+          <li class="rung rung--1">
+            <p class="rung-h"><span class="rung-k">R1</span> A correlation</p>
+            <p class="rung-d">
+              Two things move together. <strong>Carries prediction, not
+              intervention.</strong> Good enough to choose who to call first.
+              Not good enough to decide what to change.
+            </p>
+          </li>
+          <li class="rung rung--2">
+            <p class="rung-h"><span class="rung-k">R2</span> A trend that beats noise</p>
+            <p class="rung-d">
+              The movement survives shuffling, seasonality and the obvious
+              confounder. <strong>Carries a direction claim</strong> — and only
+              a claim about direction.
+            </p>
+          </li>
+          <li class="rung rung--3">
+            <p class="rung-h"><span class="rung-k">R3</span> A signed effect with an interval</p>
+            <p class="rung-d">
+              The whole interval sits on one side of the number that would change
+              their mind. <strong>Carries a go/no-go.</strong> This is the first
+              rung worth the phrase <em>decision-grade</em>.
+            </p>
+          </li>
+          <li class="rung rung--4">
+            <p class="rung-h"><span class="rung-k">R4</span> A magnitude with an interval</p>
+            <p class="rung-d">
+              How big, how sure, against a stated threshold.
+              <strong>Carries sizing:</strong> how much to spend, how many to
+              hire, what to promise the board.
+            </p>
+          </li>
+        </ol>
+
+        <p class="dir-note">
+          Most &ldquo;directional&rdquo; requests are answered at R1 and
+          presented at R4. The gap is where careers go to die — and the slide
+          will have your name in the footer.
+        </p>
+      </section>
+
+      <!-- ============ 6.0 ============ -->
+      <section class="dir-card">
+        <p class="dir-num">6.0 &nbsp;The spec</p>
+        <h2>Four questions, two minutes, before any query runs.</h2>
+
+        <ol class="dir-spec">
+          <li>
+            <span class="sp-q">Which way, or how much?</span>
+            <span class="sp-d">Sign is cheap. Magnitude is not. Pricing and headcount need magnitude; kill-or-keep often needs only sign.</span>
+          </li>
+          <li>
+            <span class="sp-q">What number would change your mind?</span>
+            <span class="sp-d">If no number would, the decision is already made and the analysis is decoration. Useful to know by Tuesday rather than Friday.</span>
+          </li>
+          <li>
+            <span class="sp-q">How wrong can it be before you&rsquo;d call it differently?</span>
+            <span class="sp-d">The tolerance. Write it in the ticket, in their words, with their name next to it.</span>
+          </li>
+          <li>
+            <span class="sp-q">If we&rsquo;re wrong, when do we find out and what does the unwind cost?</span>
+            <span class="sp-d">A cheap, reversible call deserves a fast, rough answer. Say so — it makes you the person who saved a week, not the person who cut corners.</span>
+          </li>
+        </ol>
+
+        <p class="dir-note">
+          Run these and you will often find the fast answer really is enough.
+          That is the good outcome. Now you are shipping it on purpose.
+        </p>
+      </section>
+
+      <!-- ============ 7.0 ============ -->
+      <section class="dir-card">
+        <p class="dir-num">7.0 &nbsp;The delivery</p>
+        <h2>Hand back the number with its tolerance attached.</h2>
+        <p>
+          One sentence does it. Direction, range, the threshold it is being
+          judged against, and the condition that would flip the call.
+        </p>
+
+        <figure class="dir-fig">
+          <p class="dir-fig-h">The whole answer</p>
+          <p class="dir-quote">
+            &ldquo;Up. Best estimate +6%, and the data supports anywhere from +1%
+            to +11%. Your bar is +2%, so the low end is the only thing that
+            worries me &mdash; it clears, barely. Go. If the spend is above
+            $200k, give me three more days and I&rsquo;ll tighten the
+            range.&rdquo;
+          </p>
+          <figcaption>
+            Twelve seconds to say. It states the sign, the size, the
+            uncertainty, the threshold and the price of more certainty — and it
+            leaves the decision exactly where it belongs.
+          </figcaption>
+        </figure>
+
+        <p class="dir-note">
+          Put it in writing the same day. &ldquo;Directional&rdquo; said in a
+          meeting is remembered as a fact; written down next to its range, it
+          stays what it was.
+        </p>
+      </section>
+
+      <!-- ============ CLOSER ============ -->
+      <section class="dir-close">
+        <p class="dir-num">The job</p>
+        <p class="dir-shout">Trade precision for speed on purpose, out loud, in writing.</p>
+        <p>
+          Nobody is going to ask you for a tolerance. They will ask for
+          directional, and for not-perfect, and for it by lunchtime. Getting the
+          number they can actually decide with — and getting it back to them by
+          lunchtime — is the whole job.
+        </p>
+      </section>
+
+      <!-- ============ TITLE BLOCK ============ -->
+      <footer class="dir-foot">
+        <dl class="dir-block">
+          <div><dt>Note</dt><dd>The directional-answer trap</dd></div>
+          <div><dt>Field</dt><dd>Decision quality</dd></div>
+          <div><dt>Drawn by</dt><dd>Alejandro Berrizbeitia</dd></div>
+          <div><dt>Tolerance</dt><dd>Stated</dd></div>
+        </dl>
+        <p class="dir-foot-h">Read these</p>
+        <p>
+          Douglas Hubbard, <em>How to Measure Anything</em> (3rd ed., 2014) —
+          how much a reduction in uncertainty is worth, in currency.
+        </p>
+        <p>
+          Sam Savage, <em>The Flaw of Averages</em> (2009) — why a single number
+          without its spread misleads by default.
+        </p>
+        <p class="dir-back">
+          <a href="/field-notes/">← All field notes</a>
+          <a href="/">aleberriz.com</a>
+        </p>
+      </footer>
+    </div>
+  </div>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  /* Manila spec sheet. Scoped, so none of this reaches another note.
+     `.dir` paints the full-bleed page, `.dir-sheet` is the drawing border,
+     `.dir-inner` is the reading column. */
+  .dir {
+    --paper: #f2ede2;
+    --sheet: #f8f5ee;
+    --ink: #17171a;
+    --body: #40444b;
+    --dim: #6a6f78;
+    --teal: #0a6a63;
+    --red: #b4331f;
+    --rule: rgba(23, 23, 26, 0.16);
+
+    min-height: 100vh;
+    padding: 0.75rem;
+    background: var(--paper);
+    color: var(--body);
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  /* Drawing sheet: double border, the way a drafting frame is ruled. */
+  .dir-sheet {
+    min-height: calc(100vh - 1.5rem);
+    background: var(--sheet);
+    border: 1px solid var(--rule);
+    box-shadow: inset 0 0 0 4px var(--sheet), inset 0 0 0 5px var(--rule);
+  }
+
+  .dir-inner {
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 3.5rem;
+  }
+
+  .dir p { margin: 0 0 1rem; }
+  .dir strong { color: var(--ink); font-weight: 600; }
+  .dir em { font-style: italic; }
+  .dir a { color: var(--teal); }
+
+  .dir-kicker,
+  .dir-num,
+  .dir-scroll,
+  .dir-foot-h,
+  .dir-fig-h,
+  .rung-k,
+  .dir-block dt {
+    font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--dim);
+  }
+
+  /* ---- hero ---- */
+  .dir-hero { padding: 3.5rem 0 3rem; }
+  .dir-hero h1 {
+    margin: 1.25rem 0 1.5rem;
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: clamp(1.6rem, 6.4vw, 2.5rem);
+    line-height: 1.22;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+    color: var(--ink);
+  }
+  .dir-hi {
+    color: var(--teal);
+    border-bottom: 3px solid var(--teal);
+  }
+  .dir-strike {
+    color: var(--red);
+    text-decoration: line-through;
+    text-decoration-thickness: 3px;
+  }
+  .dir-dek {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: var(--ink);
+    max-width: 34ch;
+  }
+  .dir-scroll { margin-top: 2.5rem; }
+
+  /* ---- clauses ---- */
+  .dir-card,
+  .dir-close {
+    padding: 2.75rem 0;
+    border-top: 1px solid var(--rule);
+  }
+  .dir-card h2 {
+    margin: 0.6rem 0 1.25rem;
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: clamp(1.3rem, 5.2vw, 1.75rem);
+    line-height: 1.24;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .dir-card--turn h2 { color: var(--teal); }
+
+  .dir-note {
+    margin-top: 1.5rem;
+    padding: 0.1rem 0 0.1rem 0.9rem;
+    border-left: 3px solid var(--red);
+    font-size: 0.97rem;
+  }
+
+  /* ---- the two questions ---- */
+  .dir-ask {
+    margin: 1.75rem 0;
+    padding: 1.1rem 1.2rem;
+    background: rgba(10, 106, 99, 0.07);
+    border-left: 3px solid var(--teal);
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: clamp(1.05rem, 4.2vw, 1.3rem);
+    line-height: 1.35;
+    font-weight: 500;
+    color: var(--teal);
+  }
+  .dir-ask span {
+    display: block;
+    margin-top: 0.7rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: var(--dim);
+  }
+  .dir-ask--alt {
+    background: none;
+    border-left-style: dashed;
+  }
+
+  /* ---- figures ---- */
+  .dir-fig { margin: 1.75rem 0; }
+  .dir-fig svg { width: 100%; height: auto; display: block; }
+  .dir-fig figcaption {
+    margin-top: 0.9rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--dim);
+  }
+  .dir-fig-h { margin-bottom: 0.9rem; }
+
+  .k-line { fill: none; stroke-width: 1.6; }
+  .k-ink-st { stroke: var(--ink); }
+  .k-dim-st { stroke: var(--dim); }
+  .k-red-st { stroke: var(--red); }
+  .k-teal-st { stroke: var(--teal); }
+  .k-dash { stroke-dasharray: 4 5; }
+  .k-red-fill { fill: var(--red); }
+  .k-teal-fill { fill: var(--teal); }
+  .k-dim-fill { fill: var(--dim); }
+  .k-band { stroke: none; }
+  .k-teal-band { fill: rgba(10, 106, 99, 0.18); }
+  .k-red-band { fill: rgba(180, 51, 31, 0.1); }
+  .k-cap {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  /* CSS beats the SVG presentation attribute, so set anchoring from classes. */
+  .dir text.k-cap { text-anchor: middle; }
+  .dir text.k-start { text-anchor: start; }
+
+  /* ---- evidence ladder ---- */
+  .dir-ladder { margin: 1.75rem 0 0; padding: 0; list-style: none; }
+  .rung {
+    position: relative;
+    margin-left: 0.3rem;
+    padding: 0.75rem 0 0.9rem 1.5rem;
+    border-left: 2px solid var(--rule);
+  }
+  .rung::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 1.15rem;
+    width: 10px;
+    height: 10px;
+    background: #cdc7b9;
+  }
+  .rung:last-child { border-left-color: var(--teal); }
+  .rung--3::before,
+  .rung--4::before { background: var(--teal); }
+  .rung--3, .rung--4 { border-left-color: var(--teal); }
+  .rung--0::before { background: var(--red); }
+  .rung-h {
+    margin: 0 0 0.3rem;
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .rung-k {
+    margin-right: 0.55rem;
+    font-size: 0.7rem;
+  }
+  .rung--0 .rung-k { color: var(--red); }
+  .rung--3 .rung-k,
+  .rung--4 .rung-k { color: var(--teal); }
+  .rung-d { margin: 0; font-size: 0.95rem; line-height: 1.5; }
+
+  /* ---- the four questions ---- */
+  .dir-spec { margin: 1.5rem 0 0; padding: 0; list-style: none; counter-reset: sp; }
+  .dir-spec li {
+    padding: 0.9rem 0;
+    border-top: 1px solid var(--rule);
+    counter-increment: sp;
+  }
+  .sp-q {
+    display: block;
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .sp-q::before {
+    content: counter(sp, decimal-leading-zero) ' / ';
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+    color: var(--teal);
+  }
+  .sp-d { display: block; margin-top: 0.3rem; font-size: 0.95rem; line-height: 1.5; }
+
+  /* ---- the model answer ---- */
+  .dir-quote {
+    margin: 0;
+    padding: 1.2rem 1.3rem;
+    background: rgba(23, 23, 26, 0.04);
+    border: 1px dashed var(--rule);
+    font-size: 1.08rem;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+
+  /* ---- closer ---- */
+  .dir-close { border-top: 3px solid var(--ink); }
+  .dir-close .dir-num { color: var(--ink); }
+  .dir-shout {
+    margin: 1rem 0 1.5rem;
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: clamp(1.5rem, 6vw, 2.2rem);
+    line-height: 1.16;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+  }
+
+  /* ---- title block ---- */
+  .dir-foot {
+    padding: 2.5rem 0 0;
+    border-top: 1px solid var(--rule);
+    font-size: 0.92rem;
+    color: var(--dim);
+  }
+  .dir-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin: 0 0 2rem;
+    /* Only the top and left come from the container; each cell draws its own
+       right and bottom, so the outer edge never doubles up. */
+    border: 1px solid var(--rule);
+    border-width: 1px 0 0 1px;
+  }
+  .dir-block > div {
+    padding: 0.6rem 0.75rem;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .dir-block dt { margin: 0 0 0.2rem; }
+  .dir-block dd {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--ink);
+  }
+  .dir-back { margin-top: 1.75rem; display: flex; gap: 1.5rem; }
+
+  @media (min-width: 40rem) {
+    .dir { padding: 1.25rem; }
+    .dir-sheet { min-height: calc(100vh - 2.5rem); }
+    .dir-inner { padding: 0 2.5rem 4rem; }
+    .dir-block { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  /* ---- present mode (?present), for projection ---- */
+  :global(html.present) .dir { font-size: 1.3rem; }
+  :global(html.present) .dir-inner { max-width: 52rem; }
+  :global(html.present) .dir-foot { display: none; }
+</style>
