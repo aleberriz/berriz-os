@@ -1,0 +1,767 @@
+---
+/**
+ * Field note: "Gen AI without data is a house on stilts"
+ * → /field-notes/gen-ai-without-data/
+ *
+ * Its own look, and deliberately neither of the other two bare notes: a
+ * harbour cutaway. The page is split by a waterline that runs through every
+ * section, sky above and dark water below, with Archivo Black caption type
+ * borrowed from the meme it opens with.
+ *
+ * The hero drawing is original work, drawn here in SVG rather than borrowed
+ * from the circulating "AI FIRST / DATA FIRST" meme, whose author is unknown.
+ * Same joke, our own pencil.
+ *
+ * Inter is already loaded site-wide (ThemeHead.astro); only Archivo and
+ * Archivo Black are imported here.
+ */
+---
+
+<div class="gnd">
+  <div class="gnd-inner">
+    <!-- ============ HERO ============ -->
+    <section class="gnd-hero">
+      <p class="gnd-kicker">Field note &middot; AI and the semantic layer</p>
+      <h1>&ldquo;AI first&rdquo; is a house on stilts.</h1>
+      <p class="gnd-dek">
+        Agentic workflows are a context problem. Everyone rents the same
+        models. What differs between two teams is the quality of the ground
+        they built on.
+      </p>
+
+      <!-- ============ THE DRAWING ============ -->
+      <figure class="gnd-meme">
+        <div class="gnd-panels">
+          <!-- ---- panel A: AI first ---- -->
+          <svg viewBox="0 0 260 330" role="img" aria-labelledby="gnd-a">
+            <title id="gnd-a"
+              >Cutaway of a large ornate building sitting above the waterline
+              on thin crossed piles. Several piles are snapped and none of them
+              reach the rock below.</title
+            >
+            <rect x="0" y="0" width="260" height="150" class="g-sky" />
+            <rect x="0" y="150" width="260" height="180" class="g-water" />
+
+            <!-- the building -->
+            <g transform="rotate(-4 130 150)">
+              <rect x="38" y="46" width="172" height="104" class="g-wall" />
+              <rect x="146" y="18" width="64" height="30" class="g-wall" />
+              <rect x="38" y="40" width="172" height="8" class="g-trim" />
+              <!-- rooftop pool and parasols -->
+              <rect x="56" y="26" width="52" height="14" class="g-pool" />
+              <path d="M120 40 V24" class="g-thin" />
+              <path d="M107 24 L133 24 L120 11 Z" class="g-para" />
+              <path d="M158 18 V13" class="g-thin" />
+              <path d="M150 13 L166 13 L158 7 Z" class="g-para" />
+              <!-- windows -->
+              <g class="g-win">
+                <rect x="50" y="58" width="16" height="20" />
+                <rect x="74" y="58" width="16" height="20" />
+                <rect x="98" y="58" width="16" height="20" />
+                <rect x="122" y="58" width="16" height="20" />
+                <rect x="146" y="58" width="16" height="20" />
+                <rect x="170" y="58" width="16" height="20" />
+                <rect x="50" y="88" width="16" height="20" />
+                <rect x="74" y="88" width="16" height="20" />
+                <rect x="122" y="88" width="16" height="20" />
+                <rect x="146" y="88" width="16" height="20" />
+                <rect x="170" y="88" width="16" height="20" />
+                <rect x="50" y="118" width="16" height="20" />
+                <rect x="98" y="118" width="16" height="20" />
+                <rect x="146" y="118" width="16" height="20" />
+                <rect x="170" y="118" width="16" height="20" />
+              </g>
+              <!-- cracks -->
+              <path d="M96 88 l8 14 -7 10 9 16 -6 12" class="g-crack" />
+              <path d="M188 46 l-6 18 8 14 -5 20" class="g-crack" />
+            </g>
+
+            <!-- piles: crossed, snapped, short of rock -->
+            <g class="g-pile">
+              <path d="M52 150 L86 236" />
+              <path d="M96 150 L58 230" />
+              <path d="M112 150 L140 244" />
+              <path d="M170 150 L146 214" />
+              <path d="M158 226 L150 252" />
+              <path d="M196 150 L214 218" />
+              <path d="M214 232 L206 258" />
+            </g>
+            <!-- loose rubble on the bed -->
+            <g class="g-rubble">
+              <rect x="44" y="286" width="24" height="10" transform="rotate(-12 56 291)" />
+              <rect x="96" y="292" width="20" height="9" transform="rotate(7 106 296)" />
+              <rect x="150" y="284" width="26" height="10" transform="rotate(-5 163 289)" />
+              <rect x="198" y="293" width="18" height="9" transform="rotate(14 207 297)" />
+            </g>
+            <path d="M0 304 h260" class="g-bed" />
+            <rect x="0" y="306" width="260" height="24" class="g-rock" />
+
+            <text x="130" y="122" class="g-shout">AI FIRST</text>
+          </svg>
+
+          <!-- ---- panel B: data first ---- -->
+          <svg viewBox="0 0 260 330" role="img" aria-labelledby="gnd-b">
+            <title id="gnd-b"
+              >Cutaway of a small plain cottage above the waterline, sitting on
+              a wide column of stacked stone blocks that reaches the rock on
+              the seabed.</title
+            >
+            <rect x="0" y="0" width="260" height="150" class="g-sky" />
+            <rect x="0" y="150" width="260" height="180" class="g-water" />
+
+            <!-- the cottage -->
+            <rect x="100" y="100" width="62" height="50" class="g-wall" />
+            <path d="M92 100 L131 70 L170 100 Z" class="g-roof" />
+            <rect x="148" y="72" width="10" height="16" class="g-wall" />
+            <g class="g-win">
+              <rect x="110" y="112" width="14" height="14" />
+              <rect x="138" y="112" width="14" height="14" />
+            </g>
+            <!-- a little planting, because the small house is the happy one -->
+            <g class="g-shrub">
+              <circle cx="88" cy="143" r="7" />
+              <circle cx="95" cy="147" r="5" />
+              <circle cx="176" cy="141" r="8" />
+              <circle cx="167" cy="146" r="5" />
+            </g>
+
+            <!-- the pier: stacked courses, staggered joints, on rock -->
+            <g class="g-block">
+              <rect x="86" y="150" width="90" height="154" />
+              <path d="M86 176 h90 M86 202 h90 M86 228 h90 M86 254 h90 M86 280 h90" class="g-joint" />
+              <path
+                d="M116 150 v26 M146 150 v26 M101 176 v26 M131 176 v26 M161 176 v26 M116 202 v26 M146 202 v26 M101 228 v26 M131 228 v26 M161 228 v26 M116 254 v26 M146 254 v26 M101 280 v24 M131 280 v24 M161 280 v24"
+                class="g-joint"
+              />
+            </g>
+            <path d="M0 304 h260" class="g-bed" />
+            <rect x="0" y="306" width="260" height="24" class="g-rock" />
+
+            <text x="130" y="248" class="g-shout">DATA FIRST</text>
+          </svg>
+        </div>
+        <figcaption>
+          Drawn here rather than reposted. The joke has been going around
+          without an author attached to it, and it is too good to pass on
+          unsigned.
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- ============ 01 ============ -->
+    <section class="gnd-card">
+      <p class="gnd-num">01 &nbsp;&middot;&nbsp; Above and below</p>
+      <h2>The part that gets demoed is the part above the water.</h2>
+      <p>
+        A launch video shows the agent answering a question in plain English.
+        It does not show which table the answer came from, which rows were
+        excluded, or who decided that a canceled trial still counts as a
+        customer. Those choices are underwater, and they are the ones that
+        decide whether the answer holds up in week six.
+      </p>
+      <p>
+        Both buildings in the drawing were finished. Only one of them was
+        photographed. The difference between them is not ambition or taste. It
+        is whether somebody drove the piles down to rock before the floors went
+        up.
+      </p>
+    </section>
+
+    <!-- ============ 02 ============ -->
+    <section class="gnd-card">
+      <p class="gnd-num">02 &nbsp;&middot;&nbsp; The rented part</p>
+      <h2>The gen AI model is the one thing your competitor can copy this afternoon.</h2>
+      <p>
+        The gen AI model, to be clear, and not the data models in your
+        warehouse. Those are the slow part. Frontier models come from a
+        handful of shops, and switching between them is a config change.
+        Whatever advantage a team holds because of which one it picked has a
+        shelf life measured in months.
+      </p>
+      <p>
+        What nobody can copy quickly is a definition of <em>active
+        subscriber</em> that survived three arguments with finance, a join
+        graph that has been checked for fan-out, and a written record of which
+        tables are safe to trust before 9am. That is the context an agent runs
+        on, and it is slow, unglamorous, local work.
+      </p>
+      <p class="gnd-note">
+        An agentic workflow is a loop of tool calls against your systems. Each
+        call is only as good as the context it was handed. The loop does not
+        improve bad context, it repeats it faster and in a more convincing tone
+        of voice.
+      </p>
+    </section>
+
+    <!-- ============ 03 ============ -->
+    <section class="gnd-card">
+      <p class="gnd-num">03 &nbsp;&middot;&nbsp; The pile schedule</p>
+      <h2>What &ldquo;quality context&rdquo; means when you have to build it.</h2>
+      <p>
+        Context is a vague word, which is why it survives so many strategy
+        decks. Broken into piles, it is a short and concrete list. This is not
+        a rival to staging, intermediate, and mart. That framing answers where
+        a transformation lives. This one answers what has to be true at the
+        moment the agent makes a call, which a perfectly layered warehouse can
+        still get wrong.
+      </p>
+      <ol class="gnd-spec">
+        <li>
+          <span class="sp-q">Meaning</span>
+          <span class="sp-d"
+            >What the business calls a subscriber, a churn, a month. Including
+            the exclusions, which is where the arguments live.</span
+          >
+        </li>
+        <li>
+          <span class="sp-q">Grain</span>
+          <span class="sp-d"
+            >The level each fact table is stored at. Get it wrong and every
+            answer above it is plausible and mathematically false.</span
+          >
+        </li>
+        <li>
+          <span class="sp-q">Joins</span>
+          <span class="sp-d"
+            >Which paths are valid and which duplicate revenue across marketing
+            events. An agent will happily take either.</span
+          >
+        </li>
+        <li>
+          <span class="sp-q">Freshness</span>
+          <span class="sp-d"
+            >When each table last landed, exposed to the agent rather than
+            buried in an orchestration log.</span
+          >
+        </li>
+        <li>
+          <span class="sp-q">Grants</span>
+          <span class="sp-d"
+            >Who the agent is acting for, and what that person is allowed to
+            see. A helpful agent with a service account is a data leak with
+            good manners.</span
+          >
+        </li>
+        <li>
+          <span class="sp-q">Contracts</span>
+          <span class="sp-d"
+            >What each interface promises: the columns, the types, the
+            nullability, the grain, and who gets paged when the promise
+            breaks. A contract is the only part of this list a producer can
+            violate by accident.</span
+          >
+        </li>
+        <li>
+          <span class="sp-q">Tests</span>
+          <span class="sp-d"
+            >The promises above, enforced on every build rather than believed.
+            Uniqueness, referential integrity, accepted values, freshness
+            thresholds. A definition nobody tests is a comment.</span
+          >
+        </li>
+        <li>
+          <span class="sp-q">Provenance</span>
+          <span class="sp-d"
+            >Which of the above a human has actually reviewed, and when. The
+            pile you never inspected is the one that snapped.</span
+          >
+        </li>
+      </ol>
+      <p class="gnd-note">
+        Guardrails are a different axis, and worth naming separately. The list
+        above is what the agent is given. Guardrails are what it is refused:
+        read-only credentials, row caps, a fixed set of exposed topics, and no
+        path to the warehouse that bypasses the layer. Context makes the
+        answer right. Guardrails bound what a wrong one can cost.
+      </p>
+      <p class="gnd-note">
+        None of these are gen AI problems, and none of them get better when
+        the next model ships.
+      </p>
+    </section>
+
+    <!-- ============ 04 ============ -->
+    <section class="gnd-card">
+      <p class="gnd-num">04 &nbsp;&middot;&nbsp; The silt</p>
+      <h2>An agent let loose on a spaghetti warehouse fails the way people do, only faster.</h2>
+      <p>
+        Point an agent at a warehouse with no tested pipelines, no
+        documentation, no separation between staging, intermediate, and mart
+        models, no dimensional modeling worth the name, and no record of why
+        anything was built the way it was. It will join whatever looks
+        joinable. So does every analyst who has ever been handed that
+        warehouse. The agent is not making a new class of mistake, it is
+        making the usual one at machine speed and in a confident paragraph.
+      </p>
+      <p>
+        Analytics engineering is the pile driving. Tests that fail the build
+        when a key stops being unique. A staging layer that renames and casts
+        once, so nobody downstream invents a second version of the truth. Mart
+        models shaped as facts and dimensions, at a stated grain, so a
+        question about products cannot quietly be answered at order grain.
+      </p>
+      <p class="gnd-note">
+        And the decision records. Most of what an agent needs to know is not
+        which model exists but why it was built that way: why revenue excludes
+        credits, why the trial table is snapshotted nightly, which trade-off
+        was accepted and what it costs. An architecture decision record is
+        context written down at the moment the judgment was made, which is the
+        only moment anyone remembers it.
+      </p>
+      <p>
+        No amount of prompt engineering substitutes for that work. A retrieval
+        step over bad models retrieves bad models.
+      </p>
+    </section>
+
+    <!-- ============ 05 ============ -->
+    <section class="gnd-card">
+      <p class="gnd-num">05 &nbsp;&middot;&nbsp; The new failure mode</p>
+      <h2>Bad data used to look wrong. Now it reads well.</h2>
+      <p>
+        A dashboard with a broken join shows a number that somebody in the room
+        finds odd. That person is the safety net, and the net has been holding
+        for twenty years of BI.
+      </p>
+      <p>
+        An agent with the same broken join writes a fluent paragraph, cites the
+        metric by name, and recommends a budget shift. There is no visual tell.
+        The reader has no reason to doubt it, and often no way to check it.
+      </p>
+      <p>
+        Agentic workflows take the human out of the read path, so the checking
+        has to move upstream into the definitions. That is the whole argument
+        for the semantic layer, restated by the technology that made it
+        urgent.
+      </p>
+    </section>
+
+    <!-- ============ 06 ============ -->
+    <section class="gnd-card">
+      <p class="gnd-num">06 &nbsp;&middot;&nbsp; The translation problem</p>
+      <h2>English is vague on purpose. SQL is not allowed to be.</h2>
+      <p>
+        The imprecision of human language is a feature. Ambiguity is what
+        gives us poetry, irony, diplomacy, and the ability to say something
+        useful before we have pinned down every term. Strip it out and you do
+        not get a better language, you get a programming language.
+      </p>
+      <p>
+        &ldquo;How many active customers do we have in France?&rdquo; is a
+        perfectly good English sentence and an underspecified query. Active
+        when, by which signal? A customer at the account level or the seat
+        level? France by billing address, by IP, or by the sales territory
+        that owns the account? A human analyst resolves those silently, from
+        context, and gets it right often enough that nobody notices the
+        resolution happened.
+      </p>
+      <p>
+        So expecting plain English to compile into accurate, reproducible
+        analytics is asking one language to do a job its grammar was never
+        built for. Ask the same question twice and a model may resolve it two
+        different ways, both defensible, both producing a different number.
+        For a decision you have to stand behind, that is not an answer.
+      </p>
+      <p class="gnd-note">
+        The semantic layer is where the ambiguity gets resolved once, in the
+        open, by people who are accountable for the choice. The agent then
+        picks from a set of defined terms rather than inventing a reading of
+        yours. The question stays in English. The answer comes from something
+        deterministic.
+      </p>
+    </section>
+
+    <!-- ============ 07 ============ -->
+    <section class="gnd-card">
+      <p class="gnd-num">07 &nbsp;&middot;&nbsp; The quiet side effect</p>
+      <h2>Gen AI may be the killer app the semantic layer was waiting for.</h2>
+      <p>
+        The idea is old. Looker shipped modeled metrics in LookML more than a
+        decade ago, and dbt, Cube, and the BI vendors have each carried their
+        own YAML conventions for years. Adoption stayed patchy, because a good
+        analyst could compensate. They knew which field was a trap, and they
+        patched the model in their head on the way to the answer.
+      </p>
+      <p>
+        Agents cannot patch anything in their heads. Hand one an ambiguous
+        field and it will pick a reading and commit to it. Suddenly the
+        <code>.yaml</code> file that nobody wanted to maintain is the difference
+        between an assistant and a liability, and the conventions are
+        converging: the Open Semantic Interchange spec defines an
+        <code>ai_context</code> field at model, dataset, field, and metric
+        level, and Omni implements it under the same name.
+      </p>
+      <p>
+        OSI marks that field optional. Treat it as required. It is the only
+        channel through which your semantic layer tells an agent what it
+        actually meant.
+      </p>
+      <p>
+        The industry settled on <em>semantic layer</em>, and I use it because
+        that is the word people search for. I prefer <strong>data context
+        layer</strong>. &ldquo;Semantic&rdquo; describes what the thing is
+        made of. &ldquo;Context&rdquo; describes what it is for, and it is
+        already the word agent builders reach for when they explain why their
+        assistant got the answer wrong. The layer exists to hand a consumer,
+        human or otherwise, the context required to read a number correctly.
+        Name it after the job.
+      </p>
+      <p class="gnd-note">
+        Who writes those fields is a governance question rather than a turf
+        one. My argument for the split, analyst-defined, engineer-constrained,
+        published only on joint sign-off, is written up in
+        <a
+          href="https://github.com/aleberriz/intelligence-layer/blob/main/semantic-layer/frameworks/ownership-model.md"
+          >the semantic layer ownership model</a
+        >.
+      </p>
+    </section>
+
+    <!-- ============ 08 ============ -->
+    <section class="gnd-card">
+      <p class="gnd-num">08 &nbsp;&middot;&nbsp; Before the floors go up</p>
+      <h2>Work in two tiers, and start in the one that cannot break anything.</h2>
+      <p>
+        Nobody approves a foundation in the abstract. Stakeholders need to see
+        the thing before they can tell you what is wrong with it, which is an
+        argument for prototyping, not an argument for skipping the piles. Run
+        a sandbox tier and a governed tier, and make the route between them
+        one way.
+      </p>
+      <ol class="gnd-spec gnd-spec--steps">
+        <li>
+          <span class="sp-q">Write down the ten questions</span>
+          <span class="sp-d"
+            >The ten the business actually asks every week. Not the hundred it
+            might ask one day.</span
+          >
+        </li>
+        <li>
+          <span class="sp-q">Prototype in a sandbox, fast and visibly</span>
+          <span class="sp-d"
+            >Mock it up until somebody reacts to it. The sandbox has two hard
+            rules: it cannot write to or degrade the warehouse, and
+            stakeholders get no endpoint to point their own agents at. A demo
+            people can build on is how a prototype becomes production without
+            anyone deciding that it should.</span
+          >
+        </li>
+        <li>
+          <span class="sp-q">Define every term the prototype exposed</span>
+          <span class="sp-d"
+            >In business language, with the exclusions spelled out, in the
+            layer rather than in a wiki page. The prototype earns its cost
+            here: it surfaces the arguments about meaning that a requirements
+            doc never does.</span
+          >
+        </li>
+        <li>
+          <span class="sp-q">Put a name on each definition</span>
+          <span class="sp-d"
+            >One person who answers for the meaning, one who answers for the
+            math, and no publishing without both.</span
+          >
+        </li>
+        <li>
+          <span class="sp-q">Promote it, do not graduate it</span>
+          <span class="sp-d"
+            >Hand the prototype to the analytics engineer and the data
+            engineer as a specification, not as a foundation. They rebuild it
+            as real dimensional models, congruent with the rest of the
+            codebase and the rest of the layer. Sandbox work that gets
+            promoted by being left running is how the palace on silt gets
+            built.</span
+          >
+        </li>
+        <li>
+          <span class="sp-q">Let the agent answer the ten</span>
+          <span class="sp-d"
+            >Then log every wrong answer against the definition that caused
+            it. That log is your pile inspection report.</span
+          >
+        </li>
+        <li>
+          <span class="sp-q">Ship the narrow thing</span>
+          <span class="sp-d"
+            >A cottage on rock beats a palace on silt, and it can be extended
+            later. The palace can only be evacuated.</span
+          >
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============ CLOSER ============ -->
+    <section class="gnd-close">
+      <p class="gnd-num">The job</p>
+      <p class="gnd-shout">Drive the piles, then argue about the pool.</p>
+      <p>
+        The pressure to start above the waterline is real, and it comes with a
+        deadline attached. Start below it anyway. The demo you can give in
+        three months is the one that still works in twelve, and the work it
+        rests on outlives whichever model you are renting this quarter.
+      </p>
+    </section>
+
+    <!-- ============ TITLE BLOCK ============ -->
+    <footer class="gnd-foot">
+      <dl class="gnd-block">
+        <div><dt>Note</dt><dd>Gen AI without data</dd></div>
+        <div><dt>Field</dt><dd>AI and the semantic layer</dd></div>
+        <div><dt>Drawn by</dt><dd>Alejandro Berrizbeitia</dd></div>
+        <div><dt>Founding</dt><dd>On rock</dd></div>
+      </dl>
+      <p class="gnd-foot-h">Go deeper</p>
+      <p>
+        <a
+          href="https://github.com/aleberriz/intelligence-layer/blob/main/semantic-layer/frameworks/ownership-model.md"
+          >Semantic layer ownership model</a
+        >. Who defines meaning, who validates correctness, and why neither
+        should publish alone once an agent is reading the output.
+      </p>
+      <p>
+        <a href="https://open-semantic-interchange.org/">Open Semantic Interchange</a>.
+        The cross-vendor spec where <code>ai_context</code> lives.
+      </p>
+      <p class="gnd-back">
+        <a href="/field-notes/">← All field notes</a>
+        <a href="/">aleberriz.com</a>
+      </p>
+    </footer>
+  </div>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600&display=swap');
+
+  .gnd {
+    --sky: #12303f;
+    --deep: #041820;
+    --sea: #0a3a47;
+    --foam: #7fd8d2;
+    --amber: #f6b93b;
+    --coral: #ff6f59;
+    --body: #cfe0e4;
+    --dim: #7d97a1;
+    --rule: rgba(127, 216, 210, 0.16);
+
+    min-height: 100vh;
+    color: var(--body);
+    /* the waterline runs down the whole page, not just the drawing */
+    background:
+      linear-gradient(180deg, #0d2532 0 240px, var(--deep) 560px),
+      var(--deep);
+    font-family: Archivo, Inter, ui-sans-serif, system-ui, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+
+  .gnd-inner {
+    max-width: 42rem;
+    margin: 0 auto;
+    padding: 0 1.25rem 4rem;
+  }
+
+  .gnd p { margin: 0 0 1.05rem; }
+  .gnd a { color: var(--foam); text-underline-offset: 3px; }
+  .gnd a:hover { color: var(--amber); }
+  .gnd code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.9em;
+    color: var(--amber);
+  }
+
+  .gnd-kicker,
+  .gnd-num,
+  .gnd-foot-h,
+  .gnd-back,
+  .gnd-block dt {
+    font-family: Archivo, Inter, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--dim);
+  }
+
+  /* ---------- hero ---------- */
+  .gnd-hero { padding: 4rem 0 3rem; }
+  .gnd-hero h1 {
+    margin: 1.1rem 0 1.25rem;
+    font-family: 'Archivo Black', Archivo, Inter, sans-serif;
+    font-size: clamp(2.2rem, 9.5vw, 3.5rem);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    color: #fff;
+    text-wrap: balance;
+  }
+  .gnd-dek {
+    font-size: 1.15rem;
+    color: #a8c2c9;
+    max-width: 38ch;
+  }
+
+  /* ---------- the drawing ---------- */
+  .gnd-meme { margin: 2.5rem 0 0; }
+  .gnd-panels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+    background: rgba(127, 216, 210, 0.22);
+    border: 2px solid rgba(127, 216, 210, 0.22);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .gnd-panels svg {
+    flex: 1 1 210px;
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .gnd-meme figcaption {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    color: var(--dim);
+  }
+
+  .g-sky { fill: #1d4257; }
+  .g-water { fill: #0a3546; }
+  .g-rock { fill: #05141b; }
+  .g-bed {
+    stroke: #7fd8d2;
+    stroke-opacity: 0.45;
+    stroke-width: 2;
+    fill: none;
+  }
+  .g-wall { fill: #e8ddc6; stroke: #05141b; stroke-width: 2; }
+  .g-trim { fill: #c9b998; stroke: #05141b; stroke-width: 2; }
+  .g-roof { fill: #e2704a; stroke: #05141b; stroke-width: 2; }
+  .g-pool { fill: #56c2d6; stroke: #05141b; stroke-width: 2; }
+  .g-win rect { fill: #1d4257; stroke: #05141b; stroke-width: 1.5; }
+  .g-para { fill: #e2704a; stroke: #05141b; stroke-width: 2; stroke-linejoin: round; }
+  .g-thin { fill: none; stroke: #05141b; stroke-width: 2; stroke-linecap: round; }
+  .g-crack { fill: none; stroke: #c0392b; stroke-width: 2; stroke-linejoin: round; }
+  .g-pile path {
+    fill: none;
+    stroke: #b98a4e;
+    stroke-width: 7;
+    stroke-linecap: round;
+  }
+  .g-shrub circle { fill: #4f8f6a; stroke: #05141b; stroke-width: 2; }
+  .g-rubble rect { fill: #9aa7ad; stroke: #05141b; stroke-width: 1.5; }
+  .g-block rect { fill: #9fb0b6; stroke: #05141b; stroke-width: 2; }
+  .g-joint {
+    fill: none;
+    stroke: #05141b;
+    stroke-width: 1.5;
+    stroke-opacity: 0.55;
+  }
+  .g-shout {
+    font-family: 'Archivo Black', Archivo, Impact, sans-serif;
+    font-size: 30px;
+    text-anchor: middle;
+    fill: #fff;
+    stroke: #05141b;
+    stroke-width: 6;
+    paint-order: stroke fill;
+    letter-spacing: 0.01em;
+  }
+
+  /* ---------- sections ---------- */
+  .gnd-card,
+  .gnd-close {
+    padding: 3rem 0;
+    border-top: 1px solid var(--rule);
+  }
+  .gnd-card h2,
+  .gnd-close h2 {
+    margin: 0.55rem 0 1.2rem;
+    font-family: 'Archivo Black', Archivo, Inter, sans-serif;
+    font-size: clamp(1.5rem, 6.2vw, 2.05rem);
+    line-height: 1.14;
+    letter-spacing: -0.015em;
+    color: #fff;
+    text-wrap: balance;
+  }
+
+  .gnd-note {
+    margin-top: 1.5rem;
+    padding: 0.9rem 0 0.9rem 1.1rem;
+    border-left: 3px solid var(--amber);
+    font-size: 0.99rem;
+    color: #b6cbd1;
+  }
+
+  /* ---------- numbered specs ---------- */
+  .gnd-spec {
+    margin: 1.5rem 0 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: pile;
+  }
+  .gnd-spec li {
+    position: relative;
+    padding: 0.85rem 0 0.85rem 2.5rem;
+    border-top: 1px solid var(--rule);
+  }
+  .gnd-spec li::before {
+    counter-increment: pile;
+    content: counter(pile, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 1rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--foam);
+  }
+  .sp-q {
+    display: block;
+    font-family: 'Archivo Black', Archivo, sans-serif;
+    font-size: 1.02rem;
+    color: #fff;
+  }
+  .sp-d {
+    display: block;
+    margin-top: 0.3rem;
+    font-size: 0.97rem;
+    color: #b6cbd1;
+  }
+  .gnd-spec--steps li::before { color: var(--amber); }
+
+  /* ---------- closer ---------- */
+  .gnd-shout {
+    font-family: 'Archivo Black', Archivo, Inter, sans-serif;
+    font-size: clamp(1.8rem, 8vw, 2.6rem);
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+    color: var(--amber);
+    text-wrap: balance;
+  }
+
+  /* ---------- title block ---------- */
+  .gnd-foot {
+    padding: 2.5rem 0 0;
+    border-top: 1px solid var(--rule);
+    font-size: 0.95rem;
+  }
+  .gnd-block {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    margin: 0 0 2rem;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+  .gnd-block > div { padding: 0.7rem 0.85rem; background: var(--deep); }
+  .gnd-block dt { margin-bottom: 0.15rem; }
+  .gnd-block dd { margin: 0; color: #fff; }
+  .gnd-foot-h { margin-bottom: 0.6rem; color: var(--foam); }
+  .gnd-back { display: flex; gap: 1.5rem; padding-top: 1rem; }
+
+  @media (min-width: 40rem) {
+    .gnd-block { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  }
+
+  /* ---------- present mode ---------- */
+  :global(html.present) .gnd { font-size: 1.2rem; }
+</style>
