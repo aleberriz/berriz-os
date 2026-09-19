@@ -1,0 +1,54 @@
+---
+/**
+ * Which icon shows is decided by CSS in styles/global.css, matching the same
+ * cascade that picks the theme. That keeps the button correct on first paint
+ * without JavaScript having to set anything.
+ */
+---
+
+<button
+  type="button"
+  class="theme-toggle shrink-0 rounded p-1.5 text-ink-muted transition-colors hover:text-ink"
+  aria-label="Switch between light and dark theme"
+>
+  <svg
+    class="theme-toggle__light h-4 w-4"
+    viewBox="0 0 20 20"
+    fill="currentColor"
+    aria-hidden="true"
+  >
+    <path
+      d="M10 14a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0 3a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1Zm0-16a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V2a1 1 0 0 1 1-1Zm9 9a1 1 0 0 1-1 1h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1ZM3 10a1 1 0 0 1-1 1H1a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1Zm13.07 6.07a1 1 0 0 1-1.41 0l-.71-.71a1 1 0 0 1 1.41-1.41l.71.7a1 1 0 0 1 0 1.42ZM5.64 5.64a1 1 0 0 1-1.41 0l-.71-.71a1 1 0 0 1 1.42-1.41l.7.71a1 1 0 0 1 0 1.41Zm0 8.72a1 1 0 0 1 0 1.41l-.7.71a1 1 0 0 1-1.42-1.41l.71-.71a1 1 0 0 1 1.41 0ZM16.07 3.93a1 1 0 0 1 0 1.41l-.71.71a1 1 0 0 1-1.41-1.41l.71-.71a1 1 0 0 1 1.41 0Z"
+    ></path>
+  </svg>
+  <svg
+    class="theme-toggle__dark h-4 w-4"
+    viewBox="0 0 20 20"
+    fill="currentColor"
+    aria-hidden="true"
+  >
+    <path d="M17.29 11.29A8 8 0 0 1 6.71 2.71a8 8 0 1 0 10.58 8.58Z"></path>
+  </svg>
+</button>
+
+<script>
+  const root = document.documentElement;
+
+  function currentTheme(): 'light' | 'dark' {
+    const explicit = root.dataset.theme;
+    if (explicit === 'dark' || explicit === 'light') return explicit;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
+  for (const button of document.querySelectorAll('.theme-toggle')) {
+    button.addEventListener('click', () => {
+      const next = currentTheme() === 'dark' ? 'light' : 'dark';
+      root.dataset.theme = next;
+      try {
+        localStorage.setItem('theme', next);
+      } catch {
+        /* Preference is not persisted; the toggle still works this visit. */
+      }
+    });
+  }
+</script>

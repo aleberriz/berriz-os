@@ -4,5 +4,5 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   site: 'https://aleberriz.com',
-  integrations: [mdx(), tailwind({ applyBaseStyles: true })],
+  integrations: [mdx(), tailwind({ applyBaseStyles: false })],
 });

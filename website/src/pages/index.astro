@@ -1,5 +1,22 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { byFeaturedThenDate } from '../lib/fieldNotes';
+
+const latestNotes = (await getCollection('cards')).sort(byFeaturedThenDate).slice(0, 3);
+
+const sections = [
+  {
+    href: '/building/',
+    title: 'Building',
+    blurb: 'Public repositories and side projects. Active work and what is in progress.',
+  },
+  {
+    href: '/writing/',
+    title: 'Writing',
+    blurb: 'Newsletter issues and long-form pieces.',
+  },
+];
 ---
 
 <BaseLayout
@@ -7,74 +24,82 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   description="Narratives in numbers. Forecasting, causal inference, and AI-assisted analytics evaluation — decision systems built on data."
 >
   <main class="mx-auto max-w-2xl px-6 py-14 md:py-20">
-    <h1 class="font-serif text-3xl font-semibold tracking-tight text-midnight dark:text-silver md:text-4xl">
+    <h1 class="font-serif text-3xl font-semibold tracking-tight text-ink md:text-4xl">
       Narratives in numbers.
     </h1>
-    <p class="mt-3 font-serif text-lg text-midnight/90 dark:text-silver/90 md:text-xl">
-      Forecasts, causal readouts, and evaluations of AI-generated analyses built for decisions, not reports.
+    <p class="mt-3 font-serif text-lg text-ink-body md:text-xl">
+      Forecasts, causal readouts, and evaluations of AI-generated analyses built for decisions, not
+      reports.
     </p>
-    <p class="mt-8 text-lg leading-relaxed text-ink-muted dark:text-silver">
+    <p class="mt-8 text-base leading-relaxed text-ink-body md:text-lg">
       I am a Senior Data Analyst at Kit and a Time Series and Forecasting professor at IE
-      University. I build forecasts across statistical and foundation models, causal
-      readouts from experiments and observational studies, and evaluations of AI-generated analysis
-      for correctness and decision-readiness. The goal: analysis a team can act on. Semantic layer
+      University. I build forecasts across statistical and foundation models, causal readouts from
+      experiments and observational studies, and evaluations of AI-generated analysis for
+      correctness and decision-readiness. The goal: analysis a team can act on. Semantic layer
       design is part of the infrastructure behind that work.
     </p>
 
-    <div class="mt-16 space-y-14">
-      <section>
-        <h2 class="font-serif text-xl font-semibold text-midnight dark:text-silver">Building</h2>
-        <p class="mt-3 leading-relaxed text-ink-muted dark:text-silver">
-          Public repositories and side projects. Active work and what is in progress.
-        </p>
-        <p class="mt-4">
-          <a
-            href="/building/"
-            class="font-medium text-midnight underline decoration-silver decoration-2 underline-offset-4 hover:decoration-midnight dark:text-silver dark:hover:text-ink-dark"
-          >
-            View building →
-          </a>
-        </p>
-      </section>
+    <!-- Field Notes leads with real titles rather than another blurb, so the
+         page opens on something to read instead of four identical signposts. -->
+    <section class="mt-16">
+      <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+        <h2 class="font-serif text-xl font-semibold text-ink">Field Notes</h2>
+        <a
+          href="/field-notes/"
+          class="text-sm font-medium text-accent underline underline-offset-4 hover:text-accent-hover"
+        >
+          All field notes →
+        </a>
+      </div>
+      <p class="mt-3 leading-relaxed text-ink-body">
+        Distilled lessons from a career in data and decisions. One core idea per card, written to be
+        cited and projected.
+      </p>
+      <ul class="mt-6 divide-y divide-line border-y border-line">
+        {
+          latestNotes.map((note) => (
+            <li>
+              <a href={`/field-notes/${note.slug}/`} class="group block py-4">
+                <span class="font-serif text-lg text-ink group-hover:underline">
+                  {note.data.title}
+                </span>
+                <span class="mt-1 block text-sm text-ink-muted">
+                  {note.data.date.toLocaleDateString('en-GB', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric',
+                  })}
+                  {note.data.tag && ` · ${note.data.tag}`}
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
 
-      <section>
-        <h2 class="font-serif text-xl font-semibold text-midnight dark:text-silver">Writing</h2>
-        <p class="mt-3 leading-relaxed text-ink-muted dark:text-silver">
-          Newsletter issues and long-form pieces.
-        </p>
-        <p class="mt-4">
-          <a
-            href="/writing/"
-            class="font-medium text-midnight underline decoration-silver decoration-2 underline-offset-4 hover:decoration-midnight dark:text-silver dark:hover:text-ink-dark"
-          >
-            View writing →
-          </a>
-        </p>
-      </section>
-
-      <section>
-        <h2 class="font-serif text-xl font-semibold text-midnight dark:text-silver">Field Notes</h2>
-        <p class="mt-3 leading-relaxed text-ink-muted dark:text-silver">
-          Distilled lessons from a career in data and decisions. One core idea
-          per card, written to be cited and projected.
-        </p>
-        <p class="mt-4">
-          <a
-            href="/field-notes/"
-            class="font-medium text-midnight underline decoration-silver decoration-2 underline-offset-4 hover:decoration-midnight dark:text-silver dark:hover:text-ink-dark"
-          >
-            View field notes →
-          </a>
-        </p>
-      </section>
-
-      <section>
-        <h2 class="font-serif text-xl font-semibold text-midnight dark:text-silver">Shelf</h2>
-        <p class="mt-3 leading-relaxed text-ink-muted dark:text-silver">
-          Books, papers, and essays worth returning to. Literature, history, analytics, philosophy
-          of science.
-        </p>
-      </section>
+    <div class="mt-14 grid gap-10 sm:grid-cols-2 sm:gap-8">
+      {
+        sections.map(({ href, title, blurb }) => (
+          <section>
+            <h2 class="font-serif text-xl font-semibold text-ink">{title}</h2>
+            <p class="mt-2 leading-relaxed text-ink-body">{blurb}</p>
+            <p class="mt-3">
+              <a
+                href={href}
+                class="font-medium text-accent underline underline-offset-4 hover:text-accent-hover"
+              >
+                View {title.toLowerCase()} →
+              </a>
+            </p>
+          </section>
+        ))
+      }
     </div>
+
+    <p class="mt-14 border-t border-line pt-6 text-sm text-ink-muted">
+      <span class="font-medium text-ink-body">Shelf</span> — books, papers, and essays worth
+      returning to. Literature, history, analytics, philosophy of science. In progress.
+    </p>
   </main>
 </BaseLayout>

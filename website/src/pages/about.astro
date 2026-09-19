@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { siteConfig } from '../site.config';
+
+const linkClass = 'text-accent underline underline-offset-4 hover:text-accent-hover';
 ---
 
 <BaseLayout
@@ -8,25 +10,39 @@ import { siteConfig } from '../site.config';
   description="Senior Data Analyst at Kit and Time Series and Forecasting professor at IE University. Forecasting, causal inference, and AI-assisted analytics evaluation."
 >
   <main class="mx-auto max-w-2xl px-6 py-14 md:py-20">
-    <h1 class="font-serif text-3xl font-semibold text-midnight dark:text-silver">About</h1>
+    <h1 class="font-serif text-3xl font-semibold text-ink">About</h1>
 
-    <div class="mt-8 flex items-start gap-6">
-      <img
-        src="/headshot.png"
-        alt="Alejandro Berrizbeitia"
-        width="140"
-        height="187"
-        class="hidden shrink-0 rounded-lg sm:block"
-        loading="lazy"
-      />
+    <!--
+      The headshot stacks above the bio on phones. It used to be `hidden
+      sm:block`, which meant no phone ever showed it, on the one page where
+      the photo does the most work.
+    -->
+    <div class="mt-8 flex flex-col gap-6 sm:flex-row sm:items-start">
+      <!--
+        Phones get the 95KB file instead of the 325KB one. At 112px wide that
+        is still a 1.9x render, so nothing visible is lost. `eager` because on
+        mobile the photo now sits above the fold.
+      -->
+      <picture class="shrink-0">
+        <source media="(max-width: 639px)" srcset="/headshot-small.png" />
+        <img
+          src="/headshot.png"
+          alt="Alejandro Berrizbeitia"
+          width="140"
+          height="187"
+          class="w-28 rounded-lg sm:w-[140px]"
+          loading="eager"
+          decoding="async"
+        />
+      </picture>
       <div
-        class="space-y-4 border-l-2 border-silver/60 pl-6 text-lg leading-relaxed text-ink-muted dark:border-silver/30 dark:text-silver"
+        class="space-y-4 border-line pl-0 text-base leading-relaxed text-ink-body sm:border-l-2 sm:pl-6 md:text-lg"
       >
         <p>
           I am a Senior Data Analyst at Kit and a Time Series and Forecasting professor at
           <a
             href="https://www.ie.edu/university/studies/academic-programs/dual-degree-in-business-administration-data-and-business-analytics/the-program/"
-            class="text-midnight underline dark:text-silver">IE University</a
+            class={linkClass}>IE University</a
           >.
         </p>
         <p>
@@ -41,47 +57,36 @@ import { siteConfig } from '../site.config';
         <p>
           My public repos are <a
             href="https://github.com/aleberriz/intelligence-layer"
-            class="text-midnight underline dark:text-silver">intelligence-layer</a
+            class={linkClass}>intelligence-layer</a
           >, a practitioner knowledge base on decision science methods, and <a
             href="https://github.com/aleberriz/agent-skills"
-            class="text-midnight underline dark:text-silver">agent-skills</a
-          >, reusable AI skill definitions for analytics workflows. I have also
-          written for the <a
+            class={linkClass}>agent-skills</a
+          >, reusable AI skill definitions for analytics workflows. I have also written for the <a
             href={siteConfig.ieBlogPostUrl}
-            class="text-midnight underline dark:text-silver">IE University blog</a
+            class={linkClass}>IE University blog</a
           >.
         </p>
         <p>
-          MEng in Telecommunications from <a
-            href="https://telecos.upc.edu/en"
-            class="text-midnight underline dark:text-silver">ETSETB-UPC</a
-          > (Barcelona School of Telecommunications Engineering, BarcelonaTech).
-          MBA from the <a
+          MEng in Telecommunications from <a href="https://telecos.upc.edu/en" class={linkClass}
+            >ETSETB-UPC</a
+          > (Barcelona School of Telecommunications Engineering, BarcelonaTech). MBA from the <a
             href="https://business.fiu.edu/index.html"
-            class="text-midnight underline dark:text-silver">FIU College of Business</a
-          > (Florida International University).
-          OKR Master (Betterworks). Trilingual: EN / ES / FR. FOSS-leaning. Perpetually reading.
+            class={linkClass}>FIU College of Business</a
+          > (Florida International University). OKR Master (Betterworks). Trilingual: EN / ES / FR.
+          FOSS-leaning. Perpetually reading.
         </p>
       </div>
     </div>
 
     <section class="mt-12">
-      <h2 class="font-serif text-lg font-semibold text-midnight dark:text-silver">Links</h2>
-      <ul class="mt-3 space-y-2 text-ink-muted dark:text-silver">
-        <li>
-          <a href={siteConfig.githubProfile} class="text-midnight underline dark:text-silver"
-            >GitHub</a
-          >
-        </li>
-        <li>
-          <a href={siteConfig.linkedinUrl} class="text-midnight underline dark:text-silver">
-            LinkedIn
-          </a>
-        </li>
+      <h2 class="font-serif text-lg font-semibold text-ink">Links</h2>
+      <ul class="mt-3 space-y-2 text-ink-body">
+        <li><a href={siteConfig.githubProfile} class={linkClass}>GitHub</a></li>
+        <li><a href={siteConfig.linkedinUrl} class={linkClass}>LinkedIn</a></li>
         {
           siteConfig.kitNewsletterUrl && (
             <li>
-              <a href={siteConfig.kitNewsletterUrl} class="text-midnight underline dark:text-silver">
+              <a href={siteConfig.kitNewsletterUrl} class={linkClass}>
                 Newsletter — <cite class="not-italic">The Trade-off</cite>
               </a>
             </li>
