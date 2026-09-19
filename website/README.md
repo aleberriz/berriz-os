@@ -162,7 +162,12 @@ src/components/field-notes/<Name>.astro   the entire design, scoped
 3. Build the design in the component. Keep the `.mdx` file to frontmatter plus the import — MDX is a poor place to write HTML and CSS, and putting the design in a real `.astro` file gets you scoped styles and proper syntax handling.
 4. Preview at `http://localhost:4321/field-notes/<slug>/`, **and check it at 390px wide.**
 
-Worked example: [`AbTestTrap.astro`](src/components/field-notes/AbTestTrap.astro), rendered at `/field-notes/fake-ab-test-trap/`.
+Worked examples, each with a deliberately different look:
+
+- [`AbTestTrap.astro`](src/components/field-notes/AbTestTrap.astro) → `/field-notes/fake-ab-test-trap/` — light graph paper, Space Grotesk display, SVG causal diagrams.
+- [`DirectionalAnswer.astro`](src/components/field-notes/DirectionalAnswer.astro) → `/field-notes/directional-answer-trap/` — manila spec sheet inside a drafting border, IBM Plex Mono display, clause numbering, engineering title block.
+
+Two custom notes should not look like each other. A shared house style for bare notes would defeat the point of the escape hatch.
 
 #### Rules, each of which has already broken a build
 
