@@ -65,7 +65,7 @@ LinkedIn and GitHub profile URLs are hardcoded in `src/site.config.ts`. The IE b
 | `tag` | no | A short theme label (e.g. `causal-inference`, `semantic-layer`). Displays after the date. |
 | `image` | no | Path to an image in `/public` (e.g. `/field-notes/my-meme.png`). Shown large between summary and body. Put image files in `public/field-notes/`. |
 | `imageAlt` | no | Alt text for the image. Falls back to the title if omitted. |
-| `layout` | no | `default` (standard site layout) or `bare` (no header, no footer, no styling). Defaults to `default`. See custom layouts below. |
+| `display` | no | `default` (standard site layout) or `bare` (document shell only — no header, footer, or styling). Defaults to `default`. See [custom-designed field notes](#custom-designed-field-notes). **Not** `layout`: MDX reserves that key. |
 
 ### Images and memes
 
@@ -86,34 +86,56 @@ The body goes here.
 
 You can also embed images inline in the body using standard markdown `![alt](/field-notes/filename.png)`.
 
-### Custom layouts
+### Custom-designed field notes
 
-Some cards need a completely different look — a different color scheme, a full-bleed image, a visual joke that breaks from the site's visual paradigm. For those cases:
+Some notes need their own look — a different palette, diagrams, a visual joke, a piece meant to be read by an audience that would bounce off the standard card. Those get built as a dedicated Astro component and rendered through the `bare` display mode.
 
-1. Set `layout: bare` in the frontmatter.
-2. Rename the file from `.md` to `.mdx`.
-3. Define your own page structure in the MDX body. The `bare` layout provides only the HTML document shell (head, meta tags, fonts) and the present-mode script. Everything else — layout, styling, structure — is yours to define.
-4. You can import and use any Astro component, write inline `<style>` blocks, or use Tailwind classes.
+This costs more to maintain than a markdown card, so it should earn it. Most notes should stay `.md`.
 
-Example:
+**The shape:**
 
-```mdx
----
-title: "Cognitive fallacies in action"
-summary: "A list of cognitive fallacies with common examples."
-date: 2026-09-18
-layout: bare
----
-
-<div class="min-h-screen flex items-center justify-center bg-yellow-100">
-  <div class="max-w-2xl p-12 text-center">
-    <h1 class="text-6xl font-bold">Cognitive fallacies</h1>
-    <p class="mt-4 text-2xl">Coming soon.</p>
-  </div>
-</div>
+```
+src/content/cards/<slug>.mdx          frontmatter + a one-line import
+src/components/field-notes/<Name>.astro   the entire design, scoped
 ```
 
-The `?present` query param still works on bare-layout cards. The `present` class is added to `<html>`, so you can target it in your own CSS.
+**Steps:**
+
+1. Copy [`src/components/field-notes/_template.astro`](src/components/field-notes/_template.astro) to `<PascalCaseName>.astro` in the same folder. The template carries the working skeleton and documents every trap below.
+2. Create `src/content/cards/<slug>.mdx`:
+
+   ```mdx
+   ---
+   title: "The claim, stated short"
+   summary: "One sentence giving away the conclusion."
+   date: 2026-09-20
+   tag: causal-inference
+   display: bare
+   ---
+
+   import MyNote from '../../components/field-notes/MyNote.astro';
+
+   <MyNote />
+   ```
+
+3. Build the design in the component. Keep the `.mdx` file to frontmatter plus the import — MDX is a poor place to write HTML and CSS, and putting the design in a real `.astro` file gets you scoped styles and proper syntax handling.
+4. Preview at `http://localhost:4321/field-notes/<slug>/`, **and check it at 390px wide.**
+
+Worked example: [`AbTestTrap.astro`](src/components/field-notes/AbTestTrap.astro), rendered at `/field-notes/fake-ab-test-trap/`.
+
+#### Rules, each of which has already broken a build
+
+- **The frontmatter key is `display`, not `layout`.** MDX reserves `layout` and resolves it as a component import path. Using it fails the build with `Rollup failed to resolve import "bare"`.
+- **Keep `<style>` scoped — never add `is:global`.** Astro scopes styles per component, which is what keeps one note's CSS off every other note and out of present mode. A global rule from a bare note is a bug waiting for the second bare note.
+- **Paint the background on your own root element, not `body`.** Styling `body` needs a global rule. Instead give the root element `min-height: 100vh` and a background, full-bleed, with an inner element holding the reading column.
+- **In SVG, CSS beats presentation attributes.** `<text text-anchor="start">` loses to any CSS rule setting `text-anchor`, and labels shift and clip with no warning. Drive `text-anchor`, `stroke-width`, and `fill` from classes.
+- **SVG text does not wrap.** Long labels clip on phones. Keep SVG text to a few words and put the sentence in a `<figcaption>`. For anything with long labels — bar charts especially — build it in HTML and CSS instead, where text reflows.
+- **Give each `<svg>` `role="img"` and an `aria-labelledby` `<title>`** that says what the diagram shows.
+- **Avoid scroll-linked animation.** `animation-timeline: view()` is unevenly supported and fails toward *invisible content*, which is not a failure mode worth the effort.
+
+#### Present mode
+
+`?present` works on bare notes too: the `present` class is added to `<html>`, so target `html.present` in your own CSS if the design needs a projector variant.
 
 ### Routes
 
@@ -121,11 +143,14 @@ The `?present` query param still works on bare-layout cards. The `present` class
 - `/field-notes/<slug>/` — the card page with prev/next navigation.
 - `/field-notes/<slug>/?present` — present mode: hides header and footer, enlarges type for classroom projection.
 
+Redirects for renamed slugs live in [`public/_redirects`](public/_redirects), which Cloudflare Pages reads from the build output. That yields a real 301; Astro's own `redirects` config would only emit a meta-refresh page in static mode.
+
 ### Design notes
 
 - The card body supports full markdown: bold, italics, lists, code blocks, blockquotes.
 - Keep the body to one screen. Field notes are flashcards, not essays. If a lesson needs more than three paragraphs, split it or write it as an essay under `/writing` instead.
-- The slug becomes the URL. Choose it once and do not rename it; external links and citations depend on it being stable.
+- The slug becomes the URL. Choose it once and treat it as permanent — field notes are written to be cited and projected, so links outlive titles.
+- If a slug does have to change, rename the file **and** add a 301 in [`public/_redirects`](public/_redirects). Keep the rule forever; it costs a line.
 
 ## Building page data
 

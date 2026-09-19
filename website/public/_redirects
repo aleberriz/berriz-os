@@ -1,0 +1,5 @@
+# Cloudflare Pages redirects. One rule per line: <from> <to> <status>
+# Field-note slugs are permanent URLs. When one has to change, the old path
+# gets a 301 here and keeps it — citations and projected links outlive titles.
+/field-notes/not-everything-is-an-ab-test/ /field-notes/fake-ab-test-trap/ 301
+/field-notes/not-everything-is-an-ab-test /field-notes/fake-ab-test-trap/ 301
