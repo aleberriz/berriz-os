@@ -166,6 +166,7 @@ Worked examples, each with a deliberately different look:
 
 - [`AbTestTrap.astro`](src/components/field-notes/AbTestTrap.astro) → `/field-notes/fake-ab-test-trap/` — light graph paper, Space Grotesk display, SVG causal diagrams.
 - [`DirectionalAnswer.astro`](src/components/field-notes/DirectionalAnswer.astro) → `/field-notes/directional-answer-trap/` — manila spec sheet inside a drafting border, IBM Plex Mono display, clause numbering, engineering title block.
+- [`GenAiWithoutData.astro`](src/components/field-notes/GenAiWithoutData.astro) → `/field-notes/gen-ai-without-data/` — harbour cutaway: a waterline running down a dark page, Archivo Black caption type, and an original two-panel meme drawn in SVG.
 
 Two custom notes should not look like each other. A shared house style for bare notes would defeat the point of the escape hatch.
 
