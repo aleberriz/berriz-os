@@ -11,8 +11,8 @@ const cards = defineCollection({
     image: z.string().optional(),
     /** Alt text for the image. Required if image is set. */
     imageAlt: z.string().optional(),
-    /** When 'bare', the card renders without the standard site layout. Use .mdx and define your own page structure. */
-    layout: z.enum(['default', 'bare']).optional().default('default'),
+    /** When 'bare', the card renders without the standard site chrome. Use .mdx and define your own page structure. (Named 'display', not 'layout' — MDX reserves 'layout' in frontmatter.) */
+    display: z.enum(['default', 'bare']).optional().default('default'),
   }),
 });
 

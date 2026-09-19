@@ -1,0 +1,548 @@
+---
+/**
+ * Field note: "Avoid the trap of 'fake' A/B tests in business"
+ * Standalone design — deliberately does not share the site's visual system.
+ * Mobile-first, one idea per screen, short copy.
+ */
+---
+
+<div class="ab">
+  <!-- ============ HERO ============ -->
+  <section class="ab-hero">
+    <p class="ab-kicker">Field note · causal inference</p>
+    <h1>
+      Avoid the trap of<br />
+      <span class="ab-fake">&ldquo;fake&rdquo;</span> A/B tests<br />
+      in business
+    </h1>
+    <p class="ab-dek">
+      The randomised trial is the gold standard. Most business questions
+      can&rsquo;t have one. Saying which is which is the job.
+    </p>
+    <p class="ab-scroll" aria-hidden="true">scroll ↓</p>
+  </section>
+
+  <!-- ============ 01 ============ -->
+  <section class="ab-card">
+    <p class="ab-num">01</p>
+    <h2>It&rsquo;s a trial, not a split.</h2>
+    <p>
+      I say <strong>RCT</strong> — randomised controlled trial — because the long
+      name says what the short one hides. You randomise. You keep a control. You
+      run a trial of something specific.
+    </p>
+
+    <figure class="ab-fig">
+      <svg viewBox="0 0 340 130" role="img" aria-labelledby="d1t">
+        <title id="d1t"
+          >An exposed group converting at 12 percent above an unexposed control
+          group converting at 10 percent; the two-point gap is the causal
+          effect.</title
+        >
+        <!-- treated arm -->
+        <rect x="2" y="8" width="104" height="40" rx="6" class="s-box s-cyan" />
+        <text x="54" y="33" class="s-lbl">exposed</text>
+        <path d="M112 28 H190" class="s-arrow s-cyan-st" marker-end="url(#ah)" />
+        <rect x="200" y="8" width="138" height="40" rx="6" class="s-box s-cyan" />
+        <text x="269" y="33" class="s-lbl">converts 12%</text>
+
+        <!-- control arm -->
+        <rect x="2" y="82" width="104" height="40" rx="6" class="s-box s-ghost" />
+        <text x="54" y="107" class="s-lbl s-dim">not exposed</text>
+        <path d="M112 102 H190" class="s-arrow s-ghost-st" marker-end="url(#ahg)" />
+        <rect x="200" y="82" width="138" height="40" rx="6" class="s-box s-ghost" />
+        <text x="269" y="107" class="s-lbl s-dim">converts 10%</text>
+
+        <!-- the gap -->
+        <path d="M269 48 V82" class="s-brace s-dash" marker-end="url(#aha)" />
+
+        <defs>
+          <marker id="ah" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+            <path d="M0 0 L7 3.5 L0 7 z" class="s-cyan-fill" />
+          </marker>
+          <marker id="ahg" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+            <path d="M0 0 L7 3.5 L0 7 z" class="s-ghost-fill" />
+          </marker>
+          <marker id="aha" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+            <path d="M0 0 L7 3.5 L0 7 z" class="s-amber-fill" />
+          </marker>
+        </defs>
+      </svg>
+      <figcaption>
+        <strong class="c-amber">Those 2 points are the causal effect.</strong>
+        The control group is a stand-in for a world that never happened. That
+        substitution is the whole trick, and randomising is what licenses it.
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- ============ 02 ============ -->
+  <section class="ab-card">
+    <p class="ab-num">02</p>
+    <h2>Everyone will want one. For everything.</h2>
+    <p>
+      Stakeholders don&rsquo;t push for tests because they love statistics. They
+      push because the world is uncertain and a p-value looks like a place to
+      stand.
+    </p>
+    <p class="ab-quote">
+      &ldquo;Can we just A/B test it?&rdquo;
+      <span>— asked about a decision that cannot be A/B tested</span>
+    </p>
+  </section>
+
+  <!-- ============ 03 ============ -->
+  <section class="ab-card">
+    <p class="ab-num">03</p>
+    <h2>Splitting traffic isn&rsquo;t testing.</h2>
+    <p>
+      Send half the users to a different page and you have a split. You have a
+      test only if you committed to the rules <em>before</em> you saw the
+      numbers.
+    </p>
+
+    <div class="ab-split">
+      <div class="ab-col ab-col--bad">
+        <p class="ab-col-h">Theatre</p>
+        <ul>
+          <li>Split the traffic</li>
+          <li>Watch the dashboard daily</li>
+          <li>Pick the winning metric after looking</li>
+          <li>Stop when it looks good</li>
+          <li>Ship the story</li>
+        </ul>
+      </div>
+      <div class="ab-col ab-col--good">
+        <p class="ab-col-h">A trial</p>
+        <ul>
+          <li>Randomise <em>users</em>, not page views</li>
+          <li>Name one conversion event first</li>
+          <li>Fix the threshold and the duration first</li>
+          <li>Stop when you said you would</li>
+          <li>Ship the decision you agreed to</li>
+        </ul>
+      </div>
+    </div>
+    <p class="ab-note">
+      The left column is faster, cheaper, and easier to sell. That is exactly
+      why it is the default. It also produces a number that means nothing.
+    </p>
+  </section>
+
+  <!-- ============ 04 ============ -->
+  <section class="ab-card">
+    <p class="ab-num">04</p>
+    <p class="ab-wall">Wall 1</p>
+    <h2>There is no multiverse.</h2>
+    <p>
+      Steve Jobs did not A/B test the iPhone. Not because he was too bold —
+      because you cannot launch into two universes and compare. Big, one-shot,
+      irreversible decisions have no control group.
+    </p>
+
+    <figure class="ab-fig">
+      <svg viewBox="0 0 340 120" role="img" aria-labelledby="d2t">
+        <title id="d2t"
+          >A single timeline reaching a launch point, from which one solid
+          branch is the world that happened and three faded branches are worlds
+          you can never observe.</title
+        >
+        <text x="2" y="12" class="s-cap s-dim-fill" text-anchor="start">worlds you can&rsquo;t see</text>
+        <path d="M100 66 C 160 66, 190 40, 300 28" class="s-arrow s-ghost-st s-dash" />
+        <path d="M100 66 C 160 66, 190 86, 300 100" class="s-arrow s-ghost-st s-dash" />
+        <path d="M100 66 C 160 66, 190 98, 300 116" class="s-arrow s-ghost-st s-dash" />
+
+        <path d="M2 66 H300" class="s-arrow s-cyan-st s-thick" />
+        <circle cx="100" cy="66" r="5.5" class="s-amber-fill" />
+        <text x="100" y="88" class="s-cap s-amber-fill">launch</text>
+        <text x="300" y="56" class="s-cap s-cyan-fill" text-anchor="end">the world you got</text>
+      </svg>
+      <figcaption>After launch there is no control group left to compare against.</figcaption>
+    </figure>
+  </section>
+
+  <!-- ============ 05 ============ -->
+  <section class="ab-card">
+    <p class="ab-num">05</p>
+    <p class="ab-wall">Wall 2</p>
+    <h2>The arithmetic says no.</h2>
+    <p>
+      &ldquo;Just test it on revenue.&rdquo; Sure. Say 2,000 visitors a week and
+      2% of them buy. To detect a 10% lift in purchases you need about
+      <strong>78,400 users per group</strong>.
+    </p>
+
+    <figure class="ab-fig ab-chart">
+      <p class="ab-chart-h">Users needed per group, to detect a 10% lift</p>
+
+      <div class="ab-bar">
+        <p class="ab-bar-metric">
+          Bought something <span class="ab-bar-n">78,400</span>
+        </p>
+        <div class="ab-bar-fill ab-bar-fill--red" style="width:100%"></div>
+        <p class="ab-bar-sub">2% of visitors &middot; about 18 months</p>
+      </div>
+
+      <div class="ab-bar">
+        <p class="ab-bar-metric">
+          Reached checkout <span class="ab-bar-n c-cyan">6,400</span>
+        </p>
+        <div class="ab-bar-fill ab-bar-fill--cyan" style="width:8.2%"></div>
+        <p class="ab-bar-sub">20% of visitors &middot; about 6 weeks</p>
+      </div>
+
+      <figcaption>n &asymp; 16 &times; (1&minus;p) / (p &times; 0.10&sup2;), at 80% power</figcaption>
+    </figure>
+    <p class="ab-note">
+      Eighteen months. The feature will have been rewritten twice and the person
+      who asked will have changed teams.
+    </p>
+  </section>
+
+  <!-- ============ 06 ============ -->
+  <section class="ab-card ab-card--turn">
+    <p class="ab-num">06</p>
+    <h2>So move them up the funnel.</h2>
+    <p>
+      Look at that second bar again. Measuring a step <em>towards</em> the
+      purchase instead of the purchase cut the test from 18 months to 6 weeks.
+      Same rigour, 12&times; less traffic.
+    </p>
+    <p>
+      That is the job: not saying no, but finding the nearest thing you can
+      honestly measure. The catch — and you have to say this out loud — is that
+      the intermediate step only counts if reaching it really does lead to
+      buying. If it doesn&rsquo;t, you have measured something nobody wanted.
+    </p>
+  </section>
+
+  <!-- ============ 07 ============ -->
+  <section class="ab-card">
+    <p class="ab-num">07</p>
+    <h2>No trial possible? You still have tools.</h2>
+    <p>
+      None of these are as good as an RCT. All of them beat a confident guess,
+      and all of them come with error bars.
+    </p>
+
+    <ul class="ab-tools">
+      <li>
+        <span class="t-name">Staged rollout</span>
+        <span class="t-desc">Ship to some regions first, hold the rest back. Cheapest thing here — and impossible to arrange after launch.</span>
+      </li>
+      <li>
+        <span class="t-name">Switchback test</span>
+        <span class="t-desc">Can&rsquo;t split users? Split time. Flip the change on and off on a schedule.</span>
+      </li>
+      <li>
+        <span class="t-name">Difference-in-differences</span>
+        <span class="t-desc">Compare the change in your group against the change in a similar untouched group.</span>
+      </li>
+      <li>
+        <span class="t-name">Regression discontinuity</span>
+        <span class="t-desc">Some rule has a hard cutoff. Compare people just above it to people just below.</span>
+      </li>
+      <li>
+        <span class="t-name">Synthetic control</span>
+        <span class="t-desc">Build a weighted fake twin of the treated market out of the untreated ones.</span>
+      </li>
+      <li>
+        <span class="t-name">Interrupted time series</span>
+        <span class="t-desc">A clean before and after, and the honesty to list everything else that changed that week.</span>
+      </li>
+    </ul>
+
+    <p class="ab-note">
+      Notice that most of these cost nothing — <em>if</em> you are in the room
+      before the launch. Afterwards they are gone. Being early is worth more
+      than being clever.
+    </p>
+  </section>
+
+  <!-- ============ CLOSER ============ -->
+  <section class="ab-close">
+    <p class="ab-num">The job</p>
+    <p class="ab-shout">
+      Be a force for the right tool in each circumstance.
+    </p>
+    <p>
+      Do not cave under pressure to rubber-stamp a preconceived narrative with
+      your expertise. Someone always has an agenda and a slide already written.
+      Your signature on a fake test is the only thing that makes it dangerous.
+    </p>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="ab-foot">
+    <p class="ab-foot-h">Read these</p>
+    <p>
+      Kohavi, Tang &amp; Xu, <em>Trustworthy Online Controlled Experiments</em>
+      (2020) — the chapter on what to do when you can&rsquo;t run a test.
+    </p>
+    <p>
+      Huntington-Klein, <em>The Effect</em> (2022) — free at
+      <a href="https://theeffectbook.net" rel="noopener">theeffectbook.net</a>.
+    </p>
+    <p class="ab-back">
+      <a href="/field-notes/">← All field notes</a>
+      <a href="/">aleberriz.com</a>
+    </p>
+  </footer>
+</div>
+
+<style is:global>
+  /* This field note opts out of the site's visual system on purpose. */
+  body:has(.ab) {
+    background: #06080c;
+    color: #ccd5e0;
+  }
+
+  .ab {
+    --cyan: #4cc9f0;
+    --amber: #f6b93b;
+    --red: #ef5b5b;
+    --dim: #6b7688;
+    --rule: rgba(255, 255, 255, 0.09);
+
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 0 1.25rem 4rem;
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    background:
+      linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px) 0 0 / 100% 2.25rem,
+      radial-gradient(60rem 40rem at 50% -10rem, rgba(76, 201, 240, 0.09), transparent 70%);
+  }
+
+  .ab p { margin: 0 0 1rem; }
+  .ab strong { color: #fff; font-weight: 600; }
+  .ab em { color: #eaf0f7; font-style: italic; }
+  .ab a { color: var(--cyan); }
+
+  /* ---- hero ---- */
+  .ab-hero { padding: 4.5rem 0 3.5rem; }
+  .ab-kicker,
+  .ab-num,
+  .ab-wall,
+  .ab-scroll,
+  .ab-col-h,
+  .ab-foot-h {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--dim);
+  }
+  .ab-hero h1 {
+    margin: 1.25rem 0 1.5rem;
+    font-family: Fraunces, Georgia, serif;
+    font-size: clamp(2.3rem, 11vw, 3.6rem);
+    line-height: 1.02;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: #fff;
+  }
+  .ab-fake {
+    color: var(--red);
+    text-decoration: line-through;
+    text-decoration-thickness: 3px;
+  }
+  .ab-dek {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #aebacb;
+    max-width: 30ch;
+  }
+  .ab-scroll { margin-top: 2.5rem; }
+
+  /* ---- cards ---- */
+  .ab-card,
+  .ab-close {
+    padding: 3rem 0;
+    border-top: 1px solid var(--rule);
+  }
+  .ab-card h2 {
+    margin: 0.5rem 0 1.25rem;
+    font-family: Fraunces, Georgia, serif;
+    font-size: clamp(1.7rem, 7.5vw, 2.3rem);
+    line-height: 1.12;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: #fff;
+  }
+  .ab-wall { color: var(--red); display: block; margin-top: 0.4rem; }
+  .ab-card--turn h2 { color: var(--cyan); }
+
+  .ab-note {
+    margin-top: 1.5rem;
+    padding-left: 0.9rem;
+    border-left: 2px solid var(--amber);
+    font-size: 0.98rem;
+    color: #a6b2c4;
+  }
+
+  .ab-quote {
+    margin: 1.75rem 0 0;
+    font-family: Fraunces, Georgia, serif;
+    font-size: 1.5rem;
+    line-height: 1.3;
+    color: var(--amber);
+  }
+  .ab-quote span {
+    display: block;
+    margin-top: 0.6rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--dim);
+  }
+
+  /* ---- figures ---- */
+  .ab-fig { margin: 1.75rem 0 0; }
+  .ab-fig svg { width: 100%; height: auto; display: block; }
+  .ab-fig figcaption {
+    margin-top: 0.9rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--dim);
+  }
+
+  .s-box { fill: none; stroke-width: 1.5; }
+  .s-cyan { stroke: var(--cyan); fill: rgba(76, 201, 240, 0.08); }
+  .s-ghost { stroke: var(--dim); fill: none; stroke-dasharray: 4 4; }
+  .s-arrow { fill: none; stroke-width: 1.5; }
+  .s-cyan-st { stroke: var(--cyan); }
+  .s-ghost-st { stroke: var(--dim); }
+  .s-dash { stroke-dasharray: 4 5; opacity: 0.55; }
+  .s-thick { stroke-width: 2.5; }
+  .s-brace { fill: none; stroke: var(--amber); stroke-width: 1.5; }
+  .s-cyan-fill { fill: var(--cyan); }
+  .s-amber-fill { fill: var(--amber); }
+  .s-red-fill { fill: var(--red); }
+  .s-ghost-fill { fill: var(--dim); }
+  .s-dim-fill { fill: var(--dim); }
+  .s-lbl {
+    fill: #e6edf5;
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 12px;
+    text-anchor: middle;
+  }
+  .s-dim { fill: #93a0b2; }
+  .s-cap {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 10px;
+  }
+  /* CSS beats the presentation attribute, so mirror it explicitly. */
+  .ab text.s-cap { text-anchor: middle; }
+  .ab text.s-cap[text-anchor='start'] { text-anchor: start; }
+  .ab text.s-cap[text-anchor='end'] { text-anchor: end; }
+  .c-amber { color: var(--amber); }
+  .c-cyan { color: var(--cyan); }
+
+  /* ---- bar chart (HTML, so labels wrap on narrow screens) ---- */
+  .ab-chart-h {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-bottom: 1.25rem;
+  }
+  .ab-bar { margin-bottom: 1.5rem; }
+  .ab-bar-metric {
+    margin: 0 0 0.4rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #e6edf5;
+  }
+  .ab-bar-fill { height: 1.6rem; border-radius: 0.25rem; min-width: 0.4rem; }
+  .ab-bar-fill--red { background: var(--red); }
+  .ab-bar-fill--cyan { background: var(--cyan); }
+  .ab-bar-n {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #fff;
+    white-space: nowrap;
+    float: right;
+  }
+  .ab-bar-sub { margin: 0.45rem 0 0; font-size: 0.87rem; color: var(--dim); }
+
+  /* ---- theatre vs trial ---- */
+  .ab-split {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1.75rem;
+  }
+  .ab-col {
+    padding: 1rem 1.1rem 1.1rem;
+    border: 1px solid var(--rule);
+    border-radius: 0.5rem;
+  }
+  .ab-col--bad { border-top: 3px solid var(--red); }
+  .ab-col--good { border-top: 3px solid var(--cyan); }
+  .ab-col--bad .ab-col-h { color: var(--red); }
+  .ab-col--good .ab-col-h { color: var(--cyan); }
+  .ab-col ul { margin: 0.75rem 0 0; padding: 0; list-style: none; }
+  .ab-col li {
+    padding: 0.4rem 0 0.4rem 1.2rem;
+    font-size: 0.97rem;
+    line-height: 1.45;
+    position: relative;
+  }
+  .ab-col--bad li::before { content: '×'; color: var(--red); position: absolute; left: 0; }
+  .ab-col--good li::before { content: '✓'; color: var(--cyan); position: absolute; left: 0; }
+
+  /* ---- toolbox ---- */
+  .ab-tools { margin: 1.5rem 0 0; padding: 0; list-style: none; }
+  .ab-tools li {
+    padding: 0.85rem 0;
+    border-top: 1px solid var(--rule);
+  }
+  .t-name {
+    display: block;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--cyan);
+  }
+  .t-desc {
+    display: block;
+    margin-top: 0.3rem;
+    font-size: 0.97rem;
+    line-height: 1.5;
+    color: #a6b2c4;
+  }
+
+  /* ---- closer ---- */
+  .ab-close { border-top: 1px solid var(--amber); }
+  .ab-close .ab-num { color: var(--amber); }
+  .ab-shout {
+    margin: 1rem 0 1.5rem;
+    font-family: Fraunces, Georgia, serif;
+    font-size: clamp(1.9rem, 8.5vw, 2.7rem);
+    line-height: 1.08;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: #fff;
+  }
+
+  /* ---- footer ---- */
+  .ab-foot {
+    padding: 2.5rem 0 0;
+    border-top: 1px solid var(--rule);
+    font-size: 0.92rem;
+    color: var(--dim);
+  }
+  .ab-foot em { color: #a6b2c4; }
+  .ab-back { margin-top: 1.75rem; display: flex; gap: 1.5rem; }
+
+  @media (min-width: 40rem) {
+    .ab-split { grid-template-columns: 1fr 1fr; }
+  }
+
+</style>
