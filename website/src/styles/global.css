@@ -11,10 +11,10 @@
  * its own opacity modifiers (`text-ink/90`).
  *
  * Resolution order, deliberately:
- *   1. `:root` holds light, the no-JS and no-preference default.
- *   2. The media query applies dark for anyone whose OS asks for it, unless
- *      they have explicitly chosen light in the header toggle.
- *   3. An explicit `data-theme="dark"` wins over everything.
+ *   1. `:root` holds dark, the no-JS and no-preference default.
+ *   2. The media query applies light for anyone whose OS asks for it, unless
+ *      they have explicitly chosen dark in the header toggle.
+ *   3. An explicit `data-theme="light"` wins over everything.
  *
  * Because steps 1 and 2 are pure CSS, the correct theme paints on first frame.
  * The inline script in the layouts only replays a stored explicit choice.
@@ -25,32 +25,6 @@
  */
 
 :root {
-  color-scheme: light;
-
-  --c-canvas: 247 248 250;
-  --c-ink: 11 30 63;
-  --c-ink-body: 42 51 64;
-  --c-ink-muted: 92 100 112;
-  --c-line: 201 210 221;
-  --c-accent: 18 87 201;
-  --c-accent-hover: 12 62 148;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']) {
-    color-scheme: dark;
-
-    --c-canvas: 10 13 18;
-    --c-ink: 233 236 241;
-    --c-ink-body: 184 196 209;
-    --c-ink-muted: 138 148 163;
-    --c-line: 36 43 54;
-    --c-accent: 111 160 255;
-    --c-accent-hover: 158 192 255;
-  }
-}
-
-:root[data-theme='dark'] {
   color-scheme: dark;
 
   --c-canvas: 10 13 18;
@@ -62,17 +36,43 @@
   --c-accent-hover: 158 192 255;
 }
 
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme='dark']) {
+    color-scheme: light;
+
+    --c-canvas: 247 248 250;
+    --c-ink: 11 30 63;
+    --c-ink-body: 42 51 64;
+    --c-ink-muted: 92 100 112;
+    --c-line: 201 210 221;
+    --c-accent: 18 87 201;
+    --c-accent-hover: 12 62 148;
+  }
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  --c-canvas: 247 248 250;
+  --c-ink: 11 30 63;
+  --c-ink-body: 42 51 64;
+  --c-ink-muted: 92 100 112;
+  --c-line: 201 210 221;
+  --c-accent: 18 87 201;
+  --c-accent-hover: 12 62 148;
+}
+
 /* The toggle swaps its own icon in CSS so the script only has to move one
    attribute on <html>. */
-.theme-toggle__dark { display: none; }
-:root[data-theme='dark'] .theme-toggle__light { display: none; }
-:root[data-theme='dark'] .theme-toggle__dark { display: block; }
+.theme-toggle__light { display: none; }
+:root[data-theme='light'] .theme-toggle__light { display: block; }
+:root[data-theme='light'] .theme-toggle__dark { display: none; }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']) .theme-toggle__light { display: none; }
-  :root:not([data-theme='light']) .theme-toggle__dark { display: block; }
-  :root[data-theme='light'] .theme-toggle__light { display: block; }
-  :root[data-theme='light'] .theme-toggle__dark { display: none; }
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme='dark']) .theme-toggle__light { display: block; }
+  :root:not([data-theme='dark']) .theme-toggle__dark { display: none; }
+  :root[data-theme='dark'] .theme-toggle__light { display: none; }
+  :root[data-theme='dark'] .theme-toggle__dark { display: block; }
 }
 
 @media (prefers-reduced-motion: reduce) {
