@@ -1,0 +1,428 @@
+---
+/**
+ * Field note: "Out of your box. Into mine."
+ * → /field-notes/think-out-of-the-box-trap/
+ *
+ * Its own look, and none of the other four bare notes: a shipping crate.
+ * Kraft board, corrugation stripes, stencil caps, rubber-stamp marks. The
+ * note is about a box, so the page is one.
+ *
+ * The meme is two stamped crate panels, drawn here in CSS and type rather
+ * than borrowed. The nine dots drawing is original SVG and shows the real
+ * four-line solution, which is the whole reason the phrase existed.
+ *
+ * Shortest note on the site by design. It makes one point.
+ *
+ * Inter is already loaded site-wide (ThemeHead.astro); only Bebas Neue is
+ * imported here.
+ */
+---
+
+<div class="box">
+  <div class="box-inner">
+    <!-- ============ HERO ============ -->
+    <section class="box-hero">
+      <p class="box-kicker">Field note &middot; critical thinking</p>
+      <h1>Out of your box.<br /><span class="box-hi">Into mine.</span></h1>
+      <p class="box-dek">
+        &ldquo;Think outside the box&rdquo; started as a good instruction. In
+        most meetings it now means something else.
+      </p>
+    </section>
+
+    <!-- ============ THE MEME ============ -->
+    <section class="box-meme" aria-label="Two panels: what they say, and what they mean">
+      <div class="box-panel">
+        <p class="box-panel-l">What they say</p>
+        <p class="box-panel-q">&ldquo;We need to think outside the box.&rdquo;</p>
+      </div>
+      <div class="box-panel box-panel--alt">
+        <p class="box-panel-l">What they mean</p>
+        <p class="box-panel-q">&ldquo;My opinion is better than your opinion.&rdquo;</p>
+        <p class="box-stamp" aria-hidden="true">Approved</p>
+      </div>
+    </section>
+    <p class="box-credit">
+      Dileep Rao puts it sharper:
+      <a href="https://www.forbes.com/sites/dileeprao/">&ldquo;Get out of your box and get into my box.&rdquo;</a>
+    </p>
+
+    <!-- ============ 01 ============ -->
+    <section class="box-card">
+      <p class="box-num">01 &nbsp;&middot;&nbsp; The original</p>
+      <h2>The phrase had a job, and it was a good one.</h2>
+      <p>
+        It comes from the nine dots puzzle, used as a teaching metaphor since
+        at least 1954. Connect nine dots with four straight lines. You cannot,
+        as long as you assume the lines must stay inside the square. Nothing in
+        the instructions says that. You drew the square yourself.
+      </p>
+
+      <figure class="box-fig">
+        <svg viewBox="0 0 320 240" role="img" aria-labelledby="box-dots">
+          <title id="box-dots"
+            >The nine dots puzzle. Nine dots sit in a three by three grid
+            inside a faint square. Four straight lines connect all nine, and
+            two of them run well past the edge of the square.</title
+          >
+          <rect x="88" y="28" width="144" height="144" class="d-box" />
+          <g class="d-line">
+            <path d="M110 50 L262 50" />
+            <path d="M262 50 L108 204" />
+            <path d="M108 204 L110 50" />
+            <path d="M110 50 L212 152" />
+          </g>
+          <g class="d-dot">
+            <circle cx="110" cy="50" r="7" /><circle cx="160" cy="50" r="7" /><circle cx="210" cy="50" r="7" />
+            <circle cx="110" cy="100" r="7" /><circle cx="160" cy="100" r="7" /><circle cx="210" cy="100" r="7" />
+            <circle cx="110" cy="150" r="7" /><circle cx="160" cy="150" r="7" /><circle cx="210" cy="150" r="7" />
+          </g>
+          <text x="160" y="226" text-anchor="middle" class="d-cap">the square nobody asked for</text>
+        </svg>
+        <figcaption>
+          Norman Vincent Peale ran this in the Chicago Tribune in 1969: step
+          outside the box your problem has created within you. The printed
+          phrase followed in 1971.
+        </figcaption>
+      </figure>
+
+      <p class="box-note">
+        Consultants carried the puzzle into boardrooms through the 1970s and
+        1980s. The story that it started inside Walt Disney is repeated
+        everywhere and sourced nowhere, Wikipedia included. Treat it as
+        folklore.
+      </p>
+    </section>
+
+    <!-- ============ 02 ============ -->
+    <section class="box-card">
+      <p class="box-num">02 &nbsp;&middot;&nbsp; The trap</p>
+      <h2>A verdict wearing the costume of an invitation.</h2>
+      <p>
+        The original asks you to find the assumption you added without
+        noticing. The business version skips that and asks you to arrive
+        somewhere specific. It sounds like permission to think and works like
+        an instruction to agree.
+      </p>
+      <p>
+        You can hear the difference. A real invitation names the constraint it
+        wants you to drop. The other one names only the destination.
+      </p>
+    </section>
+
+    <!-- ============ 03: the test ============ -->
+    <section class="box-card">
+      <p class="box-num">03 &nbsp;&middot;&nbsp; The test</p>
+      <h2>One question tells you which one you got.</h2>
+      <p class="box-ask">&ldquo;Which assumption should I drop?&rdquo;</p>
+      <p>
+        Someone opening a box will answer in a sentence. Assume we have no
+        budget. Assume the deadline moves. Assume we lose the biggest account.
+        Someone defending a box will repeat the conclusion in different words.
+      </p>
+      <table class="box-tbl">
+        <caption>Same phrase, two very different meetings.</caption>
+        <thead>
+          <tr><th scope="col">Opening a box</th><th scope="col">Defending one</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Names a constraint to suspend</td><td>Names an outcome to reach</td></tr>
+          <tr><td>Survives a worse answer than expected</td><td>Only accepts one answer</td></tr>
+          <tr><td>Asks what you assumed</td><td>Tells you what you missed</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ============ CLOSER ============ -->
+    <section class="box-close">
+      <p class="box-num">The rule</p>
+      <p class="box-shout">A box you can name is a box you can leave.</p>
+      <p>Make the other person name theirs first.</p>
+    </section>
+
+    <!-- ============ TITLE BLOCK ============ -->
+    <footer class="box-foot">
+      <dl class="box-block">
+        <div><dt>Note</dt><dd>The outside-the-box trap</dd></div>
+        <div><dt>Field</dt><dd>Critical thinking</dd></div>
+        <div><dt>Credit</dt><dd>Dileep Rao</dd></div>
+        <div><dt>Ask</dt><dd>Which assumption?</dd></div>
+      </dl>
+      <p class="box-foot-h">Go deeper</p>
+      <p>
+        <a href="https://www.forbes.com/sites/dileeprao/">Dileep Rao at Forbes</a>.
+        Clinical professor of entrepreneurship at Florida International
+        University, and the source of the line this note is built on.
+      </p>
+      <p>
+        <a href="https://en.wikipedia.org/wiki/Thinking_outside_the_box">Thinking outside the box</a>
+        on Wikipedia. The attestation trail, the nine dots, and the unsourced
+        Disney claim.
+      </p>
+      <p class="box-back">
+        <a href="/field-notes/">← All field notes</a>
+        <a href="/">aleberriz.com</a>
+      </p>
+    </footer>
+  </div>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+  /* Shipping crate. Scoped, so none of this reaches another note. */
+  .box {
+    --kraft: #b78e5e;
+    --board: #c9a476;
+    --flap: #a87f51;
+    --ink: #2a1c0d;
+    --body: #40301c;
+    --dim: #6f5636;
+    --stamp: #a32319;
+    --mark: #1b4a7a;
+
+    min-height: 100vh;
+    color: var(--body);
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    background-color: var(--kraft);
+    background-image: repeating-linear-gradient(
+      90deg,
+      rgba(42, 28, 13, 0.07) 0 1px,
+      transparent 1px 9px
+    );
+  }
+
+  .box-inner {
+    max-width: 36rem;
+    margin: 0 auto;
+    padding: 0 1.15rem 3.5rem;
+  }
+
+  .box p { margin: 0 0 0.9rem; }
+  .box a { color: var(--stamp); text-underline-offset: 3px; }
+  .box a:hover { color: var(--mark); }
+
+  .box-kicker,
+  .box-num,
+  .box-panel-l,
+  .box-foot-h,
+  .box-back,
+  .box-block dt {
+    font-family: 'Bebas Neue', Inter, sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--dim);
+    line-height: 1.2;
+  }
+
+  /* ---------- hero ---------- */
+  .box-hero { padding: 3.25rem 0 2rem; }
+  .box-hero h1 {
+    margin: 0.8rem 0 1rem;
+    font-family: 'Bebas Neue', Inter, sans-serif;
+    font-weight: 400;
+    font-size: clamp(3rem, 15vw, 5rem);
+    line-height: 0.92;
+    letter-spacing: 0.01em;
+    color: var(--ink);
+    text-transform: uppercase;
+  }
+  .box-hi { color: var(--stamp); }
+  .box-dek {
+    font-size: 1.08rem;
+    color: var(--body);
+    max-width: 32ch;
+  }
+
+  /* ---------- the meme ---------- */
+  .box-meme {
+    display: grid;
+    gap: 0.85rem;
+    margin: 0 0 0.9rem;
+  }
+  .box-panel {
+    position: relative;
+    padding: 1.1rem 1.1rem 1.3rem;
+    background: var(--board);
+    border: 3px solid var(--ink);
+    box-shadow: 5px 5px 0 rgba(42, 28, 13, 0.32);
+  }
+  .box-panel--alt { background: var(--flap); padding-bottom: 2.9rem; }
+  .box-panel-l {
+    margin: 0 0 0.5rem;
+    color: var(--ink);
+    opacity: 0.72;
+  }
+  .box-panel-q {
+    margin: 0;
+    font-family: 'Bebas Neue', Inter, sans-serif;
+    font-size: clamp(1.6rem, 7vw, 2.15rem);
+    line-height: 1.02;
+    letter-spacing: 0.01em;
+    color: var(--ink);
+    text-transform: uppercase;
+  }
+  .box-panel--alt .box-panel-q { color: #1a1105; }
+  .box-stamp {
+    position: absolute;
+    right: 0.5rem;
+    bottom: 0.35rem;
+    margin: 0;
+    padding: 0.1rem 0.5rem;
+    font-family: 'Bebas Neue', Inter, sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stamp);
+    border: 2px solid var(--stamp);
+    opacity: 0.75;
+    transform: rotate(-7deg);
+  }
+  .box-credit {
+    font-size: 0.95rem;
+    color: var(--body);
+  }
+
+  /* ---------- sections ---------- */
+  .box-card,
+  .box-close {
+    padding: 2.1rem 0;
+    border-top: 2px dashed rgba(42, 28, 13, 0.3);
+  }
+  .box-card h2,
+  .box-close h2 {
+    margin: 0.4rem 0 0.9rem;
+    font-family: 'Bebas Neue', Inter, sans-serif;
+    font-weight: 400;
+    font-size: clamp(1.75rem, 8vw, 2.4rem);
+    line-height: 1.02;
+    letter-spacing: 0.015em;
+    color: var(--ink);
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+  .box-note {
+    margin-top: 1.1rem;
+    padding-left: 0.95rem;
+    border-left: 4px solid var(--stamp);
+    font-size: 0.96rem;
+    color: var(--dim);
+  }
+  .box-ask {
+    font-family: 'Bebas Neue', Inter, sans-serif;
+    font-size: clamp(1.5rem, 7vw, 2rem);
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    color: var(--mark);
+    text-transform: uppercase;
+  }
+
+  /* ---------- drawing ---------- */
+  .box-fig { margin: 1.6rem 0 0; }
+  .box-fig svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: var(--board);
+    border: 3px solid var(--ink);
+  }
+  .box-fig figcaption {
+    margin-top: 0.7rem;
+    margin-bottom: 1.2rem;
+    font-size: 0.85rem;
+    color: var(--dim);
+  }
+  .d-box {
+    fill: none;
+    stroke: var(--ink);
+    stroke-width: 2;
+    stroke-dasharray: 6 6;
+    opacity: 0.45;
+  }
+  .d-line path {
+    fill: none;
+    stroke: var(--stamp);
+    stroke-width: 3.5;
+    stroke-linecap: round;
+  }
+  .d-dot circle { fill: var(--ink); }
+  .d-cap {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 15px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    fill: var(--dim);
+  }
+
+  /* ---------- table ---------- */
+  .box-tbl {
+    width: 100%;
+    margin: 1.3rem 0 0;
+    border-collapse: collapse;
+    font-size: 0.93rem;
+  }
+  .box-tbl caption {
+    caption-side: bottom;
+    padding-top: 0.7rem;
+    font-size: 0.85rem;
+    color: var(--dim);
+    text-align: left;
+  }
+  .box-tbl th,
+  .box-tbl td {
+    padding: 0.6rem 0.7rem;
+    border: 2px solid rgba(42, 28, 13, 0.3);
+    text-align: left;
+    vertical-align: top;
+  }
+  .box-tbl thead th {
+    font-family: 'Bebas Neue', Inter, sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: rgba(42, 28, 13, 0.08);
+  }
+
+  /* ---------- closer ---------- */
+  .box-shout {
+    font-family: 'Bebas Neue', Inter, sans-serif;
+    font-size: clamp(2.1rem, 10vw, 3.1rem);
+    line-height: 0.98;
+    letter-spacing: 0.015em;
+    color: var(--stamp);
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+
+  /* ---------- title block ---------- */
+  .box-foot {
+    padding: 2rem 0 0;
+    border-top: 2px dashed rgba(42, 28, 13, 0.3);
+    font-size: 0.93rem;
+  }
+  .box-block {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2px;
+    margin: 0 0 1.75rem;
+    background: rgba(42, 28, 13, 0.3);
+    border: 2px solid rgba(42, 28, 13, 0.3);
+  }
+  .box-block > div { padding: 0.6rem 0.75rem; background: var(--board); }
+  .box-block dt { margin-bottom: 0.1rem; }
+  .box-block dd { margin: 0; color: var(--ink); }
+  .box-foot-h { margin-bottom: 0.55rem; color: var(--stamp); }
+  .box-back { display: flex; gap: 1.4rem; padding-top: 0.9rem; }
+
+  @media (min-width: 40rem) {
+    .box-meme { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .box-block { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  }
+
+  /* ---------- present mode ---------- */
+  :global(html.present) .box { font-size: 1.2rem; }
+</style>
