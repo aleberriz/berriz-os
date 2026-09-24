@@ -1,8 +1,8 @@
 ---
 title: "The expert-consultant trap"
-summary: "In business there are no real experts when context changes. Confidence without context is a liability."
+summary: "Advice depends on context. Check how well an expert understands the circumstances of your decision."
 date: 2026-09-18
 tag: decision-making
 ---
 
-TODO
+This note is in progress.

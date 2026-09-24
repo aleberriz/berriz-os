@@ -1,8 +1,8 @@
 ---
 title: "The happy-path trap"
-summary: "No one really treads the happy path. Design for failure modes, not for the ideal case."
+summary: "Plan for the ways a process can fail as well as how it should work."
 date: 2026-09-18
 tag: engineering
 ---
 
-TODO
+This note is in progress.

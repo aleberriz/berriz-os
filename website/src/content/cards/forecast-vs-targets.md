@@ -1,8 +1,8 @@
 ---
 title: "Forecast vs. targets"
-summary: "Do not confuse a forecast with arbitrary targets based on assumptions. One describes what will happen; the other declares what you wish would."
+summary: "A forecast estimates what is likely to happen under stated assumptions. A target sets the outcome you want to reach."
 date: 2026-09-18
 tag: forecasting
 ---
 
-TODO
+This note is in progress.

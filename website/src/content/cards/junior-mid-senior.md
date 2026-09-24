@@ -1,8 +1,8 @@
 ---
 title: "Junior, mid, senior"
-summary: "The real difference is about the implied liability you carry when the answer is wrong."
+summary: "Seniority includes responsibility for decisions and for what happens when an answer is wrong."
 date: 2026-09-18
 tag: careers
 ---
 
-TODO
+This note is in progress.

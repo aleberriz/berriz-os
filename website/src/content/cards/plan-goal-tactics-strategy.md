@@ -1,8 +1,8 @@
 ---
 title: "Plan, goal, tactics, strategy"
-summary: "The real difference between four words people use interchangeably, and why the confusion costs you."
+summary: "How goals, strategy, tactics, and plans relate to each other in day-to-day work."
 date: 2026-09-18
 tag: decision-making
 ---
 
-TODO
+This note is in progress.

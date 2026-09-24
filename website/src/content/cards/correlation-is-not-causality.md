@@ -1,8 +1,8 @@
 ---
 title: "Why correlation is not causality"
-summary: "Two variables moving together does not mean one drives the other."
+summary: "When two variables move together, what would you need to establish that one causes the other?"
 date: 2026-09-18
 tag: causal-inference
 ---
 
-TODO
+This note is in progress.

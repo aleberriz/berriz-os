@@ -1,8 +1,8 @@
 ---
 title: "Cognitive fallacies in action"
-summary: "A list of cognitive fallacies with common examples from data and business work."
+summary: "Common reasoning mistakes in data and business work, with examples."
 date: 2026-09-18
 tag: critical-thinking
 ---
 
-TODO
+This note is in progress.

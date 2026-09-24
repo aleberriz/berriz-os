@@ -40,19 +40,45 @@ reliably, and at what speed.
 > dashboards fall short, and ship AI agent skills that encode that judgment for reuse.
 > MBA. OKR practitioner. Trilingual. Based in Paris.
 
-### Long (website About, newsletter intro, ~120 words)
+### Website About
 
-> I'm a senior data analyst with eighteen years across data, operations, finance, and sales —
-> long enough to know that most analytics questions are causal but most analytics methods are
-> only descriptive, and that the gap between the two is where real decisions live.
+> I am a Data Analyst at Kit and teach Time Series and Forecasting at IE University.
 >
-> Today I work at Kit, where I focus on the semantic layer: the source-of-truth model that
-> makes metrics consistent across dashboards, notebooks, and AI agents. I build in public
-> through `intelligence-layer` (a practitioner knowledge base) and `agent-skills` (reusable
-> AI skills for data workflows), and I write a newsletter called *The Trade-off*.
+> Across eighteen years in data, operations, finance, and sales, I have often needed
+> to distinguish what happened from what caused it. That distinction guides how I
+> approach an analysis.
 >
-> MBA from Florida International University. OKR Master (Betterworks). Trilingual: EN / ES / FR.
-> Based in Paris. FOSS-leaning. Perpetually reading.
+> I build forecasts using statistical and foundation models, study cause and effect
+> through experiments and observational data, and check AI-generated analyses for
+> accuracy and usefulness.
+>
+> I share my work through intelligence-layer, a practical reference on forecasting,
+> causal inference, and evaluating AI-generated analyses, and agent-skills, reusable
+> AI skills for analytics workflows. I have also written for the IE University blog.
+>
+> I have an MEng in Telecommunications from ETSETB-UPC (Barcelona School of
+> Telecommunications Engineering, BarcelonaTech) and an MBA from the FIU College of
+> Business (Florida International University). I am also a certified OKR Master
+> (Betterworks). I speak English, Spanish, and French. FOSS-leaning. Perpetually reading.
+
+### Website Home
+
+Supporting line below “Narratives in numbers.”:
+
+> Forecasting, causal inference, and evaluation of AI-generated analyses.
+
+Introduction:
+
+> I build forecasts using statistical and foundation models, study cause and effect
+> through experiments and observational data, and check AI-generated analyses for
+> accuracy and usefulness. I also design semantic layers so teams can use consistent
+> definitions across their tools.
+
+### Website section descriptions
+
+- **Field Notes:** Short notes on data and decisions, with examples from analytics work.
+- **Building:** Public repositories and projects I work on.
+- **Writing:** Articles and essays on data, decisions, and analytics.
 
 ---
 
@@ -104,6 +130,6 @@ else coherent.
 
 See [voice.md](voice.md) for the full guide.
 
-Short version: economist-precise prose. One idea per sentence. No filler. Occasional
+Short version: precise, plain prose with varied sentence lengths. No filler. Occasional
 dry wit — earned, not performed. No hype, no emojis in long-form. If a sentence would
 not survive a copy editor at *The Economist*, cut it.

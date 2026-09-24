@@ -29,7 +29,7 @@ projects:
     repo_url: https://github.com/aleberriz/intelligence-layer
     visibility: public
     status: active
-    one_liner: Practitioner knowledge base on forecasting, causal inference, and AI-assisted analytics evaluation.
+    one_liner: Practical reference on forecasting, causal inference, and evaluating AI-generated analyses.
     tags: [analytics, semantic-layer, causal-inference, ai, knowledge-base]
     on_hub: true
     last_reviewed: 2026-04-17
@@ -38,7 +38,7 @@ projects:
     repo_url: https://github.com/aleberriz/agent-skills
     visibility: public
     status: active
-    one_liner: Reusable AI skill definitions for analytics workflows and data science tasks. Compatible with github.com/anthropics/skills.
+    one_liner: Reusable AI skills for analytics workflows and data science tasks.
     tags: [ai, agent-skills, analytics, tooling, foss]
     on_hub: true
     last_reviewed: 2026-04-17

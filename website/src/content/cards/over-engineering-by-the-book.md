@@ -1,8 +1,8 @@
 ---
 title: "Over-engineering by the book"
-summary: "The hallmark of a junior technical role: following best practices so literally that the solution becomes the problem."
+summary: "Best practices need to fit the problem. Applying them without that judgment can add unnecessary work."
 date: 2026-09-18
 tag: engineering
 ---
 
-TODO
+This note is in progress.

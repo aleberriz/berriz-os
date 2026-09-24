@@ -1,8 +1,8 @@
 ---
 title: "Think for yourself"
-summary: "Do not blindly trust Gen AI outputs. Verify, question, and own the conclusion."
+summary: "Check AI-generated answers, question their assumptions, and take responsibility for the conclusions you use."
 date: 2026-09-18
 tag: ai
 ---
 
-TODO
+This note is in progress.
