@@ -36,9 +36,7 @@ const pageTitle = `${card.data.title} — Field Notes`;
   <BaseLayout title={pageTitle} description={card.data.summary}>
     <main class="fn-card mx-auto max-w-2xl px-6 py-14 md:py-20">
       <article>
-        <p class="text-sm text-ink-muted">
-          {dateStr}{card.data.tag && ` · ${card.data.tag}`}
-        </p>
+        <p class="text-sm text-ink-muted">{dateStr}</p>
         <h1
           class="fn-card__title mt-2 font-serif text-3xl font-semibold tracking-tight text-ink md:text-4xl"
         >
