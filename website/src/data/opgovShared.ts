@@ -10,13 +10,42 @@
  * [label](https://example.com).
  */
 
+/** One cell of a `quadrant` diagram block; array order is [top-left, top-right, bottom-left, bottom-right]. */
+export interface QuadrantCell {
+  heading: string;
+  items?: string[];
+  text?: string;
+}
+
+/** One step of a `stages` diagram block — a vertical flow of numbered stages. */
+export interface Stage {
+  label: string;
+  text?: string;
+}
+
 export type Block =
   | { kind: 'p'; text: string }
   | { kind: 'list'; items: string[]; ordered?: boolean }
   | { kind: 'quote'; text: string; source?: string }
   | { kind: 'note'; text: string }
   | { kind: 'table'; head: string[]; rows: string[][] }
-  | { kind: 'sub'; heading: string; blocks: Block[] };
+  | { kind: 'sub'; heading: string; blocks: Block[] }
+  /** A redrawn 2x2 diagram (SWOT quadrants, Eisenhower matrix, etc). */
+  | {
+      kind: 'quadrant';
+      colLabels?: [string, string];
+      rowLabels?: [string, string];
+      cells: [QuadrantCell, QuadrantCell, QuadrantCell, QuadrantCell];
+    }
+  /** A redrawn vertical flow of stages (a cycle, a sprint, a process). */
+  | { kind: 'stages'; steps: Stage[]; loop?: boolean; loopLabel?: string }
+  /** The box-and-whisker anatomy diagram, redrawn for the Box Plot Charts card. */
+  | { kind: 'boxplot' }
+  /** A legend of shapes and their meaning, redrawn for the Flowcharts card. */
+  | {
+      kind: 'shapes';
+      items: { shape: 'oval' | 'rect' | 'diamond' | 'parallelogram'; label: string; desc: string }[];
+    };
 
 export interface Byline {
   name: string;
@@ -46,8 +75,8 @@ export const REFS = 'References and resources';
 
 /**
  * Bylines as on the original slides. Colleagues get their LinkedIn profile;
- * internal links from the original decks (internal Tableau, Google Drives,
- * internal docs) were dropped on purpose.
+ * internal-only links from the original decks (internal Tableau, Google
+ * Drives, internal docs) were dropped on purpose.
  */
 export const JAIME: Byline = {
   name: 'Javier Martínez',
