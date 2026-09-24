@@ -2,8 +2,14 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { byFeaturedThenDate } from '../../lib/fieldNotes';
+import { opgovCards } from '../../data/opgovFlashcards';
 
 const cards = (await getCollection('cards')).sort(byFeaturedThenDate);
+
+const flashcards = cards
+  .filter((c) => c.data.series === 'opgov-flashcards')
+  .sort((a, b) => opgovCards[a.slug].number - opgovCards[b.slug].number);
+const notes = cards.filter((c) => c.data.series !== 'opgov-flashcards');
 ---
 
 <BaseLayout
@@ -16,10 +22,73 @@ const cards = (await getCollection('cards')).sort(byFeaturedThenDate);
       Short notes on data and decisions, with examples from analytics work.
     </p>
 
+    <nav class="mt-10 rounded-lg border border-line p-6" aria-label="Index of all field notes">
+      <h2 class="font-serif text-xl font-semibold text-ink">Index</h2>
+      <p class="mt-1 text-sm text-ink-muted">
+        Everything on this page, at a glance.
+      </p>
+
+      <div class="mt-6">
+        <p class="font-mono text-xs uppercase tracking-widest text-ink-muted">Field notes</p>
+        <table class="mt-2 w-full border-collapse text-sm">
+          <tbody>
+            {
+              notes.map((card) => (
+                <tr class="border-b border-line last:border-0">
+                  <td class="py-1.5 pr-4">
+                    <a
+                      href={`#${card.slug}`}
+                      class="text-accent underline underline-offset-2 hover:text-accent-hover"
+                    >
+                      {card.data.title}
+                    </a>
+                  </td>
+                  <td class="py-1.5 text-right text-ink-muted whitespace-nowrap">
+                    {card.data.date.toLocaleDateString('en-GB', { year: 'numeric', month: 'short' })}
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mt-6 border-t border-line pt-6">
+        <p class="font-mono text-xs uppercase tracking-widest text-ink-muted">
+          Operational Governance Knowledge Flashcards
+        </p>
+        <p class="mt-1 text-sm text-ink-muted">
+          The BizOps archive: nineteen decks from my operational governance
+          days, republished as field notes.
+        </p>
+        <table class="mt-2 w-full border-collapse text-sm">
+          <tbody>
+            {
+              flashcards.map((card) => (
+                <tr class="border-b border-line last:border-0">
+                  <td class="py-1.5 pr-4">
+                    <a
+                      href={`#${card.slug}`}
+                      class="text-accent underline underline-offset-2 hover:text-accent-hover"
+                    >
+                      {card.data.title}
+                    </a>
+                  </td>
+                  <td class="py-1.5 text-right text-ink-muted whitespace-nowrap">
+                    {card.data.date.toLocaleDateString('en-GB', { year: 'numeric', month: 'short' })}
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </nav>
+
     <ul class="mt-12 space-y-8">
       {
         cards.map((card) => (
-          <li class="border-b border-line pb-8 last:border-0">
+          <li id={card.slug} class="scroll-mt-8 border-b border-line pb-8 last:border-0">
             <a href={`/field-notes/${card.slug}/`} class="group block">
               <h2 class="font-serif text-xl font-semibold text-ink group-hover:underline">
                 {card.data.title}
