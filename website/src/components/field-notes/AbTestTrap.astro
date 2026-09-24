@@ -22,8 +22,9 @@
         A/B tests in business
       </h1>
       <p class="ab-dek">
-        The randomized trial is the gold standard. Most business questions
-        can&rsquo;t have one. Saying which is which is your job.
+        A randomized trial can answer a well-defined causal question. Before
+        proposing one, check whether you can run it and what the result would
+        actually tell you.
       </p>
       <p class="ab-scroll" aria-hidden="true">scroll &darr;</p>
     </section>
@@ -33,21 +34,20 @@
       <p class="ab-num">01</p>
       <h2>It&rsquo;s a trial, not a split.</h2>
       <p>
-        I say <strong>RCT</strong>, randomized controlled trial, because the
-        long name says what the short one hides. You randomize. You keep a
-        control. You run a trial of one specific thing.
+        I prefer the full term, <strong>randomized controlled trial</strong>,
+        because it reminds us what the design requires: random assignment, a
+        control group, and a specific change to evaluate.
       </p>
       <p>
-        The question it answers is narrow: did the exposure cause the
-        conversion, or did chance?
+        The question here is whether the exposure changed the conversion rate,
+        allowing for chance variation between the groups.
       </p>
 
       <figure class="ab-fig">
         <svg viewBox="0 0 340 130" role="img" aria-labelledby="d1t">
           <title id="d1t"
             >An exposed group converting at 12 percent above an unexposed
-            control group converting at 10 percent; the two-point gap is the
-            causal effect.</title
+            control group converting at 10 percent; the two-point gap is an estimate of the causal effect.</title
           >
           <rect x="2" y="8" width="104" height="40" rx="4" class="s-box s-blue" />
           <text x="54" y="33" class="s-lbl">exposed</text>
@@ -76,9 +76,10 @@
           </defs>
         </svg>
         <figcaption>
-          <strong class="c-amber">Those 2 points are the causal effect.</strong>
-          The control group stands in for a world that never happened.
-          Randomizing is what licenses the substitution.
+          <strong class="c-amber">Those 2 points estimate the causal effect.</strong>
+          Random assignment makes the control group a useful comparison for
+          what would have happened without the exposure. The estimate still
+          has uncertainty.
         </figcaption>
       </figure>
     </section>
@@ -86,11 +87,11 @@
     <!-- ============ 02 ============ -->
     <section class="ab-card">
       <p class="ab-num">02</p>
-      <h2>Everyone will want one. For everything.</h2>
+      <h2>Check whether the question can be tested.</h2>
       <p>
-        Stakeholders don&rsquo;t push for tests because they love statistics.
-        They push because the world is uncertain and a p-value looks like solid
-        ground.
+        When a decision is uncertain, asking for a test is understandable.
+        The difficulty is that some decisions do not give you a workable
+        treatment and control group.
       </p>
       <p class="ab-quote">
         &ldquo;Can we just A/B test it?&rdquo;
@@ -103,19 +104,20 @@
       <p class="ab-num">03</p>
       <h2>Splitting traffic isn&rsquo;t testing.</h2>
       <p>
-        Send half your users somewhere different and you have a split. You have
-        a trial only if you fixed the rules <em>before</em> you saw the numbers.
+        Sending half your users somewhere different is only part of the design.
+        Decide what you will measure and how you will evaluate it
+        <em>before</em> looking at the results.
       </p>
 
       <div class="ab-split">
         <div class="ab-col ab-col--bad">
-          <p class="ab-col-h">Theater</p>
+          <p class="ab-col-h">An unreliable test</p>
           <ul>
             <li>Split the traffic</li>
             <li>Watch the dashboard daily</li>
             <li>Pick the winning metric after looking</li>
             <li>Stop when it looks good</li>
-            <li>Ship the story</li>
+            <li>Report only the win</li>
           </ul>
         </div>
         <div class="ab-col ab-col--good">
@@ -125,7 +127,7 @@
             <li>Name one conversion event first</li>
             <li>Set the MDE before you look</li>
             <li>Stop at the sample size you planned</li>
-            <li>Ship the decision you agreed to</li>
+            <li>Apply the agreed decision rule</li>
           </ul>
         </div>
       </div>
@@ -144,9 +146,9 @@
       <p class="ab-wall">Wall 1</p>
       <h2>There is no multiverse.</h2>
       <p>
-        Steve Jobs did not A/B test the iPhone. Not because he was bold, but
-        because you cannot launch into two universes and compare. One-shot,
-        irreversible decisions have no control group.
+        You cannot randomize the entire decision to launch a new product into
+        two versions of the same market. You may be able to test parts of
+        the launch, but those tests answer narrower questions.
       </p>
 
       <figure class="ab-fig">
@@ -166,7 +168,8 @@
           <text x="100" y="88" class="s-cap s-amber-fill">launch</text>
           <text x="300" y="56" class="s-cap s-blue-fill" text-anchor="end">the world you got</text>
         </svg>
-        <figcaption>After launch there is no control group left to compare against.</figcaption>
+        <figcaption>This launch gives you one observed outcome. A comparison needs to
+          be designed separately.</figcaption>
       </figure>
     </section>
 
@@ -176,9 +179,8 @@
       <p class="ab-wall">Wall 2</p>
       <h2>The arithmetic says no.</h2>
       <p>
-        &ldquo;Just measure revenue.&rdquo; Usually you can&rsquo;t. Sample size
-        is set by your baseline rate and your MDE, and a rare event punishes you
-        on both.
+        Purchase conversion may be the outcome you care about, but a low
+        purchase rate can make the required sample impractical.
       </p>
       <p>
         Take 2,000 visitors a week and a 2% purchase rate. Detecting a 10% lift
@@ -239,14 +241,13 @@
       </figure>
 
       <p>
-        The scope is the point. The trial did not rule on the initiative. It
-        settled one decision inside it. Everything downstream stays a judgment
-        call, made by the people paid to make it.
+        This test estimates the effect on checkout rate. It does not establish
+        the effect on purchases or repeat business; those need additional
+        evidence.
       </p>
       <p class="ab-note">
-        Say the scope out loud, every time. Left unsaid, a win on checkout rate
-        gets retold as proof the initiative makes money, and it will be your
-        name on the chart.
+        State that limit alongside the result. Otherwise, an improvement in
+        checkout rate can easily be repeated as evidence of higher revenue.
       </p>
     </section>
 
@@ -255,18 +256,19 @@
       <p class="ab-num">07</p>
       <h2>No trial possible? You still have tools.</h2>
       <p>
-        None of these match an RCT. All of them beat a confident guess, and all
-        of them come with error bars.
+        Depending on the setting, these designs may help. Some can use
+        randomization; others rely on assumptions about the comparison group
+        or what would have happened over time.
       </p>
 
       <ul class="ab-tools">
         <li>
           <span class="t-name">Staged rollout</span>
-          <span class="t-desc">Ship to some regions first, hold the rest back. Cheapest thing here, and impossible to arrange after launch.</span>
+          <span class="t-desc">Introduce the change in some regions first, with others available for comparison.</span>
         </li>
         <li>
           <span class="t-name">Switchback test</span>
-          <span class="t-desc">Can&rsquo;t split users? Split time. Flip the change on and off on a schedule.</span>
+          <span class="t-desc">Alternate the change on and off over time, accounting for effects that may carry over between periods.</span>
         </li>
         <li>
           <span class="t-name">Difference-in-differences</span>
@@ -282,25 +284,25 @@
         </li>
         <li>
           <span class="t-name">Pre/post analysis</span>
-          <span class="t-desc">A clean before and after, and the honesty to list everything else that changed that week.</span>
+          <span class="t-desc">Compare before and after, while checking for other changes that could explain the result.</span>
         </li>
       </ul>
 
       <p class="ab-note">
-        Most of these cost nothing, <em>if</em> you are in the room before the
-        launch. Afterwards they are gone. Being early beats being clever.
+        Discuss the evaluation before launch. You may need to preserve a
+        comparison group, schedule a rollout, or collect a baseline that
+        cannot be reconstructed later.
       </p>
     </section>
 
     <!-- ============ CLOSER ============ -->
     <section class="ab-close">
       <p class="ab-num">The job</p>
-      <p class="ab-shout">Be a force for the right tool in each circumstance.</p>
+      <p class="ab-shout">Say what the test can answer.</p>
       <p>
-        Don&rsquo;t cave under pressure to rubber-stamp a preconceived narrative
-        with your expertise. Someone always has an agenda and a slide already
-        written. Your signature on a fake test is the only thing that makes it
-        dangerous.
+        If the test cannot support the claim, say so before the result goes
+        into the presentation. Explain what you did learn and what remains
+        uncertain.
       </p>
     </section>
 
