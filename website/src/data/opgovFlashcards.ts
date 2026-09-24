@@ -14,7 +14,7 @@
  *     diagrams, tables, and deep-dives) becomes its own section placed
  *     right after "How to use it", so the box content stays clean.
  *     Sections a deck did not have are simply omitted.
- *   - Cabify-internal links (internal Tableau, Google Drives, internal
+ *   - Internal-only links (internal Tableau, Google Drives, internal
  *     docs) were dropped on purpose; only public references are kept.
  *   - Bylines credit the original authors as on the slides.
  *
