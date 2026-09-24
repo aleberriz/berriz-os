@@ -32,7 +32,8 @@ LinkedIn and GitHub profile URLs are hardcoded in `src/site.config.ts`. The IE b
 
 ## Theming
 
-The site follows the reader's OS setting and offers a toggle in the header. Both
+The site opens in dark mode unless the reader has saved a different choice with
+the header toggle. OS color preferences do not change this default. Both
 themes are defined once, as CSS variables in
 [`src/styles/global.css`](src/styles/global.css), and Tailwind maps its color
 utilities onto those variables in `tailwind.config.mjs`.
@@ -57,12 +58,11 @@ Every one of these clears WCAG AA against `bg-canvas` in both themes.
 
 How the theme is chosen, in order:
 
-1. `:root` holds light, which is also the no-JavaScript default.
-2. A `prefers-color-scheme: dark` media query applies dark, unless the reader
-   has explicitly chosen light.
-3. `data-theme` on `<html>` overrides both.
+1. `:root` holds dark, which is also the no-JavaScript default.
+2. `data-theme="light"` on `<html>` applies the light palette.
+3. The header toggle saves an explicit choice for later visits.
 
-Steps 1 and 2 are pure CSS, so the correct theme paints on the first frame. The
+The first two rules are pure CSS, so dark mode paints on the first frame. The
 inline script in `ThemeHead.astro` only replays a stored choice, which is why it
 must stay `is:inline` and stay in `<head>` — moving it would reintroduce the
 flash it exists to prevent.
