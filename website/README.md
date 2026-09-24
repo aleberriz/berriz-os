@@ -107,6 +107,7 @@ their own colors, by design.
 | `image` | no | Path to an image in `/public` (e.g. `/field-notes/my-meme.png`). Shown large between summary and body. Put image files in `public/field-notes/`. |
 | `imageAlt` | no | Alt text for the image. Falls back to the title if omitted. |
 | `display` | no | `default` (standard site layout) or `bare` (document shell only — no header, footer, or styling). Defaults to `default`. See [custom-designed field notes](#custom-designed-field-notes). **Not** `layout`: MDX reserves that key. |
+| `series` | no | Series key for grouped notes (e.g. `opgov-flashcards`). Drives the index grouping at the top of `/field-notes/`. |
 
 ### Images and memes
 
@@ -169,6 +170,8 @@ Worked examples, each with a deliberately different look:
 - [`GenAiWithoutData.astro`](src/components/field-notes/GenAiWithoutData.astro) → `/field-notes/gen-ai-without-data/` — harbour cutaway: a waterline running down a dark page, Archivo Black caption type, and an original two-panel meme drawn in SVG.
 
 Two custom notes should not look like each other. A shared house style for bare notes would defeat the point of the escape hatch.
+
+**One exception: the Operational Governance Knowledge Flashcards.** Nineteen decks from the OpGov archive (2019–2023) are republished as bare notes that all share one look — a ruled index card — rendered by the single shared component [`OpGovFlashcard.astro`](src/components/field-notes/OpGovFlashcard.astro). A series is allowed a uniform house style; a series is also the only case where one component serves many notes. The card content lives in [`src/data/opgovFlashcards.ts`](src/data/opgovFlashcards.ts) (split across `opgovCardsA.ts` / `opgovCardsB.ts`), keyed by slug; each `src/content/cards/<slug>.mdx` is just frontmatter, `series: opgov-flashcards`, `display: bare`, and a one-line render. The frontmatter carries the publication date of the original deck; the deck's original section breakdown (What is it / When is it useful / How to use it / Common pitfalls / References and resources) is preserved. Internal (Cabify) links were dropped on republish; only public references are kept. To add a card to the series, add its entry to the data module and a matching thin `.mdx` file.
 
 #### Rules, each of which has already broken a build
 

@@ -1,0 +1,400 @@
+---
+/**
+ * Field note series: the Operational Governance Knowledge Flashcards.
+ * → /field-notes/<slug>/ for every card in src/data/opgovFlashcards.ts
+ *
+ * One shared design for the whole series — the deliberate exception to the
+ * "two custom notes should not look like each other" rule. The set reads as
+ * a deck of ruled index cards from the archive: cream paper, a red double
+ * rule under the header, faint horizontal rules down the body, punch holes
+ * on the left, and a small series stamp acknowledging the legacy
+ * ("Operational Governance" — we'd call it BizOps today).
+ *
+ * Every card renders through this component only; the content lives in
+ * src/data/opgovFlashcards.ts, keyed by slug. Fraunces and Inter are loaded
+ * site-wide by ThemeHead; Courier Prime is imported here.
+ */
+import type { Block, OpGovCard } from '../../data/opgovFlashcards';
+import { OPGOV_TOTAL } from '../../data/opgovFlashcards';
+
+interface Props {
+  card: OpGovCard;
+}
+
+const { card } = Astro.props;
+
+const num = String(card.number).padStart(2, '0');
+const total = String(OPGOV_TOTAL).padStart(2, '0');
+
+function esc(s: string): string {
+  return s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+/** Minimal inline markup: **bold**, *italic*, `code`, [label](url). */
+function inline(s: string): string {
+  return esc(s)
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+}
+
+function renderBlocks(blocks: Block[]): string {
+  return blocks
+    .map((b) => {
+      switch (b.kind) {
+        case 'p':
+          return `<p>${inline(b.text)}</p>`;
+        case 'note':
+          return `<p class="ogf-note">${inline(b.text)}</p>`;
+        case 'list': {
+          const tag = b.ordered ? 'ol' : 'ul';
+          const items = b.items.map((i) => `<li>${inline(i)}</li>`).join('');
+          return `<${tag}>${items}</${tag}>`;
+        }
+        case 'quote':
+          return `<blockquote><p>${inline(b.text)}</p>${
+            b.source ? `<cite>${inline(b.source)}</cite>` : ''
+          }</blockquote>`;
+        case 'table':
+          return `<div class="ogf-twrap"><table><thead><tr>${b.head
+            .map((h) => `<th>${inline(h)}</th>`)
+            .join('')}</tr></thead><tbody>${b.rows
+            .map((r) => `<tr>${r.map((c) => `<td>${inline(c)}</td>`).join('')}</tr>`)
+            .join('')}</tbody></table></div>`;
+        case 'sub':
+          return `<div class="ogf-sub"><h3>${inline(
+            b.heading,
+          )}</h3>${renderBlocks(b.blocks)}</div>`;
+      }
+    })
+    .join('');
+}
+
+const bylineNames = (card.bylines ?? [])
+  .map((b) => (b.url ? `<a href="${b.url}">${esc(b.name)}</a>` : esc(b.name)))
+  .join(' &amp; ');
+---
+
+<div class="ogf">
+  <div class="ogf-inner">
+    <article class="ogf-card">
+      <span class="ogf-hole ogf-hole--1" aria-hidden="true"></span>
+      <span class="ogf-hole ogf-hole--2" aria-hidden="true"></span>
+      <span class="ogf-hole ogf-hole--3" aria-hidden="true"></span>
+
+      <header class="ogf-head">
+        <p class="ogf-kicker">
+          Operational Governance Knowledge Flashcards
+          <span class="ogf-stamp">No. {num}/{total}</span>
+        </p>
+        <h1 class="ogf-title">{card.title}</h1>
+        <p class="ogf-legacy">
+          From my good ol’ flashcard deck, back when we called this
+          discipline Operational Governance. Today it goes by BizOps — the
+          original card is republished here as a field note.
+        </p>
+      </header>
+      <div class="ogf-redline" aria-hidden="true"></div>
+
+      {
+        card.sections.map((section, i) => (
+          <section class="ogf-sec">
+            <h2 class="ogf-sec-h">
+              <span class="ogf-sec-num">{String(i + 1).padStart(2, '0')}</span>
+              {section.heading}
+            </h2>
+            <div class="ogf-sec-b" set:html={renderBlocks(section.blocks)} />
+          </section>
+        ))
+      }
+
+      <footer class="ogf-foot">
+        {
+          bylineNames && (
+            <p class="ogf-byline">
+              Flashcard by <span set:html={bylineNames} /> · {card.originalDate}
+            </p>
+          )
+        }
+        {!bylineNames && <p class="ogf-byline">Flashcard · {card.originalDate}</p>}
+        <p class="ogf-backlink">
+          <a href="/field-notes/">← All field notes</a>
+          <a href="/field-notes/">aleberriz.com</a>
+        </p>
+      </footer>
+    </article>
+  </div>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap');
+
+  .ogf {
+    --paper: #f8f3e4;
+    --desk: #e8e0c8;
+    --ink: #32302a;
+    --ink-soft: #56503f;
+    --ink-dim: #7c7560;
+    --rule: rgba(96, 116, 143, 0.28);
+    --rule-strong: rgba(96, 116, 143, 0.45);
+    --red: #b23a2f;
+
+    min-height: 100vh;
+    padding: 2rem 1rem 4rem;
+    background:
+      radial-gradient(1200px 400px at 50% -100px, rgba(255, 252, 240, 0.7), transparent),
+      var(--desk);
+    color: var(--ink);
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    font-size: 1.03rem;
+    line-height: 1.62;
+  }
+
+  .ogf-inner {
+    max-width: 44rem;
+    margin: 0 auto;
+  }
+
+  /* ---- the index card ---- */
+  .ogf-card {
+    position: relative;
+    padding: 2.6rem 1.6rem 2.2rem 2.9rem;
+    background: var(--paper);
+    border: 1px solid #d9cfa9;
+    border-radius: 4px;
+    box-shadow:
+      0 1px 2px rgba(80, 66, 30, 0.12),
+      0 14px 34px rgba(80, 66, 30, 0.2);
+  }
+
+  @media (min-width: 640px) {
+    .ogf-card { padding: 3.2rem 3rem 2.6rem 4.2rem; }
+  }
+
+  /* punch holes down the left margin */
+  .ogf-hole {
+    position: absolute;
+    left: 0.9rem;
+    width: 0.85rem;
+    height: 0.85rem;
+    border-radius: 50%;
+    background: var(--desk);
+    box-shadow:
+      inset 0 1.5px 3px rgba(60, 48, 20, 0.4),
+      0 1px 0 rgba(255, 255, 255, 0.65);
+  }
+  .ogf-hole--1 { top: 4.5rem; }
+  .ogf-hole--2 { top: 50%; margin-top: -0.42rem; }
+  .ogf-hole--3 { bottom: 4.5rem; }
+
+  @media (max-width: 420px) {
+    .ogf-hole { left: 0.5rem; width: 0.65rem; height: 0.65rem; }
+    .ogf-hole--2 { margin-top: -0.32rem; }
+    .ogf-card { padding-left: 2rem; }
+  }
+
+  /* ---- header ---- */
+  .ogf-head { margin-bottom: 1.1rem; }
+
+  .ogf-kicker {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin: 0;
+    font-family: 'Courier Prime', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+
+  .ogf-stamp {
+    flex: none;
+    padding: 0.14rem 0.5rem;
+    border: 1.5px solid var(--red);
+    border-radius: 3px;
+    color: var(--red);
+    transform: rotate(-2deg);
+    font-weight: 700;
+  }
+
+  .ogf-title {
+    margin: 0.9rem 0 0.7rem;
+    font-family: Fraunces, Georgia, serif;
+    font-size: clamp(2rem, 8vw, 2.9rem);
+    font-weight: 600;
+    line-height: 1.06;
+    color: #2a2822;
+  }
+
+  .ogf-legacy {
+    margin: 0;
+    max-width: 46ch;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--ink-dim);
+  }
+
+  /* the red double rule of a ruled index card */
+  .ogf-redline {
+    height: 2px;
+    background: var(--red);
+    margin: 1.4rem 0 0;
+  }
+  .ogf-redline::after {
+    content: '';
+    display: block;
+    height: 1px;
+    background: var(--red);
+    margin-top: 3px;
+  }
+
+  /* ---- sections ---- */
+  .ogf-sec { padding: 1.6rem 0 0.4rem; }
+
+  .ogf-sec-h {
+    display: flex;
+    align-items: baseline;
+    gap: 0.7rem;
+    margin: 0 0 0.9rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 1px solid var(--rule-strong);
+    font-family: 'Courier Prime', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #2a2822;
+  }
+  .ogf-sec-num {
+    font-size: 0.78rem;
+    color: var(--red);
+    letter-spacing: 0.06em;
+  }
+
+  /* the ruled-paper feel: every block sits on a faint horizontal rule */
+  .ogf-sec-b > p,
+  .ogf-sec-b > ul,
+  .ogf-sec-b > ol,
+  .ogf-sec-b > blockquote,
+  .ogf-sec-b > .ogf-twrap,
+  .ogf-sec-b > .ogf-sub {
+    margin: 0 0 0.9rem;
+    padding-bottom: 0.9rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .ogf-sec-b > *:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
+
+  .ogf-sec-b p { margin: 0; }
+  .ogf-sec-b p + p { margin-top: 0.75rem; }
+
+  .ogf a { color: #29527a; text-decoration: underline; text-underline-offset: 3px; }
+  .ogf a:hover { color: var(--red); }
+
+  .ogf ul, .ogf ol { padding-left: 1.3rem; margin: 0; }
+  .ogf li { margin: 0.25rem 0; }
+  .ogf li::marker { color: var(--red); }
+
+  .ogf strong { color: #2a2822; }
+  .ogf code {
+    font-family: 'Courier Prime', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.92em;
+    background: rgba(96, 116, 143, 0.12);
+    border-radius: 3px;
+    padding: 0.08em 0.3em;
+  }
+
+  .ogf blockquote { margin: 0; padding: 0.15rem 0 0.9rem 1.1rem; border-left: 3px solid var(--red); }
+  .ogf blockquote p {
+    font-family: Fraunces, Georgia, serif;
+    font-size: 1.12rem;
+    font-style: italic;
+    color: #3c382e;
+  }
+  .ogf blockquote cite {
+    display: block;
+    margin-top: 0.4rem;
+    font-family: 'Courier Prime', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.78rem;
+    font-style: normal;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+
+  .ogf-note {
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--ink-dim);
+  }
+
+  .ogf-sub h3 {
+    margin: 0 0 0.5rem;
+    font-family: Fraunces, Georgia, serif;
+    font-size: 1.12rem;
+    font-weight: 600;
+    color: #2a2822;
+  }
+  .ogf-sub > ul,
+  .ogf-sub > ol,
+  .ogf-sub > p { margin: 0 0 0.7rem; }
+  .ogf-sub > *:last-child { margin-bottom: 0; }
+
+  .ogf-twrap { overflow-x: auto; }
+  .ogf table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+  .ogf th, .ogf td {
+    text-align: left;
+    vertical-align: top;
+    padding: 0.5rem 0.7rem 0.5rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .ogf th {
+    font-family: 'Courier Prime', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+
+  /* ---- footer ---- */
+  .ogf-foot {
+    margin-top: 2rem;
+    padding-top: 1.1rem;
+    border-top: 1px solid var(--rule-strong);
+  }
+  .ogf-byline {
+    margin: 0 0 0.5rem;
+    font-size: 0.86rem;
+    color: var(--ink-soft);
+  }
+  .ogf-byline a { color: #29527a; }
+  .ogf-backlink {
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    font-family: 'Courier Prime', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.74rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .ogf-backlink a { color: var(--ink-dim); }
+  .ogf-backlink a:hover { color: var(--red); }
+
+  /* ---- present mode ---- */
+  :global(html.present) .ogf-backlink { display: none; }
+  :global(html.present) .ogf { padding-top: 3.5rem; font-size: 1.22rem; }
+  :global(html.present) .ogf-title { font-size: 3.4rem; }
+  :global(html.present) .ogf-legacy { font-size: 1rem; }
+</style>

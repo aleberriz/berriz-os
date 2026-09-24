@@ -15,6 +15,8 @@ const cards = defineCollection({
     featured: z.boolean().optional().default(false),
     /** When 'bare', the card renders without the standard site chrome. Use .mdx and define your own page structure. (Named 'display', not 'layout' — MDX reserves 'layout' in frontmatter.) */
     display: z.enum(['default', 'bare']).optional().default('default'),
+    /** Series key for grouped notes (e.g. 'opgov-flashcards'). Drives the index grouping on /field-notes/. */
+    series: z.string().optional(),
   }),
 });
 
