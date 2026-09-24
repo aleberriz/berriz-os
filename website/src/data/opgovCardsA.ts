@@ -1,6 +1,11 @@
 /**
  * Operational Governance Knowledge Flashcards — cards 01–10.
  * See opgovFlashcards.ts for the series documentation.
+ *
+ * Section order per card: the template's five boxes in template order
+ * (What is it / When is it useful / How to use it / Common pitfalls /
+ * References and resources), with the slide's main open-area content as
+ * its own section placed right after "How to use it".
  */
 import { OpGovCard, WHAT, WHEN, HOW, PITFALLS, REFS, JAIME, FER, ALE } from './opgovShared';
 
@@ -47,8 +52,13 @@ export const cardsA: Record<string, OpGovCard> = {
         blocks: [
           {
             kind: 'p',
-            text: 'Learn the mechanics on [Agile in a Nutshell](https://www.agilenutshell.com/), then run the sprint ceremonies as written:',
+            text: 'Learn the Agile methodologies on [Agile in a Nutshell](https://www.agilenutshell.com/).',
           },
+        ],
+      },
+      {
+        heading: 'The sprint, in one pass',
+        blocks: [
           {
             kind: 'sub',
             heading: 'Sprint planning',
@@ -92,6 +102,58 @@ export const cardsA: Record<string, OpGovCard> = {
           {
             kind: 'note',
             text: 'The product backlog is the ordered list of work to be done — features, bug fixes, non-functional requirements, user stories, etc. The sprint backlog is the subset selected for the next sprint, broken down into tasks.',
+          },
+        ],
+      },
+      {
+        heading: 'The companion card: Scrum',
+        blocks: [
+          {
+            kind: 'quote',
+            text: 'Scrum is a simple framework for effective team collaboration on complex software projects.',
+            source: 'The deck’s second slide',
+          },
+          {
+            kind: 'quote',
+            text: 'Scrum follows the values and principles of agile, but includes further definitions and specifications.',
+          },
+          {
+            kind: 'quote',
+            text: 'With an emphasis on software development, it is designed for teams of 3–9 members who break their work into actions that can be completed within timeboxed iterations, called sprints.',
+          },
+          {
+            kind: 'sub',
+            heading: 'Scrum works when',
+            blocks: [
+              {
+                kind: 'list',
+                items: [
+                  'Requirements change frequently, even from month to month.',
+                  'Work requires constant invention, so all steps are not known in advance, and estimates are not expected to be reliable.',
+                  'The process is cyclic — it repeats every sprint.',
+                  'No steps involve long lead times or lots of specialized resources.',
+                ],
+              },
+            ],
+          },
+          {
+            kind: 'sub',
+            heading: 'Scrum works less when',
+            blocks: [
+              {
+                kind: 'list',
+                items: [
+                  'Team members are geographically dispersed or part-time.',
+                  'Team members have very specialized skills.',
+                  'Products have many external dependencies.',
+                  'Products are mature or legacy, or with regulated quality control.',
+                ],
+              },
+              {
+                kind: 'note',
+                text: 'Scrum is not a methodology — the deck insists on this.',
+              },
+            ],
           },
         ],
       },
@@ -356,18 +418,6 @@ export const cardsA: Record<string, OpGovCard> = {
         ],
       },
       {
-        heading: PITFALLS,
-        blocks: [
-          {
-            kind: 'list',
-            items: [
-              'Missing data when ordering the data; using the mean instead of the median; and similar slips.',
-              'Summarizing means losing information: you can no longer see the underlying distribution of dots in each group, or their number of observations.',
-            ],
-          },
-        ],
-      },
-      {
         heading: HOW,
         blocks: [
           {
@@ -377,6 +427,18 @@ export const cardsA: Record<string, OpGovCard> = {
               'Using the equal interval scale, draw a rectangular box with one end at Q1 and the other end at Q3.',
               'Draw a vertical segment at the median value.',
               'Draw two horizontal segments on each side of the box, one down to the minimum value and one up to the maximum value. These are the “whiskers”.',
+            ],
+          },
+        ],
+      },
+      {
+        heading: PITFALLS,
+        blocks: [
+          {
+            kind: 'list',
+            items: [
+              'Missing data when ordering the data; using the mean instead of the median; and similar slips.',
+              'Summarizing means losing information: you can no longer see the underlying distribution of dots in each group, or their number of observations.',
             ],
           },
         ],
@@ -445,6 +507,22 @@ export const cardsA: Record<string, OpGovCard> = {
         ],
       },
       {
+        heading: 'The learning path on the card',
+        blocks: [
+          {
+            kind: 'list',
+            items: [
+              'Prepare your coding environment',
+              'The console vs the text editor',
+              'Use functions',
+              'Use conditionals',
+              'Use loops',
+              'Want more? Objects, classes, inheritance…',
+            ],
+          },
+        ],
+      },
+      {
         heading: PITFALLS,
         blocks: [
           {
@@ -461,20 +539,8 @@ export const cardsA: Record<string, OpGovCard> = {
         heading: REFS,
         blocks: [
           {
-            kind: 'p',
-            text: 'The learning path from the original card:',
-          },
-          {
             kind: 'list',
-            items: [
-              'The best YouTube Python tutorial I could find for total beginners',
-              'Prepare your coding environment',
-              'The console vs the text editor',
-              'Use functions',
-              'Use conditionals',
-              'Use loops',
-              'Want more? Objects, classes, inheritance…',
-            ],
+            items: ['The best YouTube Python tutorial I could find for total beginners'],
           },
         ],
       },
@@ -520,12 +586,29 @@ export const cardsA: Record<string, OpGovCard> = {
         heading: HOW,
         blocks: [
           {
+            kind: 'list',
+            items: [
+              'Taking control of your life',
+              'Making not just better decisions but smarter, strategic ones',
+              'Managing and improving your relationships with family and friends',
+              'Overcoming bad habits',
+              'Boosting your productivity',
+              'Finding a healthy work/life balance',
+              'Being your happiest self',
+            ],
+          },
+        ],
+      },
+      {
+        heading: 'The seven habits',
+        blocks: [
+          {
             kind: 'sub',
             heading: 'Habit 1: Be proactive',
             blocks: [
               {
                 kind: 'p',
-                text: '*“I am not a product of my circumstances. I am a product of my decisions.”* Between stimulus and response is your greatest power — your freedom to choose your response. Circle of Influence vs Circle of Concern. Live and be driven by the principles you value most, not by agendas and forces surrounding you. It’s all right to say no when necessary, and then focus on your highest priorities. See also: the Eisenhower Matrix.',
+                text: '*“I am not a product of my circumstances. I am a product of my decisions.”* Between stimulus and response is your greatest power — your freedom to choose your response. Circle of Influence vs Circle of Concern. *“Live and be driven by the principles you value most, not by agendas and forces surrounding you.”* It’s all right to say no when necessary, and then focus on your highest priorities. See also: the Eisenhower Matrix.',
               },
             ],
           },
@@ -585,7 +668,7 @@ export const cardsA: Record<string, OpGovCard> = {
             blocks: [
               {
                 kind: 'p',
-                text: '*“Renewal is the principle — and the process — that empowers us to move on an upward spiral of growth and change, of continuous improvement.”* Balance and renew your resources, energy, and health — physical, social/emotional, mental, and spiritual — to create a sustainable, long-term, effective lifestyle. Kaizen.',
+                text: '*“Renewal is the principle — and the process — that empowers us to move on an upward spiral of growth and change, of continuous improvement.”* Balance and renew your resources, energy, and health — physical, social/emotional, mental, and spiritual — to create a sustainable, long-term, effective lifestyle, so you can continue practicing the other six habits. Kaizen.',
               },
             ],
           },
@@ -656,6 +739,21 @@ export const cardsA: Record<string, OpGovCard> = {
         ],
       },
       {
+        heading: HOW,
+        blocks: [
+          {
+            kind: 'list',
+            items: [
+              'Customer-oriented leadership.',
+              'Understand the customer profile and needs based on information and data collected.',
+              'Empower the team to make decisions and solve customer problems.',
+              'Define indicators to measure the efficiency of the service provided.',
+              'Use customer feedback for continuous improvement of the service and of the products or services you offer.',
+            ],
+          },
+        ],
+      },
+      {
         heading: PITFALLS,
         blocks: [
           {
@@ -671,21 +769,6 @@ export const cardsA: Record<string, OpGovCard> = {
             kind: 'quote',
             text: 'You’ve got to start with the customer experience and work backwards for the technology… not start with “let’s sit down with the engineers and figure out what awesome technology we have”.',
             source: 'Steve Jobs',
-          },
-        ],
-      },
-      {
-        heading: HOW,
-        blocks: [
-          {
-            kind: 'list',
-            items: [
-              'Customer-oriented leadership.',
-              'Understand the customer profile and needs based on information and data collected.',
-              'Empower the team to make decisions and solve customer problems.',
-              'Define indicators to measure the efficiency of the service provided.',
-              'Use customer feedback for continuous improvement of the service and of the products or services you offer.',
-            ],
           },
         ],
       },
@@ -859,8 +942,17 @@ export const cardsA: Record<string, OpGovCard> = {
         blocks: [
           {
             kind: 'p',
-            text: 'Get to love them, and they will be your best friends. Your muscle reflex should default to these tools instead of something else.',
+            text: 'Get to love them, and they will be your best friends.',
           },
+          {
+            kind: 'p',
+            text: 'Your muscle reflex should default to these tools instead of something else.',
+          },
+        ],
+      },
+      {
+        heading: 'The formulas, and what each is better than',
+        blocks: [
           {
             kind: 'table',
             head: ['Formula / Tool', 'Use it when…', 'Better than…'],
@@ -936,19 +1028,6 @@ export const cardsA: Record<string, OpGovCard> = {
         ],
       },
       {
-        heading: PITFALLS,
-        blocks: [
-          {
-            kind: 'p',
-            text: 'Unless you have specialized knowledge and your diagram is for a peer group with similar knowledge, stick to basic flowchart symbols. It is good practice to include a legend or symbol key.',
-          },
-          {
-            kind: 'p',
-            text: 'It is not the same as a workflow (a series of actions that define a job or how work should be done). A flowchart is a diagram that *represents* a workflow.',
-          },
-        ],
-      },
-      {
         heading: HOW,
         blocks: [
           {
@@ -958,6 +1037,19 @@ export const cardsA: Record<string, OpGovCard> = {
           {
             kind: 'p',
             text: 'You can use special shapes to represent different types of actions or steps (Document, Input/Output, Subroutine, Delay, Display, etc.), and different types of flowcharts for each control focus: document flowcharts, data flowcharts, system flowcharts, and program flowcharts.',
+          },
+        ],
+      },
+      {
+        heading: PITFALLS,
+        blocks: [
+          {
+            kind: 'p',
+            text: 'Unless you have specialized knowledge and your diagram is for a peer group with similar knowledge, stick to basic flowchart symbols. It is good practice to include a legend or symbol key.',
+          },
+          {
+            kind: 'p',
+            text: 'It is not the same as a workflow (a series of actions that define a job or how work should be done). A flowchart is a diagram that *represents* a workflow.',
           },
         ],
       },

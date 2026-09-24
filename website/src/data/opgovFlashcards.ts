@@ -8,7 +8,12 @@
  * style" rule in website/README.md.
  *
  * Conventions:
- *   - Sections follow the original slide breakdown, in the original order.
+ *   - Sections follow the original template order: "What is it" / "When is
+ *     it useful" / "How to use it" / "Common pitfalls" / "References and
+ *     resources". Content that sat in the slide's main open area (the
+ *     diagrams, tables, and deep-dives) becomes its own section placed
+ *     right after "How to use it", so the box content stays clean.
+ *     Sections a deck did not have are simply omitted.
  *   - Cabify-internal links (internal Tableau, Google Drives, internal
  *     docs) were dropped on purpose; only public references are kept.
  *   - Bylines credit the original authors as on the slides.

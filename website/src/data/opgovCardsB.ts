@@ -1,6 +1,11 @@
 /**
  * Operational Governance Knowledge Flashcards — cards 11–19.
  * See opgovFlashcards.ts for the series documentation.
+ *
+ * Section order per card: the template's five boxes in template order
+ * (What is it / When is it useful / How to use it / Common pitfalls /
+ * References and resources), with the slide's main open-area content as
+ * its own section placed right after "How to use it".
  */
 import {
   OpGovCard,
@@ -49,18 +54,6 @@ export const cardsB: Record<string, OpGovCard> = {
         ],
       },
       {
-        heading: PITFALLS,
-        blocks: [
-          {
-            kind: 'list',
-            items: [
-              'If you are new to JavaScript, it can feel like a limitation — and a reason to give up. Never do it; don’t let this be a deterrent.',
-              'Processing limitations: as a cloud-based service, Apps Script limits the time a user’s script may run, and limits access to Google services.',
-            ],
-          },
-        ],
-      },
-      {
         heading: HOW,
         blocks: [
           {
@@ -75,6 +68,18 @@ export const cardsB: Record<string, OpGovCard> = {
               'Remove the existing code and add your own. Go to File → Save, add a script name, click OK.',
               'To execute, click ►, or select a function from the Run menu. On first run it will ask for your authentication — check the required permissions and click Allow.',
               'A yellow bar appears at the centre-top to indicate that the script is running.',
+            ],
+          },
+        ],
+      },
+      {
+        heading: PITFALLS,
+        blocks: [
+          {
+            kind: 'list',
+            items: [
+              'If you are new to JavaScript, it can feel like a limitation — and a reason to give up. Never do it; don’t let this be a deterrent.',
+              'Processing limitations: as a cloud-based service, Apps Script limits the time a user’s script may run, and limits access to Google services.',
             ],
           },
         ],
@@ -143,22 +148,21 @@ export const cardsB: Record<string, OpGovCard> = {
               'A third party (i.e. not the ISO) audits your processes and certifies your company complies with ISO 9001:2015.',
             ],
           },
+        ],
+      },
+      {
+        heading: 'What the certification asks you to show',
+        blocks: [
           {
-            kind: 'sub',
-            heading: 'What the certification asks you to show',
-            blocks: [
-              {
-                kind: 'list',
-                items: [
-                  'PDCA + risk management',
-                  'Stakeholders, business model',
-                  'Evidence of commitment',
-                  'SWOT and PREN',
-                  'Targets (OKRs are more than fine)',
-                  '“Processes” KPIs',
-                  'Process sheets (“fichas de procesos”) — e.g. onboarding, customer service, procurement…',
-                ],
-              },
+            kind: 'list',
+            items: [
+              'PDCA + risk management',
+              'Stakeholders, business model',
+              'Evidence of commitment',
+              'SWOT and PREN',
+              'Targets (OKRs are more than fine)',
+              '“Processes” KPIs',
+              'Process sheets (“fichas de procesos”) — e.g. onboarding, customer service, procurement…',
             ],
           },
         ],
@@ -234,6 +238,11 @@ export const cardsB: Record<string, OpGovCard> = {
               'Have change management elements in place, because there will be organizational inertia against the changes.',
             ],
           },
+        ],
+      },
+      {
+        heading: 'The two toolboxes',
+        blocks: [
           {
             kind: 'sub',
             heading: 'Six Sigma',
@@ -384,21 +393,6 @@ export const cardsB: Record<string, OpGovCard> = {
         ],
       },
       {
-        heading: PITFALLS,
-        blocks: [
-          {
-            kind: 'list',
-            items: [
-              'It is NOT a to-do list: KRs focus on **outcomes**, not tasks.',
-              'It is NOT a project or process management methodology.',
-              'It is NOT an employee evaluation tool (just one more input). It is a **leadership paradigm** for communication, empowerment, ownership, and driving outcomes.',
-              'KRs do not exist in isolation, but in the context of trade-offs against the other KRs within the same Objective.',
-              'The other teams you depend on must be on board with your KRs.',
-            ],
-          },
-        ],
-      },
-      {
         heading: HOW,
         blocks: [
           {
@@ -409,19 +403,18 @@ export const cardsB: Record<string, OpGovCard> = {
               'It is mostly decoupled from compensation. Otherwise, there can be no true stretch.',
             ],
           },
+        ],
+      },
+      {
+        heading: 'Checklist for a good OKR',
+        blocks: [
           {
-            kind: 'sub',
-            heading: 'Checklist for a good OKR',
-            blocks: [
-              {
-                kind: 'list',
-                items: [
-                  'Is the Objective memorable?',
-                  'Are the KRs focused on outcomes?',
-                  'Do the KRs pose challenging trade-offs?',
-                  'Is it really what matters the most?',
-                ],
-              },
+            kind: 'list',
+            items: [
+              'Is the Objective memorable?',
+              'Are the KRs focused on outcomes?',
+              'Do the KRs pose challenging trade-offs?',
+              'Is it really what matters the most?',
             ],
           },
           {
@@ -441,6 +434,21 @@ export const cardsB: Record<string, OpGovCard> = {
                   'Maintain revenue of €€',
                 ],
               },
+            ],
+          },
+        ],
+      },
+      {
+        heading: PITFALLS,
+        blocks: [
+          {
+            kind: 'list',
+            items: [
+              'It is NOT a to-do list: KRs focus on **outcomes**, not tasks.',
+              'It is NOT a project or process management methodology.',
+              'It is NOT an employee evaluation tool (just one more input). It is a **leadership paradigm** for communication, empowerment, ownership, and driving outcomes.',
+              'KRs do not exist in isolation, but in the context of trade-offs against the other KRs within the same Objective.',
+              'The other teams you depend on must be on board with your KRs.',
             ],
           },
         ],
@@ -500,25 +508,21 @@ export const cardsB: Record<string, OpGovCard> = {
         ],
       },
       {
-        heading: PITFALLS,
-        blocks: [
-          {
-            kind: 'list',
-            items: [
-              'It is NOT a methodology or detailed framework. It is an aid for communicating certain notions — don’t try to use it to fully model a very complex system.',
-              '“Do” and “Act” are very similar words. Make sure everyone understands the difference.',
-              '“Do” and “Act” should not include analyses and reviews. They are about action.',
-            ],
-          },
-        ],
-      },
-      {
         heading: HOW,
         blocks: [
           {
             kind: 'p',
-            text: 'Clearly define what each letter really implies for your team or company — it is a common source of confusion, and there is no real “down to earth” consistency in the available literature. Then categorize the steps or milestones of your initiative under each letter.',
+            text: 'Clearly define what each letter really implies for your team or company — it is a common source of confusion, and there is no real “down to earth” consistency in the available literature.',
           },
+          {
+            kind: 'p',
+            text: 'Then categorize the steps or milestones of your initiative under each of the labels of the acronym.',
+          },
+        ],
+      },
+      {
+        heading: 'PDCA, applied three ways',
+        blocks: [
           {
             kind: 'sub',
             heading: 'PDCA applied to a finite initiative',
@@ -563,6 +567,19 @@ export const cardsB: Record<string, OpGovCard> = {
                   '**Act:** permanently implement the planned initiative if viability was deemed acceptable in the Check phase.',
                 ],
               },
+            ],
+          },
+        ],
+      },
+      {
+        heading: PITFALLS,
+        blocks: [
+          {
+            kind: 'list',
+            items: [
+              'It is NOT a methodology or detailed framework. It is an aid for communicating certain notions — don’t try to use it to fully model a very complex system.',
+              '“Do” and “Act” are very similar words. Make sure everyone understands the difference.',
+              '“Do” and “Act” should not include analyses and reviews. They are about action.',
             ],
           },
         ],
@@ -635,31 +652,34 @@ export const cardsB: Record<string, OpGovCard> = {
               'These decisions must be recorded and compared against the plan, in order to **learn** and **communicate** to stakeholders.',
             ],
           },
+        ],
+      },
+      {
+        heading: 'The Project Deck',
+        blocks: [
           {
-            kind: 'sub',
-            heading: 'The Project Deck',
-            blocks: [
-              {
-                kind: 'p',
-                text: 'A comprehensive document that tells the entire “story” of the project:',
-              },
-              {
-                kind: 'list',
-                items: [
-                  '**Planning (phase I):** the Project Charter, the WBS, the RACI matrix, and the Gantt.',
-                  '**Execution (phase II):** a record of the managerial decisions taken during execution.',
-                  '**Closure (phase III):** a final account of execution vs plan, to derive lessons learned.',
-                  '**Hub:** a linked index of every input, output, and reference document.',
-                ],
-              },
-              {
-                kind: 'list',
-                items: [
-                  '**Inputs:** a current problem, a request from a customer, the business driver of the project.',
-                  '**Reference docs:** handbooks, studies, AS-IS processes, current plans, etc.',
-                  '**Outputs:** e.g. new process flowcharts, a new system go-live, a new fleet deployment, outcome results…',
-                ],
-              },
+            kind: 'p',
+            text: 'A comprehensive document that tells the entire “story” of the project:',
+          },
+          {
+            kind: 'list',
+            items: [
+              '**Planning (phase I):** the Project Charter, the WBS, the RACI matrix, and the Gantt.',
+              '**Execution (phase II):** a record of the managerial decisions taken during execution.',
+              '**Closure (phase III):** a final account of execution vs plan, to derive lessons learned.',
+              '**Hub:** a linked index of every input, output, and reference document.',
+            ],
+          },
+          {
+            kind: 'p',
+            text: 'This is what the entire project documentation should look like:',
+          },
+          {
+            kind: 'list',
+            items: [
+              '**Inputs:** a current problem, a request from a customer, the business driver of the project.',
+              '**Reference docs:** handbooks, studies, AS-IS processes, current plans, etc.',
+              '**Outputs:** e.g. new process flowcharts, a new system go-live, a new fleet deployment, outcome results…',
             ],
           },
         ],
@@ -731,22 +751,6 @@ export const cardsB: Record<string, OpGovCard> = {
         ],
       },
       {
-        heading: PITFALLS,
-        blocks: [
-          {
-            kind: 'list',
-            items: [
-              'Thinking “year = strategy; month = tactics”, “country = strategy; city = tactics”, “boss = strategy; worker = tactics”. No.',
-              'Misleading by implying that strategy = more important and tactics = less important; misusing the terms as euphemisms.',
-              'A strategy is NOT necessarily the sum of several tactics.',
-              'Confusing these terms with a wishlist, to-dos, or a plan.',
-              'Bear in mind both terms were synonyms historically.',
-              'Relying on tactics that in the long term might detract from your strategy.',
-            ],
-          },
-        ],
-      },
-      {
         heading: HOW,
         blocks: [
           {
@@ -758,6 +762,11 @@ export const cardsB: Record<string, OpGovCard> = {
               'Only deploy tactics that are coherent with — and do not undermine — the strategy to which they are circumscribed.',
             ],
           },
+        ],
+      },
+      {
+        heading: 'Worked examples from the card',
+        blocks: [
           {
             kind: 'sub',
             heading: 'The 2018 World Cup',
@@ -797,6 +806,22 @@ export const cardsB: Record<string, OpGovCard> = {
                   '**Implied sacrifices:** diplomacy implies compromises; speed implies depletion of resources.',
                 ],
               },
+            ],
+          },
+        ],
+      },
+      {
+        heading: PITFALLS,
+        blocks: [
+          {
+            kind: 'list',
+            items: [
+              'Thinking “year = strategy; month = tactics”, “country = strategy; city = tactics”, “boss = strategy; worker = tactics”. No.',
+              'Misleading by implying that strategy = more important and tactics = less important; misusing the terms as euphemisms.',
+              'A strategy is NOT necessarily the sum of several tactics.',
+              'Confusing these terms with a wishlist, to-dos, or a plan.',
+              'Bear in mind both terms were synonyms historically.',
+              'Relying on tactics that in the long term might detract from your strategy.',
             ],
           },
         ],
@@ -857,8 +882,17 @@ export const cardsB: Record<string, OpGovCard> = {
         blocks: [
           {
             kind: 'p',
-            text: 'The SWOT splits into an **internal analysis** (detecting the strengths and weaknesses that give rise to advantages or disadvantages) and an **external analysis** (identifying the threats and opportunities of your market).',
+            text: 'The SWOT is divided into an **internal analysis** (detecting the strengths and weaknesses of the company that give rise to advantages or disadvantages) and an **external analysis** (identifying the threats and opportunities of your market).',
           },
+          {
+            kind: 'p',
+            text: 'For example — strengths: skills and technological resources, cost advantages, good image among consumers. Weaknesses: no clear key strategy, lower than average profitability, excess of internal problems. Threats: entry of new competitors, slow market growth, changes in the needs and tastes of consumers. Opportunities: entering new markets or segments, diversification of related products, rapid market growth.',
+          },
+        ],
+      },
+      {
+        heading: 'The four quadrants',
+        blocks: [
           {
             kind: 'sub',
             heading: 'Strengths (internal origin)',
