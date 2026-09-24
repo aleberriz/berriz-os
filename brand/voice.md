@@ -41,14 +41,34 @@ The work speaks; the copy describes the work.
 
 ## Structural rules
 
-- One idea per sentence.
-- Short paragraphs (2-4 sentences for body; 1 for impact).
-- BLUF structure for any piece of writing longer than a paragraph: the conclusion comes
-  first, the reasoning follows.
+- Give each sentence a clear purpose. Vary sentence length; related ideas can share
+  a sentence when that makes the explanation easier to follow.
+- Keep paragraphs focused, usually 2-4 sentences. Use one-line paragraphs sparingly.
+- Lead with the point when it helps the reader. A field note can also begin with a
+  concrete question or example before explaining the lesson.
 - No bullet-point padding. If a list has fewer than three items, fold it into prose.
   If a list has more than seven items, it needs subcategories or should be a table.
 - Verbs do the work. "I build" is better than "I am focused on building". "This metric
   measures" is better than "This metric is used to measure".
+
+## Field notes
+
+Write as a practitioner explaining a problem to a colleague. Keep the specific
+details that make the advice useful: the disputed definition, the sample-size
+constraint, the question that clarified a request.
+
+- Let explanations end when they are complete. Every paragraph does not need a
+  punchline, verdict, or instruction.
+- Use contrasts when they clarify a distinction. Repeated "not X, but Y" sentences
+  and paired fragments make separate arguments sound alike.
+- A metaphor can introduce an idea without supplying every heading and conclusion.
+  Return to literal language when explaining the work.
+- Describe what happened or could happen without assuming other people's motives.
+  Bound a claim to the circumstances that support it.
+- Keep personal judgments recognizable as judgments. Do not invent anecdotes,
+  dialogue presented as remembered speech, or work experience to make prose feel personal.
+- Preserve useful humor and individual phrasing. Read neighboring notes together to
+  catch repeated rhythms; do not make them all follow the same template.
 
 ---
 

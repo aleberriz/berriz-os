@@ -1,8 +1,8 @@
 ---
 title: "Vanity metrics"
-summary: "Numbers that go up but do not inform a decision. If a metric cannot change an action, it is decoration."
+summary: "A useful metric helps you decide what to do. Growth alone does not make a number informative."
 date: 2026-09-18
 tag: analytics
 ---
 
-TODO
+This note is in progress.

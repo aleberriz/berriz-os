@@ -1,8 +1,8 @@
 ---
 title: "Trade-offs vs. balance"
-summary: "Know what you are optimizing for. There is no equilibrium, only choices that sacrifice one thing for another."
+summary: "Be clear about what you are optimizing for and what you are willing to give up."
 date: 2026-09-18
 tag: decision-making
 ---
 
-TODO
+This note is in progress.

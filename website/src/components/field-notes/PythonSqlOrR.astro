@@ -97,55 +97,58 @@
     <!-- ============ 01 ============ -->
     <section class="psr-card">
       <p class="psr-num">01 &nbsp;&middot;&nbsp; The question</p>
-      <h2>&ldquo;Which is best&rdquo; has no answer, and that is the answer.</h2>
+      <h2>Start with the work you expect to do.</h2>
       <p>
-        Rank three tools built for different jobs and you get a circle, not a
-        podium. Pick by the fight you are actually in.
+        The useful question is which language you will use regularly enough
+        to learn well. Your team&rsquo;s codebase matters as much as a list of
+        language features.
       </p>
     </section>
 
     <!-- ============ 02 ============ -->
     <section class="psr-card">
       <p class="psr-num psr-num--sql">02 &nbsp;&middot;&nbsp; SQL</p>
-      <h2>The English of data. Nobody gets an exemption.</h2>
+      <h2>SQL is worth learning whichever you choose.</h2>
       <p>
-        Production transformation runs on SQL. Your analytics engineer writes
-        the marts in it, your BI tool compiles to it, your semantic layer is
-        defined on top of it. Whatever you main, you learn this one.
+        SQL is central to warehouse analytics: transformations, BI queries,
+        and the models behind a semantic layer. Even if you spend most of
+        your day in Python or R, you will often need to read and change it.
       </p>
       <p class="psr-note">
-        Fluency here is not syntax. It is grain, joins that do not fan out, and
-        knowing which table is safe before 9am.
+        Learning the syntax is only a start. You also need to understand grain,
+        avoid joins that duplicate rows, and check whether the source data
+        is ready to use.
       </p>
     </section>
 
     <!-- ============ 03 ============ -->
     <section class="psr-card">
       <p class="psr-num psr-num--py">03 &nbsp;&middot;&nbsp; Python</p>
-      <h2>The Swiss army knife. Solves everything, optimal at almost nothing.</h2>
+      <h2>Python covers a lot of the day-to-day work.</h2>
       <p>
-        Glue, APIs, orchestration, scraping, notebooks, models. It reaches
-        further than the other two and finishes second at most of it. The knife
-        has a saw on it, and you still would not build a deck with it.
+        APIs, automation, notebooks, and machine learning give you plenty of
+        reasons to choose Python. It is a useful main when your week includes
+        several kinds of programming.
       </p>
       <p class="psr-note">
-        Ask where the serving layer ends up. Plenty of teams prototype in
-        Python and ship in Go, Rust, or the JVM.
+        Check how your team deploys and maintains that work too. The language
+        used for a prototype may differ from the one used to serve it.
       </p>
     </section>
 
     <!-- ============ 04 ============ -->
     <section class="psr-card">
       <p class="psr-num psr-num--r">04 &nbsp;&middot;&nbsp; R</p>
-      <h2>Narrow and very sharp.</h2>
+      <h2>R is a strong choice for statistical work.</h2>
       <p>
-        Forecasting, survival analysis, mixed models, experimental design,
-        spatial statistics. The libraries are maintained by the people who
-        wrote the papers, which is why the niche holds.
+        Forecasting, survival analysis, mixed models, experimental design, and
+        spatial statistics are good reasons to learn R. If those occupy much
+        of your week, it may be the most useful language to know well.
       </p>
       <p class="psr-note">
-        Best home for research and for a fast prototype. Once the method is
-        right, a model can port it to whatever production speaks.
+        Before planning to port an analysis, check how it will be maintained.
+        Translating the code also means checking that the results still
+        agree.
       </p>
     </section>
 
@@ -246,9 +249,10 @@
       </figure>
 
       <p>
-        Four levels of knowing a language: read it, change it, write it, own it
-        in production. Take SQL to own it whatever you main. Take your main to
-        own it. Take the third to change it. That is the whole plan.
+        There is a difference between reading a language, changing existing
+        code, writing your own, and maintaining it in production. For
+        warehouse analytics, I would aim to maintain SQL and your main
+        language confidently, and be able to read and adapt the third.
       </p>
     </section>
 
@@ -257,9 +261,9 @@
       <p class="psr-num">07 &nbsp;&middot;&nbsp; What transfers</p>
       <h2>Syntax was always the cheap part, and gen AI made it cheaper.</h2>
       <p>
-        Grain, joins, sampling, and what a number means do not port to a new
-        language, because they were never in the language. Pick a main to have
-        somewhere to practice them.
+        Understanding grain, joins, sampling, and what a number means will
+        help you in all three. Learn those while working in a language you
+        use regularly.
       </p>
     </section>
 
@@ -267,7 +271,8 @@
     <section class="psr-close">
       <p class="psr-num">The rule</p>
       <p class="psr-shout">Main the language your week is made of.</p>
-      <p>Learn SQL regardless. Keep the other two close enough to read.</p>
+      <p>For analytics work, learn SQL alongside your main. Keep the third
+        familiar enough to read and adapt.</p>
     </section>
 
     <!-- ============ TITLE BLOCK ============ -->

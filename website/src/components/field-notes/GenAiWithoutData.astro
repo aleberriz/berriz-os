@@ -24,9 +24,8 @@
       <p class="gnd-kicker">Field note &middot; AI and the semantic layer</p>
       <h1>&ldquo;AI first&rdquo; is a house on stilts.</h1>
       <p class="gnd-dek">
-        Agentic workflows are a context problem. Everyone rents the same
-        models. What differs between two teams is the quality of the ground
-        they built on.
+        An agent needs to know what your data means, how it fits together, and
+        when to trust it. Choosing a model is only part of that work.
       </p>
 
       <!-- ============ THE DRAWING ============ -->
@@ -151,80 +150,70 @@
     <!-- ============ 01 ============ -->
     <section class="gnd-card">
       <p class="gnd-num">01 &nbsp;&middot;&nbsp; Above and below</p>
-      <h2>The part that gets demoed is the part above the water.</h2>
+      <h2>What the demo leaves out.</h2>
       <p>
         A launch video shows the agent answering a question in plain English.
         It does not show which table the answer came from, which rows were
         excluded, or who decided that a canceled trial still counts as a
-        customer. Those choices are underwater, and they are the ones that
-        decide whether the answer holds up in week six.
+        customer. You need those answers before you can judge whether to trust
+        the result.
       </p>
       <p>
-        Both buildings in the drawing were finished. Only one of them was
-        photographed. The difference between them is not ambition or taste. It
-        is whether somebody drove the piles down to rock before the floors went
-        up.
+        The drawing exaggerates the problem, but the distinction is useful: a
+        working demo tells you little about the data supporting it.
       </p>
     </section>
 
     <!-- ============ 02 ============ -->
     <section class="gnd-card">
       <p class="gnd-num">02 &nbsp;&middot;&nbsp; The rented part</p>
-      <h2>The gen AI model is the one thing your competitor can copy this afternoon.</h2>
+      <h2>Other teams can use the same model.</h2>
       <p>
-        The gen AI model, to be clear, and not the data models in your
-        warehouse. Those are the slow part. Frontier models come from a
-        handful of shops, and switching between them is a config change.
-        Whatever advantage a team holds because of which one it picked has a
-        shelf life measured in months.
+        Choosing and evaluating a gen AI model matters. But access to that model
+        does not give it the knowledge your team has built up about the business.
       </p>
       <p>
-        What nobody can copy quickly is a definition of <em>active
-        subscriber</em> that survived three arguments with finance, a join
-        graph that has been checked for fan-out, and a written record of which
-        tables are safe to trust before 9am. That is the context an agent runs
-        on, and it is slow, unglamorous, local work.
+        Consider a definition of <em>active subscriber</em> that survived three
+        arguments with finance, a join graph checked for fan-out, and a record
+        of which tables are safe to trust before 9am. Making that knowledge
+        available to an agent takes work within your own team.
       </p>
       <p class="gnd-note">
-        An agentic workflow is a loop of tool calls against your systems. Each
-        call is only as good as the context it was handed. The loop does not
-        improve bad context, it repeats it faster and in a more convincing tone
-        of voice.
+        An agent can carry a mistaken definition through several tool calls.
+        A later step may look reasonable even though it depends on an earlier
+        query that counted the wrong customers.
       </p>
     </section>
 
     <!-- ============ 03 ============ -->
     <section class="gnd-card">
-      <p class="gnd-num">03 &nbsp;&middot;&nbsp; The pile schedule</p>
+      <p class="gnd-num">03 &nbsp;&middot;&nbsp; The context checklist</p>
       <h2>What &ldquo;quality context&rdquo; means when you have to build it.</h2>
       <p>
-        Context is a vague word, which is why it survives so many strategy
-        decks. Broken into piles, it is a short and concrete list. This is not
-        a rival to staging, intermediate, and mart. That framing answers where
-        a transformation lives. This one answers what has to be true at the
-        moment the agent makes a call, which a perfectly layered warehouse can
-        still get wrong.
+        For an agent querying a warehouse, I would check the following. Having
+        staging, intermediate, and mart models helps, but the agent still needs
+        to know how to use them.
       </p>
       <ol class="gnd-spec">
         <li>
           <span class="sp-q">Meaning</span>
           <span class="sp-d"
-            >What the business calls a subscriber, a churn, a month. Including
-            the exclusions, which is where the arguments live.</span
+            >What the business means by subscriber, churn, and month, including
+            the exclusions.</span
           >
         </li>
         <li>
           <span class="sp-q">Grain</span>
           <span class="sp-d"
-            >The level each fact table is stored at. Get it wrong and every
-            answer above it is plausible and mathematically false.</span
+            >What one row represents in each fact table. Confusing orders with
+            order items, for example, changes what a count means.</span
           >
         </li>
         <li>
           <span class="sp-q">Joins</span>
           <span class="sp-d"
-            >Which paths are valid and which duplicate revenue across marketing
-            events. An agent will happily take either.</span
+            >Which join paths are valid, and which can duplicate revenue across
+            marketing events.</span
           >
         </li>
         <li>
@@ -238,8 +227,7 @@
           <span class="sp-q">Grants</span>
           <span class="sp-d"
             >Who the agent is acting for, and what that person is allowed to
-            see. A helpful agent with a service account is a data leak with
-            good manners.</span
+            see. Check whether the service account has broader permissions.</span
           >
         </li>
         <li>
@@ -247,169 +235,138 @@
           <span class="sp-d"
             >What each interface promises: the columns, the types, the
             nullability, the grain, and who gets paged when the promise
-            breaks. A contract is the only part of this list a producer can
-            violate by accident.</span
+            breaks.</span
           >
         </li>
         <li>
           <span class="sp-q">Tests</span>
           <span class="sp-d"
-            >The promises above, enforced on every build rather than believed.
-            Uniqueness, referential integrity, accepted values, freshness
-            thresholds. A definition nobody tests is a comment.</span
+            >Checks for uniqueness, referential integrity, accepted values,
+            and freshness, with failures investigated before downstream use.</span
           >
         </li>
         <li>
           <span class="sp-q">Provenance</span>
           <span class="sp-d"
-            >Which of the above a human has actually reviewed, and when. The
-            pile you never inspected is the one that snapped.</span
+            >Who reviewed the definitions and checks, when they did so, and
+            what has changed since.</span
           >
         </li>
       </ol>
       <p class="gnd-note">
-        Guardrails are a different axis, and worth naming separately. The list
-        above is what the agent is given. Guardrails are what it is refused:
-        read-only credentials, row caps, a fixed set of exposed topics, and no
-        path to the warehouse that bypasses the layer. Context makes the
-        answer right. Guardrails bound what a wrong one can cost.
+        Set limits on what the agent can do as well: read-only credentials, row
+        caps, a fixed set of exposed topics, and no path that bypasses the
+        layer. These controls limit access and resource use; they do not
+        establish that an answer is correct.
       </p>
       <p class="gnd-note">
-        None of these are gen AI problems, and none of them get better when
-        the next model ships.
+        A model upgrade will not settle your subscriber definition or assign
+        someone to investigate a failed data check.
       </p>
     </section>
 
     <!-- ============ 04 ============ -->
     <section class="gnd-card">
-      <p class="gnd-num">04 &nbsp;&middot;&nbsp; The silt</p>
-      <h2>An agent let loose on a spaghetti warehouse fails the way people do, only faster.</h2>
+      <p class="gnd-num">04 &nbsp;&middot;&nbsp; Warehouse maintenance</p>
+      <h2>The warehouse still needs the same care.</h2>
       <p>
-        Point an agent at a warehouse with no tested pipelines, no
-        documentation, no separation between staging, intermediate, and mart
-        models, no dimensional modeling worth the name, and no record of why
-        anything was built the way it was. It will join whatever looks
-        joinable. So does every analyst who has ever been handed that
-        warehouse. The agent is not making a new class of mistake, it is
-        making the usual one at machine speed and in a confident paragraph.
+        In an undocumented warehouse, two tables can look safe to join even
+        when they represent different things. Analysts run into this too. An
+        agent needs enough information to distinguish a valid join from one
+        that merely runs.
       </p>
       <p>
-        Analytics engineering is the pile driving. Tests that fail the build
-        when a key stops being unique. A staging layer that renames and casts
-        once, so nobody downstream invents a second version of the truth. Mart
-        models shaped as facts and dimensions, at a stated grain, so a
-        question about products cannot quietly be answered at order grain.
+        The usual analytics engineering work helps here: tests that fail when a
+        key stops being unique, consistent naming and casting in staging, and
+        fact and dimension models with a stated grain.
       </p>
       <p class="gnd-note">
-        And the decision records. Most of what an agent needs to know is not
-        which model exists but why it was built that way: why revenue excludes
-        credits, why the trial table is snapshotted nightly, which trade-off
-        was accepted and what it costs. An architecture decision record is
-        context written down at the moment the judgment was made, which is the
-        only moment anyone remembers it.
+        Keep the reasons for those choices too: why revenue excludes credits,
+        why the trial table is snapshotted nightly, and which trade-off the
+        team accepted. Write them down while the reasoning is still fresh.
       </p>
       <p>
-        No amount of prompt engineering substitutes for that work. A retrieval
-        step over bad models retrieves bad models.
+        Prompt instructions and retrieval can help an agent find this information.
+        Someone still has to maintain it.
       </p>
     </section>
 
     <!-- ============ 05 ============ -->
     <section class="gnd-card">
       <p class="gnd-num">05 &nbsp;&middot;&nbsp; The new failure mode</p>
-      <h2>Bad data used to look wrong. Now it reads well.</h2>
+      <h2>A fluent answer can make an error harder to notice.</h2>
       <p>
-        A dashboard with a broken join shows a number that somebody in the room
-        finds odd. That person is the safety net, and the net has been holding
-        for twenty years of BI.
+        A broken join can go unnoticed in a dashboard. Sometimes a colleague
+        catches it because they know roughly what the number should be.
       </p>
       <p>
-        An agent with the same broken join writes a fluent paragraph, cites the
-        metric by name, and recommends a budget shift. There is no visual tell.
-        The reader has no reason to doubt it, and often no way to check it.
+        An agent can turn that same number into a fluent recommendation to shift
+        a budget. If the reader cannot inspect the query or recognize an
+        implausible result, the explanation may make the error more persuasive.
       </p>
       <p>
-        Agentic workflows take the human out of the read path, so the checking
-        has to move upstream into the definitions. That is the whole argument
-        for the semantic layer, restated by the technology that made it
-        urgent.
+        Where a workflow removes human review, more of the checking needs to
+        happen before the answer is delivered. Shared definitions and tested
+        models become especially useful there.
       </p>
     </section>
 
     <!-- ============ 06 ============ -->
     <section class="gnd-card">
       <p class="gnd-num">06 &nbsp;&middot;&nbsp; The translation problem</p>
-      <h2>English is vague on purpose. SQL is not allowed to be.</h2>
+      <h2>An ordinary question leaves definitions open.</h2>
       <p>
-        The imprecision of human language is a feature. Ambiguity is what
-        gives us poetry, irony, diplomacy, and the ability to say something
-        useful before we have pinned down every term. Strip it out and you do
-        not get a better language, you get a programming language.
+        We routinely leave details unstated when talking to colleagues. That
+        works when we share the same assumptions.
       </p>
       <p>
         &ldquo;How many active customers do we have in France?&rdquo; is a
         perfectly good English sentence and an underspecified query. Active
         when, by which signal? A customer at the account level or the seat
         level? France by billing address, by IP, or by the sales territory
-        that owns the account? A human analyst resolves those silently, from
-        context, and gets it right often enough that nobody notices the
-        resolution happened.
+        that owns the account? A colleague may know the convention, or know
+        whom to ask.
       </p>
       <p>
-        So expecting plain English to compile into accurate, reproducible
-        analytics is asking one language to do a job its grammar was never
-        built for. Ask the same question twice and a model may resolve it two
-        different ways, both defensible, both producing a different number.
-        For a decision you have to stand behind, that is not an answer.
+        Without those definitions, the same question can produce two defensible
+        queries with different results. The reader needs to know which
+        interpretation was used.
       </p>
       <p class="gnd-note">
-        The semantic layer is where the ambiguity gets resolved once, in the
-        open, by people who are accountable for the choice. The agent then
-        picks from a set of defined terms rather than inventing a reading of
-        yours. The question stays in English. The answer comes from something
-        deterministic.
+        The semantic layer records agreed definitions so the agent can reuse
+        them. It still needs to choose the right metric and filters, and ask
+        for clarification when the question is ambiguous.
       </p>
     </section>
 
     <!-- ============ 07 ============ -->
     <section class="gnd-card">
       <p class="gnd-num">07 &nbsp;&middot;&nbsp; The quiet side effect</p>
-      <h2>Gen AI may be the killer app the semantic layer was waiting for.</h2>
+      <h2>Another reason to maintain the semantic layer.</h2>
       <p>
-        The idea is old. Looker shipped modeled metrics in LookML more than a
-        decade ago, and dbt, Cube, and the BI vendors have each carried their
-        own YAML conventions for years. Adoption stayed patchy, because a good
-        analyst could compensate. They knew which field was a trap, and they
-        patched the model in their head on the way to the answer.
+        An experienced analyst can compensate for gaps in a model because they
+        know the business. That knowledge is difficult to share with a new
+        colleague, let alone an agent, unless it is recorded.
       </p>
       <p>
-        Agents cannot patch anything in their heads. Hand one an ambiguous
-        field and it will pick a reading and commit to it. Suddenly the
-        <code>.yaml</code> file that nobody wanted to maintain is the difference
-        between an assistant and a liability, and the conventions are
-        converging: the Open Semantic Interchange spec defines an
-        <code>ai_context</code> field at model, dataset, field, and metric
-        level, and Omni implements it under the same name.
+        Fields such as <code>ai_context</code> give teams a place to record
+        guidance alongside model definitions. Use them to explain exclusions,
+        preferred join paths, and questions a metric should not answer.
       </p>
       <p>
-        OSI marks that field optional. Treat it as required. It is the only
-        channel through which your semantic layer tells an agent what it
-        actually meant.
+        Include that guidance in review. A technically valid definition can
+        still leave its intended use unclear.
       </p>
       <p>
-        The industry settled on <em>semantic layer</em>, and I use it because
-        that is the word people search for. I prefer <strong>data context
-        layer</strong>. &ldquo;Semantic&rdquo; describes what the thing is
-        made of. &ldquo;Context&rdquo; describes what it is for, and it is
-        already the word agent builders reach for when they explain why their
-        assistant got the answer wrong. The layer exists to hand a consumer,
-        human or otherwise, the context required to read a number correctly.
-        Name it after the job.
+        I use the established term <em>semantic layer</em>, but prefer
+        <strong>data context layer</strong>. It better describes what I want
+        from it: enough context for a person or an agent to interpret a
+        number correctly.
       </p>
       <p class="gnd-note">
-        Who writes those fields is a governance question rather than a turf
-        one. My argument for the split, analyst-defined, engineer-constrained,
-        published only on joint sign-off, is written up in
+        My proposed ownership split is for analysts to define meaning and
+        engineers to validate the implementation, with both reviewing before
+        publication. I explain the reasoning in
         <a
           href="https://github.com/aleberriz/intelligence-layer/blob/main/semantic-layer/frameworks/ownership-model.md"
           >the semantic layer ownership model</a
@@ -419,40 +376,33 @@
 
     <!-- ============ 08 ============ -->
     <section class="gnd-card">
-      <p class="gnd-num">08 &nbsp;&middot;&nbsp; Before the floors go up</p>
-      <h2>Work in two tiers, and start in the one that cannot break anything.</h2>
+      <p class="gnd-num">08 &nbsp;&middot;&nbsp; From prototype to production</p>
+      <h2>Start with a limited prototype.</h2>
       <p>
-        Nobody approves a foundation in the abstract. Stakeholders need to see
-        the thing before they can tell you what is wrong with it, which is an
-        argument for prototyping, not an argument for skipping the piles. Run
-        a sandbox tier and a governed tier, and make the route between them
-        one way.
+        A prototype gives stakeholders something concrete to react to and helps
+        uncover disagreements about definitions. Keep it in a sandbox while
+        you work those out, with a separate review before production use.
       </p>
       <ol class="gnd-spec gnd-spec--steps">
         <li>
           <span class="sp-q">Write down the ten questions</span>
           <span class="sp-d"
-            >The ten the business actually asks every week. Not the hundred it
-            might ask one day.</span
+            >Start with ten questions the business asks regularly.</span
           >
         </li>
         <li>
           <span class="sp-q">Prototype in a sandbox, fast and visibly</span>
           <span class="sp-d"
-            >Mock it up until somebody reacts to it. The sandbox has two hard
-            rules: it cannot write to or degrade the warehouse, and
-            stakeholders get no endpoint to point their own agents at. A demo
-            people can build on is how a prototype becomes production without
-            anyone deciding that it should.</span
+            >Use read-only access and resource limits, and keep the demo
+            endpoint separate from operational workflows. Otherwise people
+            may start relying on it before it has been reviewed.</span
           >
         </li>
         <li>
           <span class="sp-q">Define every term the prototype exposed</span>
           <span class="sp-d"
-            >In business language, with the exclusions spelled out, in the
-            layer rather than in a wiki page. The prototype earns its cost
-            here: it surfaces the arguments about meaning that a requirements
-            doc never does.</span
+            >Record definitions and exclusions in the layer. Use disagreements
+            about the demo answers to find what still needs clarification.</span
           >
         </li>
         <li>
@@ -463,28 +413,25 @@
           >
         </li>
         <li>
-          <span class="sp-q">Promote it, do not graduate it</span>
+          <span class="sp-q">Review the implementation before production</span>
           <span class="sp-d"
-            >Hand the prototype to the analytics engineer and the data
-            engineer as a specification, not as a foundation. They rebuild it
-            as real dimensional models, congruent with the rest of the
-            codebase and the rest of the layer. Sandbox work that gets
-            promoted by being left running is how the palace on silt gets
-            built.</span
+            >Have the analytics and data engineers use the prototype to specify
+            what the production models need to do. Rework the implementation
+            to fit the existing codebase, with its tests and access controls.</span
           >
         </li>
         <li>
           <span class="sp-q">Let the agent answer the ten</span>
           <span class="sp-d"
-            >Then log every wrong answer against the definition that caused
-            it. That log is your pile inspection report.</span
+            >Investigate wrong answers and record the cause, whether it is a
+            definition, a query, stale data, or a misread question.</span
           >
         </li>
         <li>
-          <span class="sp-q">Ship the narrow thing</span>
+          <span class="sp-q">Release the reviewed scope</span>
           <span class="sp-d"
-            >A cottage on rock beats a palace on silt, and it can be extended
-            later. The palace can only be evacuated.</span
+            >Start with the questions you have checked. Expand coverage as
+            the supporting definitions and models are ready.</span
           >
         </li>
       </ol>
@@ -493,12 +440,11 @@
     <!-- ============ CLOSER ============ -->
     <section class="gnd-close">
       <p class="gnd-num">The job</p>
-      <p class="gnd-shout">Drive the piles, then argue about the pool.</p>
+      <p class="gnd-shout">Make the data work part of the plan.</p>
       <p>
-        The pressure to start above the waterline is real, and it comes with a
-        deadline attached. Start below it anyway. The demo you can give in
-        three months is the one that still works in twelve, and the work it
-        rests on outlives whichever model you are renting this quarter.
+        When planning an agent demo, include time to review the definitions,
+        joins, permissions, and wrong answers it exposes. That work will also
+        help the people already using the warehouse.
       </p>
     </section>
 

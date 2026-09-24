@@ -43,6 +43,6 @@ const { title, description = '', canonical } = Astro.props;
       document.documentElement.dataset.theme = stored;
     }
   } catch {
-    /* Private mode or blocked storage: fall back to the OS preference. */
+    /* Private mode or blocked storage: keep the default dark theme. */
   }
 </script>

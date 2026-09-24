@@ -12,11 +12,10 @@
  *
  * Resolution order, deliberately:
  *   1. `:root` holds dark, the no-JS and no-preference default.
- *   2. The media query applies light for anyone whose OS asks for it, unless
- *      they have explicitly chosen dark in the header toggle.
- *   3. An explicit `data-theme="light"` wins over everything.
+ *   2. An explicit `data-theme="light"` enables light mode.
+ * OS color preferences do not override the site's default.
  *
- * Because steps 1 and 2 are pure CSS, the correct theme paints on first frame.
+ * Because the default is pure CSS, dark mode paints on the first frame.
  * The inline script in the layouts only replays a stored explicit choice.
  *
  * Text tokens are a three-step brightness ramp. Keeping them distinct is what
@@ -36,20 +35,6 @@
   --c-accent-hover: 158 192 255;
 }
 
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme='dark']) {
-    color-scheme: light;
-
-    --c-canvas: 247 248 250;
-    --c-ink: 11 30 63;
-    --c-ink-body: 42 51 64;
-    --c-ink-muted: 92 100 112;
-    --c-line: 201 210 221;
-    --c-accent: 18 87 201;
-    --c-accent-hover: 12 62 148;
-  }
-}
-
 :root[data-theme='light'] {
   color-scheme: light;
 
@@ -67,13 +52,6 @@
 .theme-toggle__light { display: none; }
 :root[data-theme='light'] .theme-toggle__light { display: block; }
 :root[data-theme='light'] .theme-toggle__dark { display: none; }
-
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme='dark']) .theme-toggle__light { display: block; }
-  :root:not([data-theme='dark']) .theme-toggle__dark { display: none; }
-  :root[data-theme='dark'] .theme-toggle__light { display: none; }
-  :root[data-theme='dark'] .theme-toggle__dark { display: block; }
-}
 
 @media (prefers-reduced-motion: reduce) {
   *,

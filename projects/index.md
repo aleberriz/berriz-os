@@ -11,8 +11,8 @@ Last reviewed: 2026-04-17
 
 | Repo | Status | On hub | Description |
 |------|--------|--------|-------------|
-| [intelligence-layer](https://github.com/aleberriz/intelligence-layer) | active | yes | Practitioner knowledge base at the intersection of semantic layer design, causal inference, and agentic AI enablement. |
-| [agent-skills](https://github.com/aleberriz/agent-skills) | active | yes | Reusable AI skill definitions for analytics workflows — agentskills.io-compatible. |
+| [intelligence-layer](https://github.com/aleberriz/intelligence-layer) | active | yes | Practical reference on forecasting, causal inference, and evaluating AI-generated analyses. |
+| [agent-skills](https://github.com/aleberriz/agent-skills) | active | yes | Reusable AI skills for analytics workflows and data science tasks. |
 | [berriz-os](https://github.com/aleberriz/berriz-os) | active | no | This repo. Personal brand operating system. |
 
 ## Analytical side projects (public)
