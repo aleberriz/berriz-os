@@ -94,9 +94,9 @@ const bylineNames = (card.bylines ?? [])
         </p>
         <h1 class="ogf-title">{card.title}</h1>
         <p class="ogf-legacy">
-          From my good ol’ flashcard deck, back when we called this
-          discipline Operational Governance. Today it goes by BizOps — the
-          original card is republished here as a field note.
+          From the Operational Governance flashcard deck; today this
+          discipline goes by BizOps. The original card is republished here
+          as a field note.
         </p>
       </header>
       <div class="ogf-redline" aria-hidden="true"></div>
@@ -257,7 +257,7 @@ const bylineNames = (card.bylines ?? [])
   }
 
   /* ---- sections ---- */
-  .ogf-sec { padding: 1.6rem 0 0.4rem; }
+  .ogf-sec { padding: 1.9rem 0 0.5rem; }
 
   .ogf-sec-h {
     display: flex;
@@ -279,21 +279,22 @@ const bylineNames = (card.bylines ?? [])
     letter-spacing: 0.06em;
   }
 
-  /* the ruled-paper feel: every block sits on a faint horizontal rule */
+  /* the ruled-paper feel: every block sits on a faint horizontal rule,
+     with enough air between blocks to read without bullet markers */
   .ogf-sec-b > p,
   .ogf-sec-b > ul,
   .ogf-sec-b > ol,
   .ogf-sec-b > blockquote,
   .ogf-sec-b > .ogf-twrap,
   .ogf-sec-b > .ogf-sub {
-    margin: 0 0 0.9rem;
-    padding-bottom: 0.9rem;
+    margin: 0 0 1.25rem;
+    padding-bottom: 1.25rem;
     border-bottom: 1px solid var(--rule);
   }
   .ogf-sec-b > *:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
 
   .ogf-sec-b p { margin: 0; }
-  .ogf-sec-b p + p { margin-top: 0.75rem; }
+  .ogf-sec-b p + p { margin-top: 1.1rem; }
 
   .ogf a { color: #29527a; text-decoration: underline; text-underline-offset: 3px; }
   .ogf a:hover { color: var(--red); }
@@ -344,7 +345,7 @@ const bylineNames = (card.bylines ?? [])
   }
   .ogf-sub > ul,
   .ogf-sub > ol,
-  .ogf-sub > p { margin: 0 0 0.7rem; }
+  .ogf-sub > p { margin: 0 0 0.8rem; }
   .ogf-sub > *:last-child { margin-bottom: 0; }
 
   .ogf-twrap { overflow-x: auto; }
