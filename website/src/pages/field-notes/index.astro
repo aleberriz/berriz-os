@@ -2,8 +2,14 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { byFeaturedThenDate } from '../../lib/fieldNotes';
+import { opgovCards } from '../../data/opgovFlashcards';
 
 const cards = (await getCollection('cards')).sort(byFeaturedThenDate);
+
+const flashcards = cards
+  .filter((c) => c.data.series === 'opgov-flashcards')
+  .sort((a, b) => opgovCards[a.slug].number - opgovCards[b.slug].number);
+const notes = cards.filter((c) => c.data.series !== 'opgov-flashcards');
 ---
 
 <BaseLayout
@@ -15,6 +21,55 @@ const cards = (await getCollection('cards')).sort(byFeaturedThenDate);
     <p class="mt-4 leading-relaxed text-ink-body">
       Short notes on data and decisions, with examples from analytics work.
     </p>
+
+    <nav class="mt-10 rounded-lg border border-line p-6" aria-label="Index of all field notes">
+      <h2 class="font-serif text-xl font-semibold text-ink">Index</h2>
+      <p class="mt-1 text-sm text-ink-muted">
+        Everything on this page, at a glance.
+      </p>
+
+      <div class="mt-6">
+        <p class="font-mono text-xs uppercase tracking-widest text-ink-muted">Field notes</p>
+        <ul class="mt-2 sm:columns-2 lg:columns-3">
+          {
+            notes.map((card) => (
+              <li class="break-inside-avoid">
+                <a
+                  href={`/field-notes/${card.slug}/`}
+                  class="text-sm text-accent underline underline-offset-2 hover:text-accent-hover"
+                >
+                  {card.data.title}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="mt-6 border-t border-line pt-6">
+        <p class="font-mono text-xs uppercase tracking-widest text-ink-muted">
+          Operational Governance Knowledge Flashcards
+        </p>
+        <p class="mt-1 text-sm text-ink-muted">
+          The BizOps archive: nineteen decks from my operational governance
+          days, republished as field notes.
+        </p>
+        <ul class="mt-2 sm:columns-2 lg:columns-3">
+          {
+            flashcards.map((card) => (
+              <li class="break-inside-avoid">
+                <a
+                  href={`/field-notes/${card.slug}/`}
+                  class="text-sm text-accent underline underline-offset-2 hover:text-accent-hover"
+                >
+                  {String(opgovCards[card.slug].number).padStart(2, '0')} · {card.data.title}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </nav>
 
     <ul class="mt-12 space-y-8">
       {
