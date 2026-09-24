@@ -6,7 +6,6 @@ const cards = defineCollection({
     title: z.string(),
     summary: z.string(),
     date: z.coerce.date(),
-    tag: z.string().optional(),
     /** Path to an image in /public (e.g. /field-notes/my-meme.png). Shown large between summary and body. */
     image: z.string().optional(),
     /** Alt text for the image. Required if image is set. */
