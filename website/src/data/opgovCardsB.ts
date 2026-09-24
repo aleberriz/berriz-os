@@ -521,6 +521,22 @@ export const cardsB: Record<string, OpGovCard> = {
         ],
       },
       {
+        heading: 'The PDCA cycle',
+        blocks: [
+          {
+            kind: 'stages',
+            loop: true,
+            loopLabel: 'continual improvement',
+            steps: [
+              { label: 'Plan', text: 'Document a sequence of steps expected to achieve a specific goal.' },
+              { label: 'Do', text: 'Take the steps in accordance with the plan.' },
+              { label: 'Check', text: 'Analyze the performance and outcomes to identify adjustments.' },
+              { label: 'Act', text: 'Continue executing — this time including the adjustments.' },
+            ],
+          },
+        ],
+      },
+      {
         heading: 'PDCA, applied three ways',
         blocks: [
           {
@@ -660,6 +676,14 @@ export const cardsB: Record<string, OpGovCard> = {
           {
             kind: 'p',
             text: 'A comprehensive document that tells the entire “story” of the project:',
+          },
+          {
+            kind: 'stages',
+            steps: [
+              { label: 'Inputs & reference docs', text: 'A current problem, a customer request, the business driver — plus handbooks, studies, AS-IS processes, current plans.' },
+              { label: 'The Project Deck', text: 'Planning (phase I) → Execution (phase II) → Closure (phase III), linked by a hub indexing every input, output, and reference.' },
+              { label: 'Outputs', text: 'New process flowcharts, a system go-live, a fleet deployment, outcome results…' },
+            ],
           },
           {
             kind: 'list',
@@ -886,7 +910,16 @@ export const cardsB: Record<string, OpGovCard> = {
           },
           {
             kind: 'p',
-            text: 'For example — strengths: skills and technological resources, cost advantages, good image among consumers. Weaknesses: no clear key strategy, lower than average profitability, excess of internal problems. Threats: entry of new competitors, slow market growth, changes in the needs and tastes of consumers. Opportunities: entering new markets or segments, diversification of related products, rapid market growth.',
+            text: 'For example:',
+          },
+          {
+            kind: 'list',
+            items: [
+              '**Strengths:** skills and technological resources, cost advantages, good image among consumers.',
+              '**Weaknesses:** no clear key strategy, lower than average profitability, excess of internal problems.',
+              '**Threats:** entry of new competitors, slow market growth, changes in the needs and tastes of consumers.',
+              '**Opportunities:** entering new markets or segments, diversification of related products, rapid market growth.',
+            ],
           },
         ],
       },
@@ -894,11 +927,20 @@ export const cardsB: Record<string, OpGovCard> = {
         heading: 'The four quadrants',
         blocks: [
           {
-            kind: 'sub',
-            heading: 'Strengths (internal origin)',
-            blocks: [
+            kind: 'quadrant',
+            rowLabels: ['Internal origin', 'External origin'],
+            cells: [
               {
-                kind: 'list',
+                heading: 'Weaknesses',
+                items: [
+                  'Bad communication between departments',
+                  'Little flexibility in planning',
+                  'Bad reputation',
+                  'Low adaptation to change in technologies',
+                ],
+              },
+              {
+                heading: 'Strengths',
                 items: [
                   'Market leadership',
                   'Good geographic location',
@@ -908,49 +950,22 @@ export const cardsB: Record<string, OpGovCard> = {
                   'Quick adaptation to new customer needs',
                 ],
               },
-            ],
-          },
-          {
-            kind: 'sub',
-            heading: 'Weaknesses (internal origin)',
-            blocks: [
               {
-                kind: 'list',
-                items: [
-                  'Bad communication between departments',
-                  'Little flexibility in planning',
-                  'Bad reputation',
-                  'Low adaptation to change in technologies',
-                ],
-              },
-            ],
-          },
-          {
-            kind: 'sub',
-            heading: 'Opportunities (external origin)',
-            blocks: [
-              {
-                kind: 'list',
-                items: [
-                  'Entry into new business lines',
-                  'New technologies',
-                  'Bet on the training of workers',
-                  'Rapid market growth',
-                ],
-              },
-            ],
-          },
-          {
-            kind: 'sub',
-            heading: 'Threats (external origin)',
-            blocks: [
-              {
-                kind: 'list',
+                heading: 'Threats',
                 items: [
                   'Increase in competition',
                   'Difficulties getting new sources of investment',
                   'Adverse changes in the trade policies of the country or other countries',
                   'Economic recession',
+                ],
+              },
+              {
+                heading: 'Opportunities',
+                items: [
+                  'Entry into new business lines',
+                  'New technologies',
+                  'Bet on the training of workers',
+                  'Rapid market growth',
                 ],
               },
             ],

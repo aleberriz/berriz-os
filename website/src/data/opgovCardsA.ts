@@ -60,6 +60,20 @@ export const cardsA: Record<string, OpGovCard> = {
         heading: 'The sprint, in one pass',
         blocks: [
           {
+            kind: 'stages',
+            loop: true,
+            loopLabel: 'back to the product backlog for the next sprint',
+            steps: [
+              { label: 'Product backlog', text: 'The ordered list of work to be done: features, bug fixes, non-functional requirements, user stories, etc.' },
+              { label: 'Sprint planning', text: 'Discuss and agree the scope, select backlog items for one sprint (the sprint backlog).' },
+              { label: 'Sprint backlog', text: 'The list of work, broken into tasks, that must be delivered during the sprint.' },
+              { label: 'Daily scrum', text: 'Fifteen minutes, same time and place: what did I complete, what do I plan to complete, any impediment?' },
+              { label: 'Sprint review', text: 'Present the completed work to stakeholders (demo) and plan together what to work on next.' },
+              { label: 'Sprint retrospective', text: 'What went well, what did not, what could be improved — before the cycle repeats.' },
+              { label: 'Increment', text: 'The shippable result of the sprint.' },
+            ],
+          },
+          {
             kind: 'sub',
             heading: 'Sprint planning',
             blocks: [
@@ -296,8 +310,11 @@ export const cardsA: Record<string, OpGovCard> = {
         heading: WHAT,
         blocks: [
           {
-            kind: 'p',
-            text: '**Red oceans** are all the industries in existence today — the known market space. **Blue oceans** are all the industries not in existence today — the unknown market space.',
+            kind: 'list',
+            items: [
+              '**Red oceans** are all the industries in existence today — the known market space.',
+              '**Blue oceans** are all the industries not in existence today — the unknown market space.',
+            ],
           },
           {
             kind: 'p',
@@ -430,6 +447,10 @@ export const cardsA: Record<string, OpGovCard> = {
             ],
           },
         ],
+      },
+      {
+        heading: 'The anatomy of a box plot',
+        blocks: [{ kind: 'boxplot' }],
       },
       {
         heading: PITFALLS,
@@ -607,8 +628,12 @@ export const cardsA: Record<string, OpGovCard> = {
             heading: 'Habit 1: Be proactive',
             blocks: [
               {
-                kind: 'p',
-                text: '*“I am not a product of my circumstances. I am a product of my decisions.”* Between stimulus and response is your greatest power — your freedom to choose your response. Circle of Influence vs Circle of Concern. *“Live and be driven by the principles you value most, not by agendas and forces surrounding you.”* It’s all right to say no when necessary, and then focus on your highest priorities. See also: the Eisenhower Matrix.',
+                kind: 'list',
+                items: [
+                  '*“I am not a product of my circumstances. I am a product of my decisions.”*',
+                  'Between stimulus and response is your greatest power — your freedom to choose your response.',
+                  'Circle of Influence vs Circle of Concern.',
+                ],
               },
             ],
           },
@@ -617,8 +642,12 @@ export const cardsA: Record<string, OpGovCard> = {
             heading: 'Habit 2: Begin with the end in mind',
             blocks: [
               {
-                kind: 'p',
-                text: '*“Your most important work is always ahead of you, never behind you.”* Begin each day, task, or project with a clear vision of your desired direction. The mission statement; the “center” of our lives.',
+                kind: 'list',
+                items: [
+                  '*“Your most important work is always ahead of you, never behind you.”*',
+                  'Begin each day, task, or project with a clear vision of your desired direction.',
+                  'The mission statement; the “center” of our lives.',
+                ],
               },
             ],
           },
@@ -627,8 +656,24 @@ export const cardsA: Record<string, OpGovCard> = {
             heading: 'Habit 3: Put first things first',
             blocks: [
               {
-                kind: 'p',
-                text: 'Prioritize the important over the merely urgent, and let the plan — not the inbox — drive the day. This is where the Eisenhower Matrix from Habit 1 becomes a scheduling practice.',
+                kind: 'list',
+                items: [
+                  '*“Live and be driven by the principles you value most, not by agendas and forces surrounding you.”*',
+                  'It’s all right to say no when necessary, and then focus on your highest priorities.',
+                  'Prioritize the important over the merely urgent, and let the plan — not the inbox — drive the day.',
+                  'This is where the Eisenhower Matrix becomes a scheduling practice.',
+                ],
+              },
+              {
+                kind: 'quadrant',
+                colLabels: ['Urgent', 'Not urgent'],
+                rowLabels: ['Important', 'Not important'],
+                cells: [
+                  { heading: 'Do now', text: 'Act on it yourself, today.' },
+                  { heading: 'Do later', text: 'Schedule it — a time and a plan.' },
+                  { heading: 'Delegate', text: 'Who else can own this?' },
+                  { heading: 'Eliminate', text: 'Drop it.' },
+                ],
               },
             ],
           },
@@ -637,8 +682,23 @@ export const cardsA: Record<string, OpGovCard> = {
             heading: 'Habit 4: Think win-win',
             blocks: [
               {
-                kind: 'p',
-                text: '*“In the long run, if it isn’t a win for both of us, we both lose.”* It is not about being nice (a quick-fix technique) — it is a character-based code for human interaction and collaboration. Zero-sum game vs abundance mentality.',
+                kind: 'list',
+                items: [
+                  '*“In the long run, if it isn’t a win for both of us, we both lose.”*',
+                  'It is not about being nice (a quick-fix technique) — it is a character-based code for human interaction and collaboration.',
+                  'Zero-sum game vs abundance mentality.',
+                ],
+              },
+              {
+                kind: 'quadrant',
+                colLabels: ['High courage', 'Low courage'],
+                rowLabels: ['High consideration', 'Low consideration'],
+                cells: [
+                  { heading: 'Win-win', text: 'The goal.' },
+                  { heading: 'Lose-win', text: 'A doormat, not a habit.' },
+                  { heading: 'Win-lose', text: 'A quick-fix technique, not collaboration.' },
+                  { heading: 'Lose-lose', text: 'Neither side gets what they want.' },
+                ],
               },
             ],
           },
@@ -647,8 +707,12 @@ export const cardsA: Record<string, OpGovCard> = {
             heading: 'Habit 5: Seek first to understand, then to be understood',
             blocks: [
               {
-                kind: 'p',
-                text: '*“Most people do not listen with the intent to understand; they listen with the intent to reply.”* Use empathetic listening to genuinely understand a person — this creates an atmosphere of caring and positive problem-solving. Then present your ideas clearly, in the context of a deep understanding of the other person’s needs and concerns.',
+                kind: 'list',
+                items: [
+                  '*“Most people do not listen with the intent to understand; they listen with the intent to reply.”*',
+                  '**Seek first:** use empathetic listening to genuinely understand a person — this creates an atmosphere of caring and positive problem-solving.',
+                  '**Be understood:** present your ideas clearly, in the context of a deep understanding of the other person’s needs and concerns.',
+                ],
               },
             ],
           },
@@ -657,8 +721,11 @@ export const cardsA: Record<string, OpGovCard> = {
             heading: 'Habit 6: Synergize',
             blocks: [
               {
-                kind: 'p',
-                text: '*“Synergy is better than my way or your way. It’s our way.”* Combine the strengths of people through positive teamwork, so as to achieve goals no one could have achieved alone.',
+                kind: 'list',
+                items: [
+                  '*“Synergy is better than my way or your way. It’s our way.”*',
+                  'Combine the strengths of people through positive teamwork, so as to achieve goals no one could have achieved alone.',
+                ],
               },
             ],
           },
@@ -667,8 +734,12 @@ export const cardsA: Record<string, OpGovCard> = {
             heading: 'Habit 7: Sharpen the saw',
             blocks: [
               {
-                kind: 'p',
-                text: '*“Renewal is the principle — and the process — that empowers us to move on an upward spiral of growth and change, of continuous improvement.”* Balance and renew your resources, energy, and health — physical, social/emotional, mental, and spiritual — to create a sustainable, long-term, effective lifestyle, so you can continue practicing the other six habits. Kaizen.',
+                kind: 'list',
+                items: [
+                  '*“Renewal is the principle — and the process — that empowers us to move on an upward spiral of growth and change, of continuous improvement.”*',
+                  'Balance and renew your resources, energy, and health — physical, social/emotional, mental, and spiritual — to create a sustainable, long-term, effective lifestyle, so you can continue practicing the other six habits.',
+                  'Kaizen.',
+                ],
               },
             ],
           },
@@ -725,7 +796,11 @@ export const cardsA: Record<string, OpGovCard> = {
           },
           {
             kind: 'p',
-            text: 'It is not only offering great service to them, but enabling a great experience across all three phases related to customer service: **pre-transaction**, **transaction**, and **post-transaction**.',
+            text: 'It is not only offering great service to them, but enabling a great experience across all three phases related to customer service:',
+          },
+          {
+            kind: 'list',
+            items: ['**Pre-transaction**', '**Transaction**', '**Post-transaction**'],
           },
         ],
       },
@@ -828,6 +903,16 @@ export const cardsA: Record<string, OpGovCard> = {
           {
             kind: 'note',
             text: 'These stages are not always sequential: designers often run them in parallel, out of order, and repeat them iteratively.',
+          },
+          {
+            kind: 'stages',
+            steps: [
+              { label: 'Empathize' },
+              { label: 'Define' },
+              { label: 'Ideate' },
+              { label: 'Prototype' },
+              { label: 'Test' },
+            ],
           },
           {
             kind: 'sub',
@@ -1037,6 +1122,20 @@ export const cardsA: Record<string, OpGovCard> = {
           {
             kind: 'p',
             text: 'You can use special shapes to represent different types of actions or steps (Document, Input/Output, Subroutine, Delay, Display, etc.), and different types of flowcharts for each control focus: document flowcharts, data flowcharts, system flowcharts, and program flowcharts.',
+          },
+        ],
+      },
+      {
+        heading: 'The basic symbol key',
+        blocks: [
+          {
+            kind: 'shapes',
+            items: [
+              { shape: 'oval', label: 'Start/end', desc: 'An oval represents a start or end point.' },
+              { shape: 'rect', label: 'Process', desc: 'A rectangle represents a step or activity.' },
+              { shape: 'diamond', label: 'Decision', desc: 'A diamond indicates a decision.' },
+              { shape: 'parallelogram', label: 'Input/Output', desc: 'A parallelogram represents input or output.' },
+            ],
           },
         ],
       },
