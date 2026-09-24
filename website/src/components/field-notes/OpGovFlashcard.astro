@@ -203,7 +203,7 @@ const bylineNames = (card.bylines ?? [])
   </div>
 </div>
 
-<style>
+<style is:global>
   @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap');
 
   .ogf {
@@ -607,8 +607,8 @@ const bylineNames = (card.bylines ?? [])
   .ogf-backlink a:hover { color: var(--red); }
 
   /* ---- present mode ---- */
-  :global(html.present) .ogf-backlink { display: none; }
-  :global(html.present) .ogf { padding-top: 3.5rem; font-size: 1.22rem; }
-  :global(html.present) .ogf-title { font-size: 3.4rem; }
-  :global(html.present) .ogf-legacy { font-size: 1rem; }
+  html.present .ogf-backlink { display: none; }
+  html.present .ogf { padding-top: 3.5rem; font-size: 1.22rem; }
+  html.present .ogf-title { font-size: 3.4rem; }
+  html.present .ogf-legacy { font-size: 1rem; }
 </style>
