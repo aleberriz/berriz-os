@@ -329,6 +329,10 @@ export const cardsB: Record<string, OpGovCard> = {
               'Thinking these are project management tools in general — use them for process management projects.',
             ],
           },
+          {
+            kind: 'note',
+            text: 'The original slide closed on this trap with a *Dilbert* strip: a manager announces he\'ll "fuse Six Sigma with Lean methods to eliminate the gap between strategy and objectives" — and settles for calling it "waste of time." Scott Adams, [dilbert.com](https://dilbert.com), January 2007. Not reproduced here for copyright reasons.',
+          },
         ],
       },
       {
