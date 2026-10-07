@@ -17,7 +17,7 @@ Build output: `dist/` (used by Cloudflare Pages with root directory `website`).
 
 ## Node
 
-Astro 7 needs Node `>=22.12.0`. [`.nvmrc`](.nvmrc) pins Node 22, and Cloudflare Pages reads it. If a build still picks an older Node, set `NODE_VERSION` to `22` in the Pages project environment.
+Astro 7 needs Node `>=22.12.0`. [`.nvmrc`](.nvmrc) pins Node 22 for local work and GitHub Actions. Cloudflare Pages does not read it: the Pages project sets `NODE_VERSION=22` in both the Production and Preview environments. When you change the Node version, update `.nvmrc` and both Pages variables together.
 
 ## Environment variables (optional)
 
