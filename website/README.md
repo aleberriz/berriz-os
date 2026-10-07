@@ -1,6 +1,6 @@
 # aleberriz.com (site source)
 
-Static site for the public hub. Stack: Astro 4, MDX, Tailwind. Canonical copy lives in the repo root under `brand/`; this folder only implements layout and routing.
+Static site for the public hub. Stack: Astro 7, MDX, Tailwind 4. Canonical copy lives in the repo root under `brand/`; this folder only implements layout and routing.
 
 ## Commands
 
@@ -17,7 +17,7 @@ Build output: `dist/` (used by Cloudflare Pages with root directory `website`).
 
 ## Node
 
-Astro 4 targets Node `>=20.3.0`. If Cloudflare build fails on Node version, set `NODE_VERSION` to `20` or `22` in the Pages project environment.
+Astro 7 needs Node `>=22.12.0`. [`.nvmrc`](.nvmrc) pins Node 22 for local work and GitHub Actions. Cloudflare Pages does not read it: the Pages project sets `NODE_VERSION=22` in both the Production and Preview environments. When you change the Node version, update `.nvmrc` and both Pages variables together.
 
 ## Environment variables (optional)
 
@@ -35,8 +35,8 @@ LinkedIn and GitHub profile URLs are hardcoded in `src/site.config.ts`. The IE b
 The site opens in dark mode unless the reader has saved a different choice with
 the header toggle. OS color preferences do not change this default. Both
 themes are defined once, as CSS variables in
-[`src/styles/global.css`](src/styles/global.css), and Tailwind maps its color
-utilities onto those variables in `tailwind.config.mjs`.
+[`src/styles/global.css`](src/styles/global.css). Its `@theme` block maps them
+onto Tailwind's color utilities; Tailwind 4 has no separate config file.
 
 The practical consequence: **do not write `dark:` color classes in the shell.**
 Write `text-ink`, `bg-canvas`, `border-line`, and the right color resolves in
@@ -208,4 +208,4 @@ Redirects for renamed slugs live in [`public/_redirects`](public/_redirects), wh
 
 ## Essays (later)
 
-To add MDX essays: enable an Astro [content collection](https://docs.astro.build/en/guides/content-collections/) under `src/content/essays/`, add a dynamic route `src/pages/writing/[slug].astro`, and list entries from `/writing`.
+To add MDX essays: define an Astro [content collection](https://docs.astro.build/en/guides/content-collections/) in `src/content.config.ts` that loads `src/content/essays/`, add a dynamic route `src/pages/writing/[slug].astro`, and list entries from `/writing`.

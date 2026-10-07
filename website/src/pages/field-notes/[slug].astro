@@ -1,14 +1,14 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BareLayout from '../../layouts/BareLayout.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import { byFeaturedThenDate } from '../../lib/fieldNotes';
 
 
 export async function getStaticPaths() {
   const cards = (await getCollection('cards')).sort(byFeaturedThenDate);
   return cards.map((card, i) => ({
-    params: { slug: card.slug },
+    params: { slug: card.id },
     props: {
       card,
       newer: cards[i - 1] ?? null,
@@ -18,7 +18,7 @@ export async function getStaticPaths() {
 }
 
 const { card, newer, older } = Astro.props;
-const { Content } = await card.render();
+const { Content } = await render(card);
 const isBare = card.data.display === 'bare';
 const dateStr = card.data.date.toLocaleDateString('en-GB', {
   year: 'numeric',
@@ -42,7 +42,7 @@ const pageTitle = `${card.data.title} — Field Notes`;
         >
           {card.data.title}
         </h1>
-        <p class="fn-card__summary mt-4 font-serif text-lg leading-relaxed text-ink-body md:text-xl">
+        <p class="fn-card__summary mt-4 font-serif text-lg leading-relaxed text-ink-body md:text-xl md:leading-7">
           {card.data.summary}
         </p>
         {card.data.image && (
@@ -55,19 +55,19 @@ const pageTitle = `${card.data.title} — Field Notes`;
             />
           </figure>
         )}
-        <div class="fn-card__body mt-8 text-base leading-relaxed text-ink-body md:text-lg">
+        <div class="fn-card__body mt-8 text-base leading-relaxed text-ink-body md:text-lg md:leading-7">
           <Content />
         </div>
       </article>
 
       <nav class="fn-nav mt-16 flex flex-col gap-3 border-t border-line pt-6 text-sm sm:flex-row sm:justify-between sm:gap-6">
         {newer ? (
-          <a href={`/field-notes/${newer.slug}/`} class="text-accent underline underline-offset-4 hover:text-accent-hover">
+          <a href={`/field-notes/${newer.id}/`} class="text-accent underline underline-offset-4 hover:text-accent-hover">
             ← {newer.data.title}
           </a>
         ) : <span />}
         {older ? (
-          <a href={`/field-notes/${older.slug}/`} class="text-accent underline underline-offset-4 hover:text-accent-hover">
+          <a href={`/field-notes/${older.id}/`} class="text-accent underline underline-offset-4 hover:text-accent-hover">
             {older.data.title} →
           </a>
         ) : <span />}
@@ -76,7 +76,7 @@ const pageTitle = `${card.data.title} — Field Notes`;
       <p class="fn-nav mt-8 text-sm text-ink-muted">
         <a href="/field-notes/" class="text-accent underline underline-offset-4 hover:text-accent-hover">All field notes</a>
         <span class="mx-2">·</span>
-        <a href={`/field-notes/${card.slug}/?present`} class="text-accent underline underline-offset-4 hover:text-accent-hover">
+        <a href={`/field-notes/${card.id}/?present`} class="text-accent underline underline-offset-4 hover:text-accent-hover">
           Present mode
         </a>
       </p>

@@ -8,7 +8,7 @@
  * its own section placed right after "How to use it".
  */
 import {
-  OpGovCard,
+  type OpGovCard,
   WHAT,
   WHEN,
   HOW,

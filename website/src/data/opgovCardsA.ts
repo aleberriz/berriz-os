@@ -7,7 +7,7 @@
  * References and resources), with the slide's main open-area content as
  * its own section placed right after "How to use it".
  */
-import { OpGovCard, WHAT, WHEN, HOW, PITFALLS, REFS, JAIME, FER, ALE } from './opgovShared';
+import { type OpGovCard, WHAT, WHEN, HOW, PITFALLS, REFS, JAIME, FER, ALE } from './opgovShared';
 
 export const cardsA: Record<string, OpGovCard> = {
   agile: {
