@@ -1,14 +1,16 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+/* Kept as an escape hatch for the rare rule that cannot come from a token.
+   Shell colors resolve from CSS variables, so `dark:` is not needed for them. */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
 
 /*
  * Theme tokens.
  *
  * Every color in the site shell resolves from these variables, so light and
  * dark are defined once here instead of being duplicated as `dark:` classes on
- * every element. Values are space-separated RGB channels so Tailwind can apply
- * its own opacity modifiers (`text-ink/90`).
+ * every element. The `@theme` block below maps them onto Tailwind utilities, and
+ * opacity modifiers (`text-ink/90`) still work on top of them.
  *
  * Resolution order, deliberately:
  *   1. `:root` holds dark, the no-JS and no-preference default.
@@ -26,25 +28,41 @@
 :root {
   color-scheme: dark;
 
-  --c-canvas: 10 13 18;
-  --c-ink: 233 236 241;
-  --c-ink-body: 184 196 209;
-  --c-ink-muted: 138 148 163;
-  --c-line: 36 43 54;
-  --c-accent: 111 160 255;
-  --c-accent-hover: 158 192 255;
+  --c-canvas: #0a0d12;
+  --c-ink: #e9ecf1;
+  --c-ink-body: #b8c4d1;
+  --c-ink-muted: #8a94a3;
+  --c-line: #242b36;
+  --c-accent: #6fa0ff;
+  --c-accent-hover: #9ec0ff;
 }
 
 :root[data-theme='light'] {
   color-scheme: light;
 
-  --c-canvas: 247 248 250;
-  --c-ink: 11 30 63;
-  --c-ink-body: 42 51 64;
-  --c-ink-muted: 92 100 112;
-  --c-line: 201 210 221;
-  --c-accent: 18 87 201;
-  --c-accent-hover: 12 62 148;
+  --c-canvas: #f7f8fa;
+  --c-ink: #0b1e3f;
+  --c-ink-body: #2a3340;
+  --c-ink-muted: #5c6470;
+  --c-line: #c9d2dd;
+  --c-accent: #1257c9;
+  --c-accent-hover: #0c3e94;
+}
+
+/* Map the tokens onto Tailwind utilities (bg-canvas, text-ink, border-line, ...). */
+@theme inline {
+  --color-canvas: var(--c-canvas);
+  --color-ink: var(--c-ink);
+  --color-ink-body: var(--c-ink-body);
+  --color-ink-muted: var(--c-ink-muted);
+  --color-line: var(--c-line);
+  --color-accent: var(--c-accent);
+  --color-accent-hover: var(--c-accent-hover);
+}
+
+@theme {
+  --font-serif: Fraunces, ui-serif, Georgia, serif;
+  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
 }
 
 /* The toggle swaps its own icon in CSS so the script only has to move one

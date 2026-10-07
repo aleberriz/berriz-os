@@ -21,7 +21,7 @@
  * The entry keys are the card slugs and must match the MDX files in
  * src/content/cards/.
  */
-import { OpGovCard } from './opgovShared';
+import type { OpGovCard } from './opgovShared';
 import { cardsA } from './opgovCardsA';
 import { cardsB } from './opgovCardsB';
 
