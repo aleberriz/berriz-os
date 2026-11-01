@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
+import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
@@ -7,7 +8,7 @@ export default defineConfig({
   // Astro 7 defaults to JSX whitespace rules, which drop the space between a
   // line of prose and a link that starts on the next line. Keep HTML rules.
   compressHTML: true,
-  integrations: [mdx()],
+  integrations: [mdx(), sitemap()],
   vite: {
     plugins: [tailwindcss()],
   },
