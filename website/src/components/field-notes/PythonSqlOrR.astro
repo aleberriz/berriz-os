@@ -24,7 +24,7 @@
       <p class="psr-kicker">Field note &middot; Careers in data</p>
       <h1>Don&rsquo;t pick one. Main one.</h1>
       <p class="psr-dek">
-        &ldquo;Python, SQL, or R?&rdquo; is &ldquo;which Pokemon is the
+        &ldquo;Python, SQL, or R?&rdquo; is &ldquo;which Pokémon is the
         best?&rdquo; with a salary attached. The answer is the same: it
         depends on what you are facing, you carry a team, and you get one
         favorite.
@@ -34,8 +34,8 @@
       <figure class="psr-fig">
         <svg viewBox="0 0 320 272" role="img" aria-labelledby="psr-cycle">
           <title id="psr-cycle"
-            >A rock-paper-scissors cycle with three nodes. SQL beats Python at
-            pipelines, Python beats R at glue, and R beats SQL at statistics.
+            >A rock-paper-scissors cycle with three nodes: SQL for warehouse
+            transformations, Python for integration, and R for analysis.
             The arrows form a closed loop, so no node wins outright.</title
           >
           <defs>
@@ -59,9 +59,9 @@
             <path d="M68 148 Q74 96 124 74" marker-end="url(#psr-head)" />
           </g>
           <g class="p-arc-label">
-            <text x="268" y="116" text-anchor="middle">pipelines</text>
+            <text x="268" y="116" text-anchor="middle">tables</text>
             <text x="160" y="266" text-anchor="middle">glue</text>
-            <text x="52" y="116" text-anchor="middle">stats</text>
+            <text x="52" y="116" text-anchor="middle">analysis</text>
           </g>
 
           <!-- node: SQL / rock -->
@@ -89,8 +89,7 @@
           </g>
         </svg>
         <figcaption>
-          Every ranking of these three closes into a loop. No square on the
-          chart says &ldquo;always wins.&rdquo;
+          Like rock-paper-scissors, the advantage depends on the matchup.
         </figcaption>
       </figure>
     </section>
@@ -100,56 +99,55 @@
       <p class="psr-num">01 &nbsp;&middot;&nbsp; The question</p>
       <h2>Start with the work you expect to do.</h2>
       <p>
-        The useful question is which language you will use regularly enough
-        to learn well, and your team&rsquo;s codebase matters as much as a
-        list of language features.
+        Choose a language you will use regularly enough to learn well.
+        Since your team will help maintain the work, its codebase matters too.
       </p>
     </section>
 
     <!-- ============ 02 ============ -->
     <section class="psr-card">
       <p class="psr-num psr-num--sql">02 &nbsp;&middot;&nbsp; SQL</p>
-      <h2>SQL is worth learning whichever you choose.</h2>
+      <h2>Main SQL when your work lives in the warehouse.</h2>
       <p>
-        SQL is central to warehouse analytics: transformations, BI queries,
-        and the models behind a semantic layer. Even if you spend most of
-        your day in Python or R, you will often need to read and change it.
+        Transformations, BI queries, and shared metric definitions make SQL
+        central to warehouse analytics, so learn it even if you spend most
+        of your day in Python or R.
       </p>
       <p class="psr-note">
-        Learning the syntax is only a start. You also need to understand grain,
-        avoid joins that duplicate rows, and check whether the source data
-        is ready to use.
+        Check a query&rsquo;s grain, joins, and source data, because correct
+        syntax can still produce wrong numbers.
       </p>
     </section>
 
     <!-- ============ 03 ============ -->
     <section class="psr-card">
       <p class="psr-num psr-num--py">03 &nbsp;&middot;&nbsp; Python</p>
-      <h2>Python covers a lot of the day-to-day work.</h2>
+      <h2>Main Python when analysis connects to software.</h2>
       <p>
-        APIs, automation, notebooks, and machine learning give you plenty of
-        reasons to choose Python. That makes it a useful main when your week
-        includes several kinds of programming.
+        Python combines data libraries with APIs, automation, and application
+        code, which makes it a useful main when your week spans analysis
+        and building systems.
       </p>
       <p class="psr-note">
-        Check how your team deploys and maintains that work too. The language
-        used for a prototype may differ from the one used to serve it.
+        If a model needs to run inside an existing service, the team&rsquo;s
+        deployment tools may settle the choice.
       </p>
     </section>
 
     <!-- ============ 04 ============ -->
     <section class="psr-card">
       <p class="psr-num psr-num--r">04 &nbsp;&middot;&nbsp; R</p>
-      <h2>R is a strong choice for statistical work.</h2>
+      <h2>Main R for analysis and reporting.</h2>
       <p>
-        Forecasting, survival analysis, mixed models, experimental design, and
-        spatial statistics are good reasons to learn R. If those occupy much
-        of your week, it may be the most useful language to know well.
+        R is built around exploring data, making charts, fitting models,
+        and explaining results. Because packages such as dplyr, tidyr, and
+        ggplot2 share conventions, cleaning and plotting fit into a
+        consistent workflow.
       </p>
       <p class="psr-note">
-        Before planning to port an analysis, check how it will be maintained.
-        Translating the code also means checking that the results still
-        agree.
+        That makes R an everyday main for reports, experiments, and forecasts.
+        Python covers much of the same ground, so choose around the methods
+        you need and the people maintaining the work.
       </p>
     </section>
 
@@ -158,7 +156,7 @@
       <p class="psr-num">05 &nbsp;&middot;&nbsp; The type chart</p>
       <h2>Pick by the battle you fight every week.</h2>
       <table class="psr-chart">
-        <caption>Effectiveness by job. Three dots means reach for it first.</caption>
+        <caption>My defaults by job. Three dots means I would reach for it first.</caption>
         <thead>
           <tr>
             <th scope="col"><span class="sr-only">Job</span></th>
@@ -169,7 +167,7 @@
         </thead>
         <tbody>
           <tr>
-            <th scope="row">Production pipelines</th>
+            <th scope="row">Warehouse transformations</th>
             <td class="c-sql"><span aria-hidden="true">&#9679;&#9679;&#9679;</span><span class="sr-only">3 of 3</span></td>
             <td class="c-py"><span aria-hidden="true">&#9679;&#9679;</span><span class="sr-only">2 of 3</span></td>
             <td class="c-r"><span aria-hidden="true">&#9679;</span><span class="sr-only">1 of 3</span></td>
@@ -199,16 +197,22 @@
             <td class="c-r"><span aria-hidden="true">&#9679;&#9679;&#9679;</span><span class="sr-only">3 of 3</span></td>
           </tr>
           <tr>
-            <th scope="row">Research and prototypes</th>
+            <th scope="row">Exploration and reports</th>
             <td class="c-sql"><span aria-hidden="true">&#9679;</span><span class="sr-only">1 of 3</span></td>
             <td class="c-py"><span aria-hidden="true">&#9679;&#9679;</span><span class="sr-only">2 of 3</span></td>
             <td class="c-r"><span aria-hidden="true">&#9679;&#9679;&#9679;</span><span class="sr-only">3 of 3</span></td>
           </tr>
+          <tr>
+            <th scope="row">App prototypes</th>
+            <td class="c-sql"><span aria-hidden="true">&#9679;</span><span class="sr-only">1 of 3</span></td>
+            <td class="c-py"><span aria-hidden="true">&#9679;&#9679;&#9679;</span><span class="sr-only">3 of 3</span></td>
+            <td class="c-r"><span aria-hidden="true">&#9679;&#9679;</span><span class="sr-only">2 of 3</span></td>
+          </tr>
         </tbody>
       </table>
       <p class="psr-note">
-        My chart, from my seat. Redraw it for the jobs on your own calendar,
-        then read off the column with the most weight.
+        Weight the rows by your own calendar, then account for your
+        team&rsquo;s tools and expertise.
       </p>
     </section>
 
@@ -246,14 +250,13 @@
           <rect x="215" y="20" width="46" height="46" rx="8" class="p-slot p-slot-empty" />
           <rect x="267" y="20" width="46" height="46" rx="8" class="p-slot p-slot-empty" />
         </svg>
-        <figcaption>The empty slots are the point. Something else is coming.</figcaption>
+        <figcaption>Leave room for whatever your next project needs.</figcaption>
       </figure>
 
       <p>
-        Know the difference between reading a language, changing existing
-        code, writing your own, and maintaining it in production. For
-        warehouse analytics, then, I would aim to maintain SQL and your main
-        language confidently, and be able to read and adapt the third.
+        Because maintaining code takes more practice than reading it, aim
+        for depth in SQL and your main, with enough familiarity to adapt
+        the third.
       </p>
     </section>
 
@@ -286,12 +289,12 @@
       </dl>
       <p class="psr-foot-h">Go deeper</p>
       <p>
-        <a href="https://r4ds.hadley.nz/">R for Data Science</a>. The fastest
-        route to competent R, free online.
+        <a href="https://r4ds.hadley.nz/">R for Data Science</a> covers
+        exploration, visualization, and reporting, free online.
       </p>
       <p>
         <a href="https://otexts.com/fpp3/">Forecasting: Principles and Practice</a>.
-        Why the forecasting niche stayed in R.
+        Statistical forecasting with R.
       </p>
       <p>
         <a href="https://docs.getdbt.com/">dbt documentation</a>. What
